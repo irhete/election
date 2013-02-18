@@ -1,6 +1,5 @@
 package com.valimised.client;
 
-import com.valimised.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -12,11 +11,14 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.valimised.shared.FieldVerifier;
 
+//testCommit
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
@@ -30,7 +32,8 @@ public class Valimised implements EntryPoint {
 			+ "connection and try again.";
 
 	/**
-	 * Create a remote service proxy to talk to the server-side Greeting service.
+	 * Create a remote service proxy to talk to the server-side Greeting
+	 * service.
 	 */
 	private final GreetingServiceAsync greetingService = GWT
 			.create(GreetingService.class);
@@ -38,6 +41,7 @@ public class Valimised implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
+	@Override
 	public void onModuleLoad() {
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
@@ -72,12 +76,13 @@ public class Valimised implements EntryPoint {
 		dialogVPanel.add(textToServerLabel);
 		dialogVPanel.add(new HTML("<br><b>Server replies:</b>"));
 		dialogVPanel.add(serverResponseLabel);
-		dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
+		dialogVPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 		dialogVPanel.add(closeButton);
 		dialogBox.setWidget(dialogVPanel);
 
 		// Add a handler to close the DialogBox
 		closeButton.addClickHandler(new ClickHandler() {
+			@Override
 			public void onClick(ClickEvent event) {
 				dialogBox.hide();
 				sendButton.setEnabled(true);
@@ -90,6 +95,7 @@ public class Valimised implements EntryPoint {
 			/**
 			 * Fired when the user clicks on the sendButton.
 			 */
+			@Override
 			public void onClick(ClickEvent event) {
 				sendNameToServer();
 			}
@@ -97,6 +103,7 @@ public class Valimised implements EntryPoint {
 			/**
 			 * Fired when the user types in the nameField.
 			 */
+			@Override
 			public void onKeyUp(KeyUpEvent event) {
 				if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
 					sendNameToServer();
@@ -104,7 +111,8 @@ public class Valimised implements EntryPoint {
 			}
 
 			/**
-			 * Send the name from the nameField to the server and wait for a response.
+			 * Send the name from the nameField to the server and wait for a
+			 * response.
 			 */
 			private void sendNameToServer() {
 				// First, we validate the input.
@@ -121,6 +129,7 @@ public class Valimised implements EntryPoint {
 				serverResponseLabel.setText("");
 				greetingService.greetServer(textToServer,
 						new AsyncCallback<String>() {
+							@Override
 							public void onFailure(Throwable caught) {
 								// Show the RPC error message to the user
 								dialogBox
@@ -132,6 +141,7 @@ public class Valimised implements EntryPoint {
 								closeButton.setFocus(true);
 							}
 
+							@Override
 							public void onSuccess(String result) {
 								dialogBox.setText("Remote Procedure Call");
 								serverResponseLabel
