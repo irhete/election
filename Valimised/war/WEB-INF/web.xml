@@ -9,7 +9,7 @@
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/valimised/greet</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> 
   
   <!-- Default page to serve -->
   <welcome-file-list>
