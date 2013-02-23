@@ -32,3 +32,49 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+#leftMenu {
+	width: 20%;
+	float: left;
+}
+
+#content {
+	width: 80%;
+	float: left;
+}
+
+.candidatesTable {
+	background-color: white;
+	width: 100%;
+	border-collapse: collapse;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+
+}
+
+.candidatesTable tr {
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+}
+
+.candidatesTable td {
+	padding: 10px;
+	font-size: 12pt;
+}
+
+.candidatesTable tr:first-child {
+	background-color: #C0C0C0
+}
+
+.candidatesTable tr:nth-of-type(even) {
+  background-color: #D2DDFC;
+}
+
+.votingLabel {
+	color: #638AF5;
+	
+}
+
+.votingLabel a:hover {text-decoration:underline;};

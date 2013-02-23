@@ -31,7 +31,7 @@ public class Valimised implements EntryPoint {
 		// RootPanel.get("leftnav").add(new NavigationMenu());
 		// RootPanel.get("footer").add(new Footer());
 
-		ContentContainer.getInstance().setContent(new Kandidaadid());
+		ContentContainer.getInstance().setContent(new Candidates());
 
 		// final Button sendButton = new Button("Send");
 		// final TextBox nameField = new TextBox();

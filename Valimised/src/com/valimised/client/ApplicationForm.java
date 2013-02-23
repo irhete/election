@@ -9,9 +9,9 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class Kandideerimine extends Composite {
+public class ApplicationForm extends Composite {
 
-	public Kandideerimine() {
+	public ApplicationForm() {
 		VerticalPanel mainPanel = new VerticalPanel();
 		initWidget(mainPanel);
 
@@ -35,7 +35,7 @@ public class Kandideerimine extends Composite {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Kandidaadid());
+				ContentContainer.getInstance().setContent(new Candidates());
 			}
 		});
 

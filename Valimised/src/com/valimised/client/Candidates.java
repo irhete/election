@@ -2,21 +2,34 @@ package com.valimised.client;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTMLTable.Cell;
+import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class Kandidaadid extends Composite {
+public class Candidates extends Composite {
 
 	private FlexTable candidatesTable;
 
-	public Kandidaadid() {
+	public Candidates() {
 		VerticalPanel mainPanel = new VerticalPanel();
 		initWidget(mainPanel);
 
 		candidatesTable = new FlexTable();
+		candidatesTable.setStyleName("candidatesTable");
 		createTableHeader();
+		candidatesTable.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				Cell cell = candidatesTable.getCellForEvent(event);
+				int receiverRowIndex = cell.getRowIndex();
+				String candidateNumber = candidatesTable.getText(
+						receiverRowIndex, 3);
+				ContentContainer.getInstance().setContent(
+						new Candidate(candidateNumber));
+			}
+		});
 
 		addRow("Mari Mets", "Üksikkandidaat", "Tallinn", "110");
 		addRow("Mart Mets", "SDE", "Tartu", "111");
@@ -24,17 +37,7 @@ public class Kandidaadid extends Composite {
 		addRow("Peeter Kask", "Reformierakond", "Pärnu", "113");
 		addRow("Ene Eha", "IRL", "Narva", "114");
 
-		Button kandideeri = new Button("Kandideeri");
-		kandideeri.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Kandideerimine());
-			}
-		});
-
 		mainPanel.add(candidatesTable);
-		mainPanel.add(kandideeri);
 	}
 
 	private void createTableHeader() {
@@ -52,7 +55,12 @@ public class Kandidaadid extends Composite {
 		candidatesTable.setText(lastRow, 1, party);
 		candidatesTable.setText(lastRow, 2, area);
 		candidatesTable.setText(lastRow, 3, number);
-		candidatesTable.setText(lastRow, 4, "Hääleta");
+		if (area.equals("Tartu")) {
+			Hyperlink votingLink = new Hyperlink("Hääleta", number);
+			candidatesTable.setWidget(lastRow, 4, votingLink);
+		} else {
+			candidatesTable.setText(lastRow, 4, "");
+		}
 	}
 
 }
