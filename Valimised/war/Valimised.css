@@ -88,3 +88,22 @@ h1 {
 .applicationFormRightButton {
 	float: right;
 }
+
+.candidatePicture {
+	width: 150px;
+	height: 150px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+
+.candidatePagePanel {
+	width: 100%;
+}
+
+.candidatePagePanel td:first-child {
+	width: 150px;
+}
+
+.candidatePageVotingButton {
+	float: right;
+}
