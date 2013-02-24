@@ -77,4 +77,14 @@ h1 {
 	
 }
 
-.votingLabel a:hover {text-decoration:underline;};
+.votingLabel a:hover {
+	text-decoration:underline;
+}
+
+.applicationForm {
+	width: 100%;
+}
+
+.applicationFormRightButton {
+	float: right;
+}
