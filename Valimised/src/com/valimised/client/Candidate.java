@@ -29,7 +29,6 @@ public class Candidate extends Composite {
 		credentialsPanel.add(areaLabel);
 
 		Button votingButton = new Button("Hääleta");
-		votingButton.addStyleName("menuButton");
 		votingButton.addStyleName("candidatePageVotingButton");
 
 		topPanel.add(candidatePicture);
