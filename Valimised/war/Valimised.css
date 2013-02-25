@@ -151,7 +151,7 @@ button.menuButton:active {
 	background: #1b435e;
 }
 
-.candidatesTable {
+.candidatesTable, .statTable {
 	background-color: white;
 	width: 100%;
 	border-collapse: collapse;
@@ -167,16 +167,22 @@ button.menuButton:active {
 	border-color: black;
 }
 
-.candidatesTable td {
+/* .statTable tr { */
+/* 	border-width: 2px; */
+/* 	border-style: solid; */
+/* 	border-color: black; */
+/* } */
+
+.candidatesTable td, .statTable td {
 	padding: 10px;
 	font-size: 12pt;
 }
 
-.candidatesTable tr:first-child {
+.candidatesTable tr:first-child, .statTable tr:first-child {
 	background-color: #C0C0C0
 }
 
-.candidatesTable tr:nth-of-type(even) {
+.candidatesTable tr:nth-of-type(even)	, .statTable tr:nth-of-type(even) {
   background-color: #D2DDFC;
 }
 
