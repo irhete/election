@@ -15,15 +15,20 @@ public class ContentContainer {
 		RootPanel.get("content").clear();
 		RootPanel.get("content").add(content);
 	}
-	
+
 	public void setMenu(Widget content) {
 		RootPanel.get("leftMenu").clear();
 		RootPanel.get("leftMenu").add(content);
 	}
-	
+
 	public void setHeader(Widget content) {
 		RootPanel.get("header").clear();
 		RootPanel.get("header").add(content);
+	}
+
+	public void setElement(String elementName, Widget widget) {
+		RootPanel.get(elementName).clear();
+		RootPanel.get(elementName).add(widget);
 	}
 
 }

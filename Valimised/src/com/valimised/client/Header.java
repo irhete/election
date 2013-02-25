@@ -4,42 +4,39 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
 
 public class Header extends Composite {
-	
+
 	private HorizontalPanel searchPanel;
 	private HorizontalPanel loginPanel;
-	
-	public Header(){
-		
+
+	public Header() {
+
 		HorizontalPanel mainPanel = new HorizontalPanel();
 		initWidget(mainPanel);
-		
+		mainPanel.setStyleName("headerMainPanel");
+
 		searchPanel = searchPanel();
 		loginPanel = loginPanel();
 		loginPanel.addStyleName("loginPanel");
-		
-	
+
 		mainPanel.add(searchPanel);
 		mainPanel.add(loginPanel);
-		mainPanel.setWidth("100%");
-		
-	
+
 	}
-	
-	private HorizontalPanel searchPanel()  {
+
+	private HorizontalPanel searchPanel() {
 		HorizontalPanel headerPanel = new HorizontalPanel();
 		headerPanel.setSpacing(5);
-	
-		
-		ListBox areas = getListBox(true);		
+
+		ListBox areas = getListBox(true);
 		TextBox candidate = new TextBox();
-	    
+		candidate.setStyleName("candidateSearchBox");
+
 		Button search = new Button("Otsi");
 		search.addClickHandler(new ClickHandler() {
 			@Override
@@ -47,19 +44,18 @@ public class Header extends Composite {
 				ContentContainer.getInstance().setContent(new Candidates());
 			}
 		});
-		
-		
+
 		headerPanel.add(areas);
 		headerPanel.add(candidate);
 		headerPanel.add(search);
-		
+
 		return headerPanel;
 	}
-	
-	private HorizontalPanel loginPanel(){
+
+	private HorizontalPanel loginPanel() {
 		HorizontalPanel headerPanel2 = new HorizontalPanel();
 		headerPanel2.setSpacing(5);
-		
+
 		Label login = new Label("Logi sisse:");
 		login.addStyleName("login");
 		Button idkaart = new Button();
@@ -72,11 +68,11 @@ public class Header extends Composite {
 		});
 		headerPanel2.add(login);
 		headerPanel2.add(idkaart);
-		
+
 		return headerPanel2;
 	}
-	
-	private ListBox getListBox(boolean b)  {
+
+	private ListBox getListBox(boolean b) {
 		ListBox widget = new ListBox();
 		widget.addItem("Tallinn");
 		widget.addItem("Tartu");

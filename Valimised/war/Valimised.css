@@ -36,6 +36,8 @@ body{
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
 	background-origin: content-box !important;
+	    background-attachment:fixed;
+background-position:center; 
 }
 
 body:after {
@@ -49,7 +51,8 @@ body:after {
     left: 22%;
     bottom: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
+
 }
 
 .sendButton {
@@ -93,8 +96,7 @@ body:after {
 
 #header{
 	padding: 20px;
-    margin-bottom: 120px;    
-    
+    margin-bottom: 120px;      
 }
 
 .loginPanel{
@@ -112,6 +114,7 @@ select {
 }
 
 button.menuButton {
+	width:100%;
 	border:0px;
 	border-top: 1px solid #96d1f8;
 	background: #65a9d7;
@@ -132,7 +135,6 @@ button.menuButton {
 	font-size: 24px;
 	text-decoration: none;
 	vertical-align: middle;
-	width: 100%;
 	margin-top:100px;
 	margin:0.5em;
 }
@@ -235,4 +237,62 @@ button.menuButton:active {
 
 .cancelButton {
 	height: 30px;
+}
+
+.headerMainPanel {
+	width: 100%;
+}
+
+@media (max-width: 600px) {
+	#leftMenu {
+		width: 100%;
+	}
+
+	#content {
+		width: 100%;
+		padding-top: 20px;
+	}
+	
+	.menuPanel {
+	width: 100%;
+}
+	
+	Button.menuButton {
+		float: left;
+		width: 30%;
+		font-size: 10pt;
+		padding:1px;
+		margin:1px;
+	}
+	
+	.candidatesTable td, .statTable td {
+	min-width: 20px;
+	padding: 5px;
+	font-size: 10pt;
+}
+
+.candidateSearchBox {
+	width: 50px;
+	height:100%;
+}
+
+#header{
+	padding: 10px;
+    margin-bottom: 20px;      
+}
+
+.valimistest {
+	margin-right:20px;
+}
+
+p {
+	font-size:10pt;
+	
+}
+
+h2 {
+	font-size:14pt;
+	margin:5px;
+}
+	
 }
