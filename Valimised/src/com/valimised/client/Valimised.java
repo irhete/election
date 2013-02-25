@@ -21,6 +21,7 @@ public class Valimised implements EntryPoint {
 	 */
 	private final GreetingServiceAsync greetingService = GWT
 			.create(GreetingService.class);
+	
 
 	/**
 	 * This is the entry point method.
@@ -29,7 +30,7 @@ public class Valimised implements EntryPoint {
 	public void onModuleLoad() {
 		// RootPanel.get("header").add(new Header());
 		// RootPanel.get("leftnav").add(new NavigationMenu());
-		// RootPanel.get("footer").add(new Footer());
+		// RootPanel.get("footer").add(new Footer())
 
 		ContentContainer.getInstance().setMenu(new Menu());
 		ContentContainer.getInstance().setHeader(new Header());

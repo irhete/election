@@ -4,6 +4,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTMLTable;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.HTMLTable.Cell;
@@ -27,8 +28,10 @@ public class TextVersion extends Composite{
 		addRow("", "IRL", "13%");
 		addRow("", "...", "...");
 		addRow("Pärnu", "SDE", "34%");
-		addRow("", "Üksikkandidaadid", "25%%");
+		addRow("", "Üksikkandidaadid", "25%");
 		addRow("", "...", "...");
+		
+		applyDataRowStyles();
 
 		mainPanel.add(statTable);
 	}
@@ -48,6 +51,17 @@ public class TextVersion extends Composite{
 		if (area != "") {
 
 		}
+	}
+		
+	private void applyDataRowStyles() {
+		HTMLTable.RowFormatter rf = statTable.getRowFormatter();
+		
+		for (int row = 0; row < statTable.getRowCount(); ++row) {
+			if (!statTable.getText(row, 0).isEmpty()) {
+				rf.addStyleName(row, "statTableArea");
+			}
+		}
+		
 	}	
 
 

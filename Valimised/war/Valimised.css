@@ -97,11 +97,7 @@ body:after {
     
 }
 
-.headerPanel1 {
-	float:left;
-}
-
-.headerPanel2{
+.loginPanel{
 	float:right;
 }
 
@@ -114,7 +110,6 @@ select {
 	height:30px;
 	padding-top:5px;
 }
-
 
 button.menuButton {
 	border:0px;
@@ -167,13 +162,12 @@ button.menuButton:active {
 	border-color: black;
 }
 
-/* .statTable tr { */
-/* 	border-width: 2px; */
-/* 	border-style: solid; */
-/* 	border-color: black; */
-/* } */
+.statTableArea{
+	border-top: 2px solid black;
+}
 
 .candidatesTable td, .statTable td {
+	min-width: 100px;
 	padding: 10px;
 	font-size: 12pt;
 }
@@ -218,7 +212,7 @@ button.menuButton:active {
 	width: 150px;
 }
 
-.candidatePageVotingButton {
+.candidatePageVotingButton, .cancelButton {
 	float: right;
 }
 
@@ -233,4 +227,12 @@ button.menuButton:active {
 .valimistest {
 	margin-right:80px;
 	
+}
+
+.valikud {
+	height: 30px;
+}
+
+.cancelButton {
+	height: 30px;
 }

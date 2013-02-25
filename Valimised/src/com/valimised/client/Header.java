@@ -8,29 +8,37 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
 public class Header extends Composite {
 	
+	private HorizontalPanel searchPanel;
+	private HorizontalPanel loginPanel;
+	
 	public Header(){
 		
-		FlowPanel flowPanel = new FlowPanel();
-		initWidget(flowPanel);
+		HorizontalPanel mainPanel = new HorizontalPanel();
+		initWidget(mainPanel);
+		
+		searchPanel = searchPanel();
+		loginPanel = loginPanel();
+		loginPanel.addStyleName("loginPanel");
+		
+	
+		mainPanel.add(searchPanel);
+		mainPanel.add(loginPanel);
+		mainPanel.setWidth("100%");
+		
+	
+	}
+	
+	private HorizontalPanel searchPanel()  {
 		HorizontalPanel headerPanel = new HorizontalPanel();
-//		initWidget(headerPanel);
-		headerPanel.addStyleName("headerPanel1");
 		headerPanel.setSpacing(5);
+	
 		
-		HorizontalPanel headerPanel2 = new HorizontalPanel();
-//		initWidget(headerPanel2);
-		headerPanel2.addStyleName("headerPanel2");
-		headerPanel2.setSpacing(5);
-		
-		ListBox areas = getListBox(true);
-		
+		ListBox areas = getListBox(true);		
 		TextBox candidate = new TextBox();
-//		candidate.setText("Kandidaat");
 	    
 		Button search = new Button("Otsi");
 		search.addClickHandler(new ClickHandler() {
@@ -41,23 +49,32 @@ public class Header extends Composite {
 		});
 		
 		
-		Label login = new Label("Logi sisse:");
-		login.addStyleName("login");
-		Button idkaart = new Button();
-		idkaart.setStyleName("idkaart");
-		
 		headerPanel.add(areas);
 		headerPanel.add(candidate);
 		headerPanel.add(search);
 		
+		return headerPanel;
+	}
+	
+	private HorizontalPanel loginPanel(){
+		HorizontalPanel headerPanel2 = new HorizontalPanel();
+		headerPanel2.setSpacing(5);
+		
+		Label login = new Label("Logi sisse:");
+		login.addStyleName("login");
+		Button idkaart = new Button();
+		idkaart.setStyleName("idkaart");
+		idkaart.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				ContentContainer.getInstance().setContent(new Valikud());
+			}
+		});
 		headerPanel2.add(login);
 		headerPanel2.add(idkaart);
 		
-		flowPanel.add(headerPanel);
-		flowPanel.add(headerPanel2);
-
-		
-	}	
+		return headerPanel2;
+	}
 	
 	private ListBox getListBox(boolean b)  {
 		ListBox widget = new ListBox();
