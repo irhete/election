@@ -97,11 +97,7 @@ body:after {
     
 }
 
-.headerPanel1 {
-	float:left;
-}
-
-.headerPanel2{
+.loginPanel{
 	float:right;
 }
 
@@ -114,7 +110,6 @@ select {
 	height:30px;
 	padding-top:5px;
 }
-
 
 button.menuButton {
 	border:0px;
@@ -152,7 +147,7 @@ button.menuButton:active {
 	background: #1b435e;
 }
 
-.candidatesTable {
+.candidatesTable, .statTable {
 	background-color: white;
 	width: 100%;
 	border-collapse: collapse;
@@ -168,16 +163,21 @@ button.menuButton:active {
 	border-color: black;
 }
 
-.candidatesTable td {
+.statTableArea{
+	border-top: 2px solid black;
+}
+
+.candidatesTable td, .statTable td {
+	min-width: 100px;
 	padding: 10px;
 	font-size: 12pt;
 }
 
-.candidatesTable tr:first-child {
+.candidatesTable tr:first-child, .statTable tr:first-child {
 	background-color: #C0C0C0
 }
 
-.candidatesTable tr:nth-of-type(even) {
+.candidatesTable tr:nth-of-type(even)	, .statTable tr:nth-of-type(even) {
   background-color: #D2DDFC;
 }
 
@@ -217,7 +217,7 @@ button.menuButton:active {
 	width: 150px;
 }
 
-.candidatePageVotingButton {
+.candidatePageVotingButton, .cancelButton {
 	float: right;
 }
 
@@ -232,4 +232,12 @@ button.menuButton:active {
 .valimistest {
 	margin-right:80px;
 	
+}
+
+.valikud {
+	height: 30px;
+}
+
+.cancelButton {
+	height: 30px;
 }
