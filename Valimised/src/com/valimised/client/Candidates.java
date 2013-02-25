@@ -28,6 +28,7 @@ public class Candidates extends Composite {
 						receiverRowIndex, 3);
 				ContentContainer.getInstance().setContent(
 						new Candidate(candidateNumber));
+
 			}
 		});
 

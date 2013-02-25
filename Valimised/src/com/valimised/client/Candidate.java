@@ -16,7 +16,7 @@ public class Candidate extends Composite {
 		HorizontalPanel topPanel = new HorizontalPanel();
 		topPanel.setStyleName("candidatePagePanel");
 
-		Image candidatePicture = new Image("maesalu.jpeg");
+		Image candidatePicture = new Image("images/maesalu.jpeg");
 		candidatePicture.setStyleName("candidatePicture");
 
 		VerticalPanel credentialsPanel = new VerticalPanel();
@@ -29,7 +29,8 @@ public class Candidate extends Composite {
 		credentialsPanel.add(areaLabel);
 
 		Button votingButton = new Button("Hääleta");
-		votingButton.setStyleName("candidatePageVotingButton");
+		votingButton.addStyleName("menuButton");
+		votingButton.addStyleName("candidatePageVotingButton");
 
 		topPanel.add(candidatePicture);
 		topPanel.add(credentialsPanel);
