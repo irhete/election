@@ -22,12 +22,12 @@ public class Menu extends Composite {
 	});
 	Button results = new Button("Tulemused");
 	results.addStyleName("menuButton");
-	/*results.addClickHandler(new ClickHandler() {
+	results.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
-			ContentContainer.getInstance().setContent(new Tulemused());
+			ContentContainer.getInstance().setContent(new ResultText());
 		}
-	});*/
+	});
 	Button elections = new Button("Valimistest");
 	elections.addStyleName("menuButton");
 	elections.addClickHandler(new ClickHandler() {

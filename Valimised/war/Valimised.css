@@ -147,6 +147,7 @@ button.menuButton:hover {
 	color: #ccc;
 }
 button.menuButton:active {
+	border:0px;
 	border-top-color: #1b435e;
 	background: #1b435e;
 }
@@ -206,6 +207,10 @@ button.menuButton:active {
 
 .candidatePagePanel {
 	width: 100%;
+}
+
+.areaHeading{
+	font-size:2em;
 }
 
 .candidatePagePanel td:first-child {
