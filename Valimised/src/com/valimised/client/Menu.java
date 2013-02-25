@@ -13,6 +13,7 @@ public class Menu extends Composite {
 	initWidget(menuPanel);
 	
 	Button candidates = new Button("Kandidaadid");
+	candidates.addStyleName("menuButton");
 	candidates.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
@@ -20,6 +21,7 @@ public class Menu extends Composite {
 		}
 	});
 	Button results = new Button("Tulemused");
+	results.addStyleName("menuButton");
 	/*results.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
@@ -27,12 +29,13 @@ public class Menu extends Composite {
 		}
 	});*/
 	Button elections = new Button("Valimistest");
-	/*elections.addClickHandler(new ClickHandler() {
+	elections.addStyleName("menuButton");
+	elections.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
 			ContentContainer.getInstance().setContent(new Valimistest());
 		}
-	});*/
+	});
 	
 	menuPanel.add(candidates);
 	menuPanel.add(results);

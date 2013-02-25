@@ -10,6 +10,48 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0px 20px;
+  color: #28597a;
+}
+
+p {
+	font-size: 20px;
+	color: #28597a;
+}
+
+html, body {
+	height: 100%;
+}
+
+body{
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1.5, #00A3EF)) !important;  /* Saf4+, Chrome*/
+	background-image: -webkit-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%, #00A3EF 150%) !important; /* Chrome 11+, Saf5.1+*/
+	background-image: -moz-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%, #00A3EF 150%) !important; /* FF3.6+*/
+	background-image: -ms-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%, #00A3EF 150% ) !important; /* IE10*/
+	background-image: -o-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%, #00A3EF 150%) !important; /* Opera 11.10+*/
+	background-image: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #00A3EF 150%) !important; /* W3C*/
+	background-size: 100% 100% !important;
+	background-repeat: no-repeat !important;
+	background-origin: content-box !important;
+}
+
+body:after {
+	z-index:-1;
+    content: "";
+    background: url("images/kontuur.png");
+	background-repeat: no-repeat;
+	background-size:90%;
+    opacity: 0.2;
+    top: 20%;
+    left: 25%;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
 .sendButton {
   display: block;
   font-size: 16pt;
@@ -34,13 +76,86 @@ h1 {
 }
 
 #leftMenu {
-	width: 20%;
+	width: 30%;
 	float: left;
 }
 
 #content {
-	width: 80%;
+	width: 60%;
 	float: left;
+}
+
+#footer{
+    position:fixed;
+    bottom:0;
+    left:50%;
+}
+
+#header{
+	padding: 20px;
+    margin-bottom: 120px;    
+    
+}
+
+.headerPanel1 {
+	float:left;
+}
+
+.headerPanel2{
+	float:right;
+}
+
+select {
+	height:30px;
+	padding-top:2px;
+}
+
+.login {
+	height:30px;
+	padding-top:5px;
+}
+
+.menuButton {
+	height: 60px;
+	width: 200px;
+	margin: 20px;
+	font-size: 20px;
+	font-family: Arial;
+}
+
+button.menuButton {
+	border:0px;
+	border-top: 1px solid #96d1f8;
+	background: #65a9d7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+	background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+	background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+	background: -o-linear-gradient(top, #3e779d, #65a9d7);
+	padding: 20px 40px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadowmargin:0.5em;: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: white;
+	font-size: 24px;
+	text-decoration: none;
+	vertical-align: middle;
+	width: 12em;
+	margin-top:100px;
+	margin:0.5em;
+}
+button.menuButton:hover {
+	border-top-color: #28597a;
+	background: #28597a;
+	color: #ccc;
+}
+button.menuButton:active {
+	border-top-color: #1b435e;
+	background: #1b435e;
 }
 
 .candidatesTable {
@@ -106,4 +221,17 @@ h1 {
 
 .candidatePageVotingButton {
 	float: right;
+}
+
+.idkaart {
+	background-image: url("images/idkaart.jpg");
+	background-repeat:  no-repeat;
+	background-size: 100%;
+	height:30px;
+	width:90px;
+}
+
+.valimistest {
+	margin-right:80px;
+	
 }
