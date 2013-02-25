@@ -45,8 +45,8 @@ body:after {
 	background-repeat: no-repeat;
 	background-size:90%;
     opacity: 0.2;
-    top: 20%;
-    left: 25%;
+    top: 15%;
+    left: 22%;
     bottom: 0;
     right: 0;
     position: fixed;
@@ -115,13 +115,6 @@ select {
 	padding-top:5px;
 }
 
-.menuButton {
-	height: 60px;
-	width: 200px;
-	margin: 20px;
-	font-size: 20px;
-	font-family: Arial;
-}
 
 button.menuButton {
 	border:0px;
@@ -144,7 +137,7 @@ button.menuButton {
 	font-size: 24px;
 	text-decoration: none;
 	vertical-align: middle;
-	width: 12em;
+	width: 100%;
 	margin-top:100px;
 	margin:0.5em;
 }
