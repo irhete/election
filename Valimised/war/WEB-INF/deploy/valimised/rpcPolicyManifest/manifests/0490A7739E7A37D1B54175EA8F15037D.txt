@@ -1,0 +1,2 @@
+serviceClass: com.valimised.client.GreetingService
+path: 257112C2D112EB14A4FC9708EAC25CE1.gwt.rpc

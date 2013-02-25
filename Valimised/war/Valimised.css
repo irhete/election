@@ -13,13 +13,17 @@ h1 {
 h2 {
   font-size: 30px;
   font-weight: bold;
-  margin: 20px 0px 20px;
+  margin: 0px 0px 20px 0px;
   color: #28597a;
 }
 
 p {
 	font-size: 20px;
 	color: #28597a;
+}
+
+p + h2 {
+	margin-top: 100px;
 }
 
 html, body {
@@ -138,12 +142,12 @@ button.menuButton {
 	margin-top:100px;
 	margin:0.5em;
 }
-button.menuButton:hover {
+button.menuButton:hover, button.candidatePageVotingButton:hover{
 	border-top-color: #28597a;
 	background: #28597a;
 	color: #ccc;
 }
-button.menuButton:active {
+button.menuButton:active, button.candidatePageVotingButton:active {
 	border-top-color: #1b435e;
 	background: #1b435e;
 }
@@ -210,12 +214,26 @@ button.menuButton:active {
 	width: 100%;
 }
 
+.areaHeading{
+	font-size:2em;
+}
+
 .candidatePagePanel td:first-child {
 	width: 150px;
 }
 
-.candidatePageVotingButton, .cancelButton {
+button.cancelButton {
 	float: right;
+}
+
+button.candidatePageVotingButton {
+	float: right;
+	margin-right: 20px;
+	height: 40px;
+	width: 150px;
+	font-size: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .idkaart {

@@ -45,6 +45,5 @@ public class Menu extends Composite {
 		// menuPanel.add(candidates);
 		// menuPanel.add(results);
 		// menuPanel.add(elections);
-
 	}
 }
