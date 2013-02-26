@@ -22,10 +22,8 @@ public class Header extends Composite {
 
 		searchPanel = searchPanel();
 		loginPanel = loginPanel();
-		loginPanel.addStyleName("loginPanel");
-
-		mainPanel.add(searchPanel);
-		mainPanel.add(loginPanel);
+		ContentContainer.getInstance().setElement("searchPanel", searchPanel);
+		ContentContainer.getInstance().setElement("loginPanel", loginPanel);
 
 	}
 
