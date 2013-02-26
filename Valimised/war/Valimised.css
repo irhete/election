@@ -36,6 +36,8 @@ p+h2 {
 
 html,body {
 	height: 100%;
+	margin: 0;
+	padding 0;
 }
 
 body {
@@ -54,16 +56,20 @@ body {
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
 	background-origin: content-box !important;
-	background-attachment: fixed;
-	background-position: center;
+	background-attachment: fixed !important;
+	background-position: center !important;
+	webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	background-size: cover !important;
 }
 
 body:after {
 	z-index: -1;
 	content: "";
-	background: url("images/kontuur.png");
+	background-image: url("images/kontuur.png");
 	background-repeat: no-repeat;
-	background-size: 90%;
+	background-size: 85%;
 	opacity: 0.2;
 	top: 15%;
 	left: 22%;
