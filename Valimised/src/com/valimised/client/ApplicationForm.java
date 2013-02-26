@@ -119,6 +119,7 @@ public class ApplicationForm extends Composite {
 		phoneLabel = new Label("Telefon");
 		phoneBox = new TextBox();
 		nextButton = new Button("Edasi");
+		nextButton.addStyleName("nextButton");
 		nextButton.addClickHandler(new ClickHandler() {
 
 			@Override
@@ -144,6 +145,7 @@ public class ApplicationForm extends Composite {
 		table.setWidget(7, 0, confirmBox);
 
 		Button previousButton = new Button("Tagasi");
+		previousButton.addStyleName("previousButton");
 		previousButton.addClickHandler(new ClickHandler() {
 
 			@Override

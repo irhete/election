@@ -36,6 +36,7 @@ public class Header extends Composite {
 		candidate.setStyleName("candidateSearchBox");
 
 		Button search = new Button("Otsi");
+		search.addStyleName("searchButton");
 		search.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
