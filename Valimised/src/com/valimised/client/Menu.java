@@ -26,7 +26,7 @@ public class Menu extends Composite {
 		results.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new TextVersion());
+				ContentContainer.getInstance().setContent(new ResultText());
 			}
 		});
 		Button elections = new Button("Valimistest");
