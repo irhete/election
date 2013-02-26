@@ -353,6 +353,7 @@ button.idkaart {
 	Button.menuButton {
 		float: left;
 		width: 30%;
+		height:100%;
 }
 	
 	Button.menuButton, button.candidatePageVotingButton, button.searchButton, button.cancelButton, button.nextButton, button.previousButton, button.applicationFormRightButton, button.addButton {
@@ -409,6 +410,9 @@ button.idkaart {
 	font-size:10pt;
 	padding-left:3px;
 	}
+	.chosenCandidatePanel td {
+	width:100%;
+}
 }
 
 @media ( max-width : 250px) { 
@@ -428,6 +432,7 @@ button.idkaart {
 	
 	Button.menuButton {
 		font-size: 8pt;
+		margin:1px;
 	}
 	.candidatesTable td {
 		padding: 0px 2px 0px 2px;
@@ -473,4 +478,27 @@ button.idkaart {
 	height:30px;
 	}
 	
+	button.applicationFormRightButton {
+	font-size: 10pt;
+		padding: 1px;
+		margin: 1px;
+		width:100px;
+		height:30px
+	}
+	
+	button.addButton {
+	font-size: 10pt;
+		padding: 1px;
+		margin: 20px;
+		width:200px;
+		height:30px
+	}
+	
+	button.cancelButton, button.nextButton, button.previousButton {
+		font-size: 10pt;
+		padding: 1px;
+		margin: 1px;
+		width:70px;
+		height:30px
+	}
 }
