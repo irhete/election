@@ -1,5 +1,7 @@
 package com.valimised.client;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -29,6 +31,12 @@ public class Candidate extends Composite {
 		credentialsPanel.add(areaLabel);
 
 		Button votingButton = new Button("Hääleta");
+		votingButton.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				ContentContainer.getInstance().setContent(new Valikud());
+			}
+		});
 		votingButton.addStyleName("candidatePageVotingButton");
 
 		topPanel.add(candidatePicture);
