@@ -40,6 +40,8 @@ body{
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
 	background-origin: content-box !important;
+	    background-attachment:fixed;
+background-position:center;
 }
 
 body:after {
@@ -53,7 +55,8 @@ body:after {
     left: 22%;
     bottom: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
+
 }
 
 .sendButton {
@@ -80,8 +83,9 @@ body:after {
 }
 
 #leftMenu {
-	width: 30%;
+	width: 25%;
 	float: left;
+	padding-right: 5%;
 }
 
 #content {
@@ -90,19 +94,35 @@ body:after {
 }
 
 #footer{
-    position:fixed;
+    position:absolute;
     bottom:0;
     left:50%;
 }
 
 #header{
 	padding: 20px;
-    margin-bottom: 120px;    
-    
+    margin-bottom: 120px;  
+    width:100%;   
 }
 
-.loginPanel {
+.candidateSearchBox {
+	height:100%;
+}
+
+#searchPanel{
+	width: 50%;
+	float:left;
+}
+
+#loginPanel{
+	width: 45%;
 	float:right;
+	padding-right:5%;
+}
+
+#loginPanel table {
+	float:right;
+	
 }
 
 select {
@@ -110,16 +130,15 @@ select {
 	padding-top:2px;
 }
 
-.gwt-testBox {
-	heigth : 30px;
-}
-
 .login {
 	height:30px;
 	padding-top:5px;
+	float:right;
 }
 
-button.menuButton, button.candidatePageVotingButton, button.cancelButton, button.addButton, button.searchButton {
+
+button.menuButton {
+	width:100%;
 	border:0px;
 	border-top: 1px solid #96d1f8;
 	background: #65a9d7;
@@ -140,52 +159,18 @@ button.menuButton, button.candidatePageVotingButton, button.cancelButton, button
 	font-size: 24px;
 	text-decoration: none;
 	vertical-align: middle;
-	width: 100%;
 	margin-top:100px;
 	margin:0.5em;
 }
-button.menuButton:hover, button.candidatePageVotingButton:hover, button.cancelButton:hover, button.addButton:hover,
-button.searchButton:hover {
+button.menuButton:hover, button.candidatePageVotingButton:hover{
 	border-top-color: #28597a;
 	background: #28597a;
 	color: #ccc;
 }
-button.menuButton:active, button.candidatePageVotingButton:active, button.cancelButton:active, button.addButton:active,
-button.searchButton:active {
+button.menuButton:active, button.candidatePageVotingButton:active {
 	border-top-color: #1b435e;
 	background: #1b435e;
 }
-
-button.cancelButton {
-	float: right;
-}
-
-button.candidatePageVotingButton, button.cancelButton, button.addButton, button.searchButton {
-	margin-right: 20px;
-	height: 40px;
-	width: 150px;
-	font-size: 20px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
-button.idkaart {
-	background-image: url("images/idkaart.jpg");
-	background-repeat:  no-repeat;
-	background-size: 100%;
-	height:30px;
-	width:90px;
-}
-
-button.addButton {
-	width: 200px;
-}
-
-button.searchButton {
-	heigth: 30px;
-	width: 100px;
-}
-
 
 .candidatesTable, .statTable {
 	background-color: white;
@@ -208,7 +193,7 @@ button.searchButton {
 }
 
 .candidatesTable td, .statTable td {
-	min-width: 100px;
+	min-width: 50px;
 	padding: 10px;
 	font-size: 12pt;
 }
@@ -249,8 +234,35 @@ button.searchButton {
 	width: 100%;
 }
 
+.areaHeading{
+	font-size:2em;
+}
+
 .candidatePagePanel td:first-child {
 	width: 150px;
+}
+
+button.cancelButton {
+	float: right;
+}
+
+button.candidatePageVotingButton {
+	float: right;
+	margin-right: 20px;
+	height: 40px;
+	width: 150px;
+	font-size: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.idkaart {
+	background-image: url("images/idkaart.jpg");
+	background-repeat:  no-repeat;
+	background-size: 100%;
+	height:30px;
+	width:90px;
+	float:right;
 }
 
 .valimistest {
@@ -262,3 +274,182 @@ button.searchButton {
 	height: 30px;
 }
 
+.cancelButton {
+	height: 30px;
+}
+
+.headerMainPanel {
+	width: 100%;
+}
+
+@media (max-width: 600px) {
+	#loginPanel {
+	padding-right:0px;
+	width:30%;
+	}
+	
+	#leftMenu {
+		width: 100%;
+	}
+
+	#content {
+		width: 100%;
+		padding-top: 20px;
+	}
+	
+	.menuPanel {
+	width: 30%;
+}
+	
+	Button.menuButton {
+		float: left;
+		width: 30%;
+		font-size: 10pt;
+		padding:1px;
+		margin:1px;
+	}
+	
+	.candidatesTable {
+	width:100%;
+	}
+	
+	.candidatesTable td {
+	padding: 0px 3px 0px 3px;
+	}
+	
+	.statTable td {
+	padding: 5px;
+	}
+	
+	.candidatesTable td, .statTable td {
+	min-width: 10px;
+	font-size: 10pt;
+}
+
+.candidateSearchBox {
+	width: 50px;
+	height:100%;
+}
+
+#header{
+	padding: 0px;
+    margin-bottom: 20px;     
+}
+
+.valimistest {
+	margin-right:20px;
+}
+
+p {
+	font-size:10pt;
+	
+}
+
+h2 {
+	font-size:14pt;
+	margin:5px;
+}
+
+p + h2 {
+	margin-top: 20px;
+}
+
+.idkaart {
+	height:23px;
+	width:70px;
+}
+
+.candidatePicture {
+	width: 100px;
+	height: 100px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+}
+
+button.candidatePageVotingButton {
+	float: right;
+	margin-right: 10px;
+	height: 30px;
+	width: 90px;
+	font-size: 12px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+	
+}
+
+@media (max-width: 250px) {
+.idkaart {
+	height:20px;
+	width:65px;
+}
+
+.candidatesTable td {
+	padding: 0px;
+	}
+	
+	#searchPanel {
+	width: 100%;
+	}
+	
+	#loginPanel {
+	width: 100%;
+	float:left;
+	}
+	
+	Button.menuButton {
+		font-size: 8pt;
+	}
+	
+	.candidatesTable td {
+	padding: 0px 2px 0px 2px;
+	font-size: 7pt;
+	}
+	
+	.statTable td {
+	padding: 2px;
+	font-size:8pt;
+	}
+	
+	.candidatesTable td, .statTable td {
+	min-width: 2px;
+}
+
+p {
+	font-size:9pt;
+}
+
+h2 {
+	font-size:10pt;
+	margin:3px;
+}
+
+p + h2 {
+	margin-top: 10px;
+}
+
+.candidatePicture {
+	width: 70px;
+	height: 70px;
+	padding-right: 0px;
+	padding-bottom: 7px;
+}
+
+button.candidatePageVotingButton {
+	float: right;
+	margin-right: 7px;
+	height: 20px;
+	width: 60px;
+	font-size: 10pt;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.candidateSearchBox {
+	width: 70px;
+}
+
+#header{
+    margin-bottom: 5px;      
+}
+	}
