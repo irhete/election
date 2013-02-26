@@ -1,0 +1,85 @@
+@media ( max-width : 600px) {
+	#leftMenu {
+		width: 100%;
+	}
+	#content {
+		width: 100%;
+		padding-top: 20px;
+	}
+	
+	#searchPanel {
+		width: 100%;
+	}
+	#loginPanel {
+		width: 100%;
+		float: left;
+		padding-right: 0px;
+	}
+	.menuPanel {
+		width: 30%;
+	}
+	
+	Button.menuButton {
+		float: left;
+		width: 30%;
+		height:100%;
+}
+	
+	Button.menuButton, button.candidatePageVotingButton, button.searchButton, button.cancelButton, button.nextButton, button.previousButton, button.applicationFormRightButton, button.addButton {
+		font-size: 10pt;
+		padding: 1px;
+		margin: 1px;
+	}
+	.candidatesTable {
+		width: 100%;
+	}
+	.candidatesTable td {
+		padding: 0px 3px 0px 3px;
+	}
+	.statTable td {
+		padding: 5px;
+	}
+	.candidatesTable td,.statTable td {
+		min-width: 10px;
+		font-size: 10pt;
+	}
+	.candidateSearchBox {
+		width: 100px;
+		height: 100%;
+	}
+	#header {
+		padding: 0px;
+		margin-bottom: 20px;
+	}
+	.valimistest {
+		margin-right: 20px;
+	}
+	p {
+		font-size: 10pt;
+	}
+	h2 {
+		font-size: 14pt;
+		margin: 5px;
+	}
+	p+h2 {
+		margin-top: 20px;
+	}
+	Button.idkaart {
+		height: 23px;
+		width: 70px;
+	}
+	.candidatePicture {
+		width: 100px;
+		height: 100px;
+		padding-right: 0px;
+		padding-bottom: 10px; 
+	}
+	
+	.gwt-Label, .gwt-InlineHTML {
+	font-size:10pt;
+	padding-left:3px;
+	}
+	.chosenCandidatePanel td {
+	width:100%;
+}
+}

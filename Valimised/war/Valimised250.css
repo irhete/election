@@ -1,0 +1,87 @@
+@media ( max-width : 250px) { 
+	
+	Button.idkaart {
+		height: 20px;
+		width: 65px;
+	}
+	
+	.gwt-Label, .gwt-InlineHTML {
+	font-size:9pt;
+	}
+	
+	.candidatesTable td {
+		padding: 0px;
+	}
+	
+	Button.menuButton {
+		font-size: 8pt;
+		margin:1px;
+	}
+	.candidatesTable td {
+		padding: 0px 2px 0px 2px;
+		font-size: 7pt;
+	}
+	.statTable td {
+		padding: 2px;
+		font-size: 8pt;
+	}
+	.candidatesTable td,.statTable td {
+		min-width: 2px;
+	}
+	p {
+		font-size: 9pt;
+	}
+	h2 {
+		font-size: 10pt;
+		margin: 3px;
+	}
+	p+h2 {
+		margin-top: 10px;
+	}
+	.candidatePicture {
+		width: 70px;
+		height: 70px;
+		padding-right: 0px;
+		padding-bottom: 7px;
+	}
+	.candidateSearchBox {
+		width: 70px;
+	}
+	#header {
+		margin-bottom: 5px;
+	}
+	
+	Button.candidatePageVotingButton {
+	width: 70px;
+	height:30px;
+	}
+	
+	Button.searchButton {
+	width: 50px;
+	height:30px;
+	}
+	
+	button.applicationFormRightButton {
+	font-size: 10pt;
+		padding: 1px;
+		margin: 1px;
+		width:100px;
+		height:30px
+	}
+	
+	button.addButton {
+	font-size: 10pt;
+		padding: 1px;
+		margin: 20px;
+		width:200px;
+		height:30px
+	}
+	
+	button.cancelButton, button.nextButton, button.previousButton {
+		font-size: 10pt;
+		padding: 1px;
+		margin: 1px;
+		width:70px;
+		height:30px
+	}
+}
