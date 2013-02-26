@@ -323,10 +323,6 @@ button.idkaart {
 }
 
 @media ( max-width : 600px) {
-	#loginPanel {
-		padding-right: 0px;
-		width: 30%;
-	}
 	#leftMenu {
 		width: 100%;
 	}
@@ -334,12 +330,25 @@ button.idkaart {
 		width: 100%;
 		padding-top: 20px;
 	}
+	
+	#searchPanel {
+		width: 100%;
+	}
+	#loginPanel {
+		width: 100%;
+		float: left;
+		padding-right: 0px;
+	}
 	.menuPanel {
 		width: 30%;
 	}
+	
 	Button.menuButton {
 		float: left;
 		width: 30%;
+}
+	
+	Button.menuButton, button.candidatePageVotingButton, button.searchButton, button.cancelButton, button.nextButton, button.previousButton, button.applicationFormRightButton, button.addButton {
 		font-size: 10pt;
 		padding: 1px;
 		margin: 1px;
@@ -358,7 +367,7 @@ button.idkaart {
 		font-size: 10pt;
 	}
 	.candidateSearchBox {
-		width: 50px;
+		width: 100px;
 		height: 100%;
 	}
 	#header {
@@ -378,7 +387,7 @@ button.idkaart {
 	p+h2 {
 		margin-top: 20px;
 	}
-	.idkaart {
+	Button.idkaart {
 		height: 23px;
 		width: 70px;
 	}
@@ -386,20 +395,30 @@ button.idkaart {
 		width: 100px;
 		height: 100px;
 		padding-right: 0px;
-		padding-bottom: 10px; @media ( max-width : 250px) { .idkaart {
+		padding-bottom: 10px; 
+	}
+	
+	.gwt-Label, .gwt-InlineHTML {
+	font-size:10pt;
+	padding-left:3px;
+	}
+}
+
+@media ( max-width : 250px) { 
+	
+	Button.idkaart {
 		height: 20px;
 		width: 65px;
 	}
+	
+	.gwt-Label, .gwt-InlineHTML {
+	font-size:9pt;
+	}
+	
 	.candidatesTable td {
 		padding: 0px;
 	}
-	#searchPanel {
-		width: 100%;
-	}
-	#loginPanel {
-		width: 100%;
-		float: left;
-	}
+	
 	Button.menuButton {
 		font-size: 8pt;
 	}
@@ -436,4 +455,15 @@ button.idkaart {
 	#header {
 		margin-bottom: 5px;
 	}
+	
+	Button.candidatePageVotingButton {
+	width: 70px;
+	height:30px;
+	}
+	
+	Button.searchButton {
+	width: 50px;
+	height:30px;
+	}
+	
 }
