@@ -22,8 +22,10 @@ public class Header extends Composite {
 
 		searchPanel = searchPanel();
 		loginPanel = loginPanel();
-		ContentContainer.getInstance().setElement("searchPanel", searchPanel);
-		ContentContainer.getInstance().setElement("loginPanel", loginPanel);
+		loginPanel.addStyleName("loginPanel");
+
+		mainPanel.add(searchPanel);
+		mainPanel.add(loginPanel);
 
 	}
 
@@ -42,6 +44,7 @@ public class Header extends Composite {
 				ContentContainer.getInstance().setContent(new Candidates());
 			}
 		});
+		search.addStyleName("searchButton");
 
 		headerPanel.add(areas);
 		headerPanel.add(candidate);
