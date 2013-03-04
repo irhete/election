@@ -67,7 +67,7 @@ body {
 body:after {
 	z-index: -1;
 	content: "";
-	background-image: url("images/kontuur.png");
+	background-image: url("../images/kontuur.png");
 	background-repeat: no-repeat;
 	background-size: 85%;
 	opacity: 0.2;
@@ -241,7 +241,7 @@ button.searchButton {
 }
 
 button.idkaart {
-	background-image: url("images/idkaart.jpg");
+	background-image: url("../images/idkaart.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	height: 30px;
