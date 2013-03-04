@@ -34,7 +34,7 @@ public class Menu extends Composite {
 		elections.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Valimistest());
+				ContentContainer.getInstance().setContent(new About());
 			}
 		});
 

@@ -9,9 +9,9 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.InlineHTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class Valikud extends Composite {
+public class Choices extends Composite {
 
-	public Valikud() {
+	public Choices() {
 		VerticalPanel verticalPane = new VerticalPanel();
 		initWidget(verticalPane);
 		verticalPane.addStyleName("valikud");

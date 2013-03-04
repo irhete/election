@@ -9,9 +9,9 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class Valimistest extends Composite{
+public class About extends Composite{
 	
-	public Valimistest() {
+	public About() {
 		VerticalPanel mainPanel = new VerticalPanel();
 		initWidget(mainPanel);
 		mainPanel.addStyleName("valimistest");

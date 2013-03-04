@@ -34,7 +34,7 @@ public class Candidate extends Composite {
 		votingButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Valikud());
+				ContentContainer.getInstance().setContent(new Choices());
 			}
 		});
 		votingButton.addStyleName("candidatePageVotingButton");

@@ -62,7 +62,7 @@ public class Header extends Composite {
 		idkaart.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Valikud());
+				ContentContainer.getInstance().setContent(new Choices());
 			}
 		});
 		headerPanel2.add(login);
