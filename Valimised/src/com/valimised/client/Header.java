@@ -37,12 +37,8 @@ public class Header extends Composite {
 
 		Button search = new Button("Otsi");
 		search.addStyleName("searchButton");
-		search.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Candidates());
-			}
-		});
+		search.getElement().setId("searchButton");
+		search.getElement().setAttribute("onclick", "search()");
 
 		headerPanel.add(areas);
 		headerPanel.add(candidate);
