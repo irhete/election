@@ -50,12 +50,34 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    			numberColumn = window.document.createElement("td");
 	    			numberColumn.appendChild(window.document.createTextNode(candidate.number));
 	    			row.appendChild(numberColumn);
+	    			
+	    			nameColumn.setAttribute('onclick','getDetailedCandidateInfo()');
+	    			partyColumn.setAttribute('onclick','getDetailedCandidateInfo()');
+	    			areaColumn.setAttribute('onclick','getDetailedCandidateInfo()');
+	    			numberColumn.setAttribute('onclick','getDetailedCandidateInfo()');
+	    			
 	    			votingColumn = window.document.createElement("td");
+	    			if (candidate.area == "Tartu") {
+	    				var votingButton = window.document.createElement("button");
+	    				votingButton.innerText = "Hääleta";
+	    				votingButton.setAttribute('onclick','vote()');
+	    				votingColumn.appendChild(votingButton);
+	    			} else {
 	    			votingColumn.appendChild(window.document.createTextNode(""));
+	    			votingColumn.setAttribute('onclick','getDetailedCandidateInfo()');
+	    			}
 	    			row.appendChild(votingColumn);
 				}
     		});
     		 document.getElementById("content").innerHTML = table.outerHTML;
     	}
     });
+}
+
+function vote() {
+	alert("Voted");
+}
+
+function getDetailedCandidateInfo() {
+	alert("Info");
 }
