@@ -5,6 +5,8 @@
 			"id" : "REF",
 			"name" : "Eesti Reformierakond"
 		},
+		"area" : "Narva",
+		"number" : "200",
 		"person" : {
 			"id" : "37907034620",
 			"name" : "Eduard Ekskavaator"
@@ -15,6 +17,8 @@
 			"id" : "KESK",
 			"name" : "Eesti Keskerakond"
 		},
+		"area" : "Paide",
+		"number" : "201",
 		"person" : {
 			"id" : "37907034621",
 			"name" : "Ferdinand Fuksia"
@@ -25,6 +29,8 @@
 			"id" : "SDE",
 			"name" : "Sotsiaaldemokraatlik erakond"
 		},
+		"area" : "Kuressaare",
+		"number" : "202",
 		"person" : {
 			"id" : "37907034622",
 			"name" : "Gerhard Gätegõverdus"
@@ -35,6 +41,8 @@
 			"id" : "IRL",
 			"name" : "Isamaa- ja Respublica Liit"
 		},
+		"area" : "Rakvere",
+		"number" : "203",
 		"person" : {
 			"id" : "37907034623",
 			"name" : "Harald Hamster"
@@ -45,6 +53,8 @@
 			"id" : "SDE",
 			"name" : "Sotsiaaldemokraatlik erakond"
 		},
+		"area" : "Valga",
+		"number" : "204",
 		"person" : {
 			"id" : "37907034624",
 			"name" : "Ildegaard Ilumeel"
@@ -55,9 +65,61 @@
 			"id" : "REF",
 			"name" : "Eesti Reformierakond"
 		},
+		"area" : "Haapsalu",
+		"number" : "205",
 		"person" : {
 			"id" : "37907034625",
 			"name" : "Janaida Jalutova"
+		}
+	}, {
+		"party" : {
+			"id" : "-",
+			"name" : "Üksikkandidaat"
+		},
+		"area" : "Tallinn",
+		"number" : "110",
+		"person" : {
+			"name" : "Mari Mets"
+		}
+	}, {
+		"party" : {
+			"id" : "SDE",
+			"name" : "Sotsiaaldemokraatlik erakond"
+		},
+		"area" : "Tartu",
+		"number" : "111",
+		"person" : {
+			"name" : "Mart Mets"
+		}
+	}, {
+		"party" : {
+			"id" : "KESK",
+			"name" : "Eesti Keskerakond"
+		},
+		"area" : "Tartu",
+		"number" : "112",
+		"person" : {
+			"name" : "Andres Tamm"
+		}
+	}, {
+		"party" : {
+			"id" : "REF",
+			"name" : "Eesti Reformierakond"
+		},
+		"area" : "Pärnu",
+		"number" : "113",
+		"person" : {
+			"name" : "Peeter Kask"
+		}
+	}, {
+		"party" : {
+			"id" : "IRL",
+			"name" : "Isamaa- ja Respublica Liit"
+		},
+		"area" : "Narva",
+		"number" : "114",
+		"person" : {
+			"name" : "Ene Eha"
 		}
 	}
 

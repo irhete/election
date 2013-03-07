@@ -15,12 +15,9 @@ public class Menu extends Composite {
 
 		Button candidates = new Button("Kandidaadid");
 		candidates.addStyleName("menuButton");
-		candidates.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Candidates());
-			}
-		});
+		candidates.getElement().setAttribute("onclick",
+				"createCandidatesTable(\"--Kõik--\", \"\")");
+
 		Button results = new Button("Tulemused");
 		results.addStyleName("menuButton");
 		results.addClickHandler(new ClickHandler() {

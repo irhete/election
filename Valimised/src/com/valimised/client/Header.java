@@ -32,8 +32,11 @@ public class Header extends Composite {
 		headerPanel.setSpacing(5);
 
 		ListBox areas = getListBox(true);
+		areas.getElement().setId("areaList");
+
 		TextBox candidate = new TextBox();
 		candidate.setStyleName("candidateSearchBox");
+		candidate.getElement().setId("candidateSearchBox");
 
 		Button search = new Button("Otsi");
 		search.addStyleName("searchButton");
@@ -69,6 +72,7 @@ public class Header extends Composite {
 
 	private ListBox getListBox(boolean b) {
 		ListBox widget = new ListBox();
+		widget.addItem("--Kõik--");
 		widget.addItem("Tallinn");
 		widget.addItem("Tartu");
 		widget.addItem("Pärnu");
