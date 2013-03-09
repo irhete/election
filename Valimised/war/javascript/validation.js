@@ -1,29 +1,35 @@
 function validateForm() {
-	validate('partyBox','partyFieldRequired','Vali kuuluvus');
-	validate('areaBox','areaFieldRequired','Vali linn');
+	validate('partyBox', 'partyFieldRequired', 'Vali kuuluvus');
+	validate('areaBox', 'areaFieldRequired', 'Vali linn');
 	validatePhoneNumber();
 }
 
-function validate(elementField, elementId, value){
+function validate(elementField, elementId, value) {
 	if (document.getElementById(elementField).value == value) {
 		document.getElementById(elementId).style.visibility = 'visible';
+		document.getElementById(elementField).style.backgroundColor = '#FF6666';
 		return false;
-	} else
+	} else {
 		document.getElementById(elementId).style.visibility = 'hidden';
-	return true;
+		document.getElementById(elementField).style.backgroundColor = 'white';
+		return true;
+	}
 }
 
 function isNumber(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function validatePhoneNumber(){
-	if (isNaN(document.getElementById("phoneBox").value-0)) {
+function validatePhoneNumber() {
+	if (isNaN(document.getElementById("phoneBox").value - 0)) {
 		document.getElementById("invalidPhoneNr").style.visibility = 'visible';
+		document.getElementById("phoneBox").style.backgroundColor = '#FF6666';
 		return false;
-	} else
+	} else {
 		document.getElementById("invalidPhoneNr").style.visibility = 'hidden';
-	return true;
+		document.getElementById("phoneBox").style.backgroundColor = 'white';
+		return true;
+	}
 }
 
 function test() {
