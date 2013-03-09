@@ -30,20 +30,19 @@ public class Choices extends Composite {
 					ContentContainer.getInstance().setContent(
 							new Candidate("111"));
 				}
-
 			}
 		}, ClickEvent.getType());
+		
 		Button cancel = new Button("Tühista");
 		cancel.addStyleName("cancelButton");
 		Button addCandidate = new Button("Lisa end kandidaadiks");
 		addCandidate.addStyleName("addButton");
+//		addCandidate.getElement().setAttribute("onclick", "test()");
 		addCandidate.addClickHandler(new ClickHandler() {
-
 			@Override
 			public void onClick(ClickEvent event) {
 				ContentContainer.getInstance()
 						.setContent(new ApplicationForm());
-
 			}
 		});
 

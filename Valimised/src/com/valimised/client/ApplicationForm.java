@@ -31,6 +31,7 @@ public class ApplicationForm extends Composite {
 	Button nextButton;
 	Label badPartyInput;
 	Label badAreaInput;
+	Label invalidPhoneNr;
 
 	public ApplicationForm() {
 		VerticalPanel mainPanel = new VerticalPanel();
@@ -54,6 +55,7 @@ public class ApplicationForm extends Composite {
 		partyBox.addItem("IRL");
 		partyBox.addItem("Üksikkandidaat");
 
+		areaBox.addItem("Vali linn");
 		areaBox.addItem("Tartu linn");
 		areaBox.addItem("Tallinn");
 		areaBox.addItem("Rapla");
@@ -98,10 +100,13 @@ public class ApplicationForm extends Composite {
 	private void addBadInputLabels(){
 		badAreaInput = new Label("See väli peab täidetud olema!");
 		badPartyInput = new Label("See väli peab täidetud olema!");
+		invalidPhoneNr = new Label("Sisestatud number on vigane!");
 		badAreaInput.getElement().setId("areaFieldRequired");
 		badPartyInput.getElement().setId("partyFieldRequired");
+		invalidPhoneNr.getElement().setId("invalidPhoneNr");
 		table.setWidget(3, 2, badAreaInput);
 		table.setWidget(4, 2, badPartyInput);
+		table.setWidget(6, 2, invalidPhoneNr);
 	}
 
 	private void setStyleNames() {
@@ -124,21 +129,26 @@ public class ApplicationForm extends Composite {
 		personalCodeBox = new TextBox();
 		partyLabel = new Label("Erakondlik kuuluvus");
 		partyBox = new ListBox();
+		partyBox.getElement().setId("partyBox");
 		areaLabel = new Label("Piirkond");
 		areaBox = new ListBox();
+		areaBox.getElement().setId("areaBox");
 		addressLabel = new Label("Aadress");
 		addressArea = new TextArea();
+		addressArea.getElement().setId("addressArea");
 		phoneLabel = new Label("Telefon");
 		phoneBox = new TextBox();
+		phoneBox.getElement().setId("phoneBox");
 		nextButton = new Button("Edasi");
 		nextButton.addStyleName("nextButton");
-		nextButton.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				setToLabels();
-			}
-		});
+		nextButton.getElement().setId("nextButton");
+		nextButton.getElement().setAttribute("onclick", "validateForm()");
+//		nextButton.addClickHandler(new ClickHandler() {
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				setToLabels();
+//			}
+//		});
 	}
 
 	protected void setToLabels() {
