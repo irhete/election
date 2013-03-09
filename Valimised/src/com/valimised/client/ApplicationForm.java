@@ -98,14 +98,14 @@ public class ApplicationForm extends Composite {
 	}
 	
 	private void addBadInputLabels(){
-		badAreaInput = new Label("See väli peab täidetud olema!");
-		badPartyInput = new Label("See väli peab täidetud olema!");
+		badAreaInput = new Label("Pead siit ühe valima!");
+		badPartyInput = new Label("Pead siit ühe valima!");
 		invalidPhoneNr = new Label("Sisestatud number on vigane!");
 		badAreaInput.getElement().setId("areaFieldRequired");
 		badPartyInput.getElement().setId("partyFieldRequired");
 		invalidPhoneNr.getElement().setId("invalidPhoneNr");
-		table.setWidget(3, 2, badAreaInput);
-		table.setWidget(4, 2, badPartyInput);
+		table.setWidget(3, 2, badPartyInput);
+		table.setWidget(4, 2, badAreaInput);
 		table.setWidget(6, 2, invalidPhoneNr);
 	}
 

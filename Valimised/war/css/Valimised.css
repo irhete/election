@@ -326,12 +326,7 @@ button.idkaart {
 	width: 100%;
 }
 
-.gwt-label.areaFieldRequired {
+#areaFieldRequired, #partyFieldRequired, #invalidPhoneNr {
 	visibility: hidden;
-	color: #ff33aa;
-}
-
-.partyFieldRequired {
-	visibility: hidden;
-	color: #aabbcc;
+	color: red;
 }
