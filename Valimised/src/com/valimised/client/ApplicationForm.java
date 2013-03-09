@@ -29,6 +29,8 @@ public class ApplicationForm extends Composite {
 	Label phoneLabel;
 	TextBox phoneBox;
 	Button nextButton;
+	Label badPartyInput;
+	Label badAreaInput;
 
 	public ApplicationForm() {
 		VerticalPanel mainPanel = new VerticalPanel();
@@ -43,6 +45,7 @@ public class ApplicationForm extends Composite {
 
 		addLabelsToTable();
 		addWidgetsToTable();
+		addBadInputLabels();
 
 		partyBox.addItem("Vali kuuluvus");
 		partyBox.addItem("Reformierakond");
@@ -90,6 +93,15 @@ public class ApplicationForm extends Composite {
 		table.setWidget(5, 1, addressArea);
 		table.setWidget(6, 1, phoneBox);
 		table.setWidget(7, 0, nextButton);
+	}
+	
+	private void addBadInputLabels(){
+		badAreaInput = new Label("See väli peab täidetud olema!");
+		badPartyInput = new Label("See väli peab täidetud olema!");
+		badAreaInput.getElement().setId("areaFieldRequired");
+		badPartyInput.getElement().setId("partyFieldRequired");
+		table.setWidget(3, 2, badAreaInput);
+		table.setWidget(4, 2, badPartyInput);
 	}
 
 	private void setStyleNames() {
