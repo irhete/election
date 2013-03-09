@@ -1,330 +1,328 @@
-/** Add css rules here for your application. */
-/** Example rules used by the template application (remove for your app) */
 h1 {
-	font-size: 2em;
-	font-weight: bold;
-	color: #777777;
-	margin: 40px 0px 70px;
-	text-align: center;
+font-size: 2em;
+font-weight: bold;
+color: #777777;
+margin: 40px 0px 70px;
+text-align: center;
 }
 
 h2 {
-	font-size: 25px;
-	font-weight: bold;
-	margin: 0px 0px 20px 0px;
-	color: #1b435e;
+font-size: 25px;
+font-weight: bold;
+margin: 0px 0px 20px 0px;
+color: #1b435e;
 }
 
 .gwt-InlineHTML {
-	font-size: 16px;
-	color: #1b435e;
+font-size: 16px;
+color: #1b435e;
 }
 
 p {
-	font-size: 16px;
-	color: #1b435e;
+font-size: 16px;
+color: #1b435e;
 }
 
 .gwt-Label {
-	font-size: 16px;
-	color: #1b435e;
+font-size: 16px;
+color: #1b435e;
 }
 
 p+h2 {
-	margin-top: 80px;
+margin-top: 80px;
 }
 
 html,body {
-	height: 100%;
-	margin: 0;
-	padding 0;
+height: 100%;
+margin: 0;
+padding 0;
 }
 
 body {
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF),
-		color-stop(1.5, #00A3EF) ) !important; /* Saf4+, Chrome*/
-	background-image: -webkit-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
-		#00A3EF 150%) !important; /* Chrome 11+, Saf5.1+*/
-	background-image: -moz-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
-		#00A3EF 150%) !important; /* FF3.6+*/
-	background-image: -ms-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
-		#00A3EF 150%) !important; /* IE10*/
-	background-image: -o-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
-		#00A3EF 150%) !important; /* Opera 11.10+*/
-	background-image: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #00A3EF
-		150%) !important; /* W3C*/
-	background-size: 100% 100% !important;
-	background-repeat: no-repeat !important;
-	background-origin: content-box !important;
-	background-attachment: fixed !important;
-	background-position: center !important;
-	webkit-background-size: cover !important;
-	-moz-background-size: cover !important;
-	-o-background-size: cover !important;
-	background-size: cover !important;
+background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF),
+color-stop(1.5, #00A3EF) ) !important; /* Saf4+, Chrome*/
+background-image: -webkit-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
+#00A3EF 150%) !important; /* Chrome 11+, Saf5.1+*/
+background-image: -moz-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
+#00A3EF 150%) !important; /* FF3.6+*/
+background-image: -ms-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
+#00A3EF 150%) !important; /* IE10*/
+background-image: -o-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 0%,
+#00A3EF 150%) !important; /* Opera 11.10+*/
+background-image: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #00A3EF
+150%) !important; /* W3C*/
+background-size: 100% 100% !important;
+background-repeat: no-repeat !important;
+background-origin: content-box !important;
+background-attachment: fixed !important;
+background-position: center !important;
+webkit-background-size: cover !important;
+-moz-background-size: cover !important;
+-o-background-size: cover !important;
+background-size: cover !important;
 }
 
 body:after {
-	z-index: -1;
-	content: "";
-	background-image: url("images/kontuur.png");
-	background-repeat: no-repeat;
-	background-size: 85%;
-	opacity: 0.2;
-	top: 15%;
-	left: 22%;
-	bottom: 0;
-	right: 0;
-	position: absolute;
+z-index: -1;
+content: "";
+background-image: url("../images/kontuur.png");
+background-repeat: no-repeat;
+background-size: 85%;
+opacity: 0.2;
+top: 15%;
+left: 22%;
+bottom: 0;
+right: 0;
+position: absolute;
 }
 
 .sendButton {
-	display: block;
-	font-size: 16pt;
+display: block;
+font-size: 16pt;
 }
 
 /** Most GWT widgets already have a style name defined */
 .gwt-DialogBox {
-	width: 400px;
+width: 400px;
 }
 
 .dialogVPanel {
-	margin: 5px;
+margin: 5px;
 }
 
 .serverResponseLabelError {
-	color: red;
+color: red;
 }
 
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
-	margin: 15px 6px 6px;
+margin: 15px 6px 6px;
 }
 
 #leftMenu {
-	width: 25%;
-	float: left;
-	padding-right: 5%;
+width: 25%;
+float: left;
+padding-right: 5%;
 }
 
 #content {
-	width: 60%;
-	float: left;
+width: 60%;
+float: left;
 }
 
 #footer {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
+position: absolute;
+bottom: 0;
+left: 50%;
 }
 
 #header {
-	padding: 20px;
-	margin-bottom: 120px;
-	width: 100%;
+padding: 20px;
+margin-bottom: 120px;
+width: 100%;
 }
 
 .candidateSearchBox {
-	height: 25px;
+height: 25px;
 }
 
 #searchPanel {
-	width: 50%;
-	float: left;
+width: 50%;
+float: left;
 }
 
 #loginPanel {
-	width: 45%;
-	float: right;
-	padding-right: 5%;
+width: 45%;
+float: right;
+padding-right: 5%;
 }
 
 #loginPanel table {
-	float: right;
+float: right;
 }
 
 select {
-	height: 30px;
-	padding-top: 2px;
+height: 30px;
+padding-top: 2px;
 }
 
 
 
 .login {
-	height: 30px;
-	padding-top: 5px;
-	float: right;
+height: 30px;
+padding-top: 5px;
+float: right;
 }
 
 button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotingButton,
 button.searchButton, button.nextButton, button.previousButton, button.applicationFormRightButton
-	{
-	height: 80px;
-	width: 80%;
-	border: 0px;
-	border-top: 1px solid #96d1f8;
-	background: #65a9d7;
-	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
-		to(#65a9d7) );
-	background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
-	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-	background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-	background: -o-linear-gradient(top, #3e779d, #65a9d7);
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-box-shadowmargin: 0.5em; : rgba (0,0,0,1) 0 1px 0;
-	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
-	color: white;
-	font-size: 24px;
-	text-decoration: none;
-	vertical-align: middle;
-	margin-top: 100px;
-	margin: 0.5em;
-	text-align: center;
+{
+height: 80px;
+width: 80%;
+border: 0px;
+border-top: 1px solid #96d1f8;
+background: #65a9d7;
+background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
+to(#65a9d7) );
+background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+background: -o-linear-gradient(top, #3e779d, #65a9d7);
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadowmargin: 0.5em; : rgba (0,0,0,1) 0 1px 0;
+-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+color: white;
+font-size: 24px;
+text-decoration: none;
+vertical-align: middle;
+margin-top: 100px;
+margin: 0.5em;
+text-align: center;
 }
 
 button.menuButton:hover,button.candidatePageVotingButton:hover,
 button.addButton:hover,button.cancelButton:hover,button.searchButton:hover
 button.nextButton:hover, button.previousButton:hover, button.applicationFormRightButton:hover
-	{
-	border-top-color: #28597a;
-	background: #28597a;
-	color: #ccc;
+{
+border-top-color: #28597a;
+background: #28597a;
+color: #ccc;
 }
 
-button.menuButton:active,button.candidatePageVotingButton:active 
+button.menuButton:active,button.candidatePageVotingButton:active
 button.addButton:active,button.cancelButton:active,button.searchButton:active
 button.nextButton:active, button.previousButton:active, button.applicationFormRightButton:active
-	{
-	border-top-color: #1b435e;
-	background: #1b435e;
+{
+border-top-color: #1b435e;
+background: #1b435e;
 }
 
 button.candidatePageVotingButton, button.cancelButton, button.nextButton, button.applicationFormRightButton {
-	float: right;
-	margin-right: 10px;
-	height: 40px;
-	width: 100px;
-	font-size: 15px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+float: right;
+margin-right: 10px;
+height: 40px;
+width: 100px;
+font-size: 15px;
+padding-top: 3px;
+padding-bottom: 3px;
 }
 
 button.applicationFormRightButton {
-	width: 120px;
+width: 120px;
 }
 
 button.addButton, button.previousButton {
-	float: left;
-	height: 40px;
-	width: 250px;
-	font-size: 15px;
-	padding-top: 3px;
-	padding-bottom: 3px;	
+float: left;
+height: 40px;
+width: 250px;
+font-size: 15px;
+padding-top: 3px;
+padding-bottom: 3px;	
 }
 
 button.previousButton {
-	width: 100px;
+width: 100px;
 }
 
 
 button.searchButton {
-	height: 30px;
-	width: 80px;
-	font-size: 12px;
-	margin-top: 0px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+height: 30px;
+width: 80px;
+font-size: 12px;
+margin-top: 0px;
+padding-top: 3px;
+padding-bottom: 3px;
 }
 
 button.idkaart {
-	background-image: url("images/idkaart.jpg");
-	background-repeat: no-repeat;
-	background-size: 100%;
-	height: 30px;
-	width: 90px;
-	float: right;
+background-image: url("../images/idkaart.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+height: 30px;
+width: 90px;
+float: right;
 }
 
 .candidatesTable,.statTable {
-	background-color: white;
-	width: 100%;
-	border-collapse: collapse;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
+background-color: white;
+width: 100%;
+border-collapse: collapse;
+border-style: solid;
+border-width: 1px;
+border-color: black;
 }
 
 .candidatesTable tr {
-	border-width: 2px;
-	border-style: solid;
-	border-color: black;
+border-width: 2px;
+border-style: solid;
+border-color: black;
 }
 
 .statTableArea {
-	border-top: 2px solid black;
+border-top: 2px solid black;
 }
 
 .candidatesTable td,.statTable td {
-	min-width: 50px;
-	padding: 10px;
-	font-size: 12pt;
+min-width: 50px;
+padding: 10px;
+font-size: 12pt;
 }
 
 .candidatesTable tr:first-child,.statTable tr:first-child {
-	background-color: #C0C0C0
+background-color: #C0C0C0
 }
 
 .candidatesTable tr:nth-of-type(even),.statTable tr:nth-of-type(even) {
-	background-color: #D2DDFC;
+background-color: #D2DDFC;
 }
 
 .votingLabel {
-	color: #638AF5;
+color: #638AF5;
 }
 
 .votingLabel a:hover {
-	text-decoration: underline;
+text-decoration: underline;
 }
 
 .applicationForm {
-	width: 100%;
+width: 100%;
 }
 
 .applicationFormRightButton {
-	float: right;
+float: right;
 }
 
 .candidatePicture {
-	width: 150px;
-	height: 150px;
-	padding-right: 15px;
-	padding-bottom: 15px;
+width: 150px;
+height: 150px;
+padding-right: 15px;
+padding-bottom: 15px;
 }
 
 .candidatePagePanel {
-	width: 100%;
+width: 100%;
 }
 
 .areaHeading {
-	font-size: 2em;
+font-size: 2em;
 }
 
 .candidatePagePanel td:first-child {
-	width: 150px;
+width: 150px;
 }
 
 .valimistest {
-	margin-right: 80px;
+margin-right: 80px;
 }
 
 .valikud {
-	height: 30px;
+height: 30px;
 }
 
 .headerMainPanel {
-	width: 100%;
+width: 100%;
 }
