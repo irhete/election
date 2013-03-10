@@ -34,7 +34,7 @@ public class Valimised implements EntryPoint {
 
 		ContentContainer.getInstance().setMenu(new Menu());
 		ContentContainer.getInstance().setHeader(new Header());
-		//ContentContainer.getInstance().setContent(new Valimistest());
+		ContentContainer.getInstance().setContent(new ApplicationForm());
 
 		// final Button sendButton = new Button("Send");
 		// final TextBox nameField = new TextBox();

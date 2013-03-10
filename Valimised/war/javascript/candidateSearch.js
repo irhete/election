@@ -10,15 +10,20 @@ function createCandidatesTable(selectedArea, searchKeywords) {
         dataType: "json",
     	success:function(result){
     		var columnNames = ["Nimi", "Erakond", "Piirkond", "Number", ""];
-    		var table = $("<table>").addClass("candidatesTable");
+    		var table = $("<table>").addClass("tablesorter");
+    		table.addClass("candidatesTable");
+    		var header = $("<tr>");
+    		var thead = $("<thead>");
+    		var tbody = $("<tbody>");
 			var row = $("<tr>");
 			var button;
 						
 			// lisame päise - esimese rea
 			$.each(columnNames, function(index, value){
-				row.append($("<td>").text(value));
+				header.append($("<th>").text(value));
 			});
-			table.append(row);
+			thead.append(header);
+			table.append(thead);
 			
 			result.candidates.forEach(function (candidate) {
 				if ((selectedArea == "--Kõik--" || candidate.area == selectedArea) 
@@ -36,13 +41,13 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    			} 
 	    			
 	    			row.on("click", "td", getDetailedCandidateInfo); // klikihändler
-	    			table.append(row);
+	    			tbody.append(row);
 				}
     		});
-
+			table.append(tbody);
 			$(".candidatesTable").remove();
 			table.prependTo("#content");	
-			
+			$(".tablesorter").tablesorter( {sortList: [[0,0], [1,0]], headers: { 4: { sorter: false} }}); 
     	}
     	
     });
@@ -54,4 +59,5 @@ function vote() {
 
 function getDetailedCandidateInfo() {
 	alert("Info");
-}
+} 
+

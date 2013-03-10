@@ -261,23 +261,45 @@ button.idkaart {
 	border-color: black;
 }
 
+.candidatesTable th {
+	text-align: left;
+	font-weight: normal;
+}
+
+
+
 .statTableArea {
 	border-top: 2px solid black;
 }
 
-.candidatesTable td,.statTable td {
+.candidatesTable td, th, .statTable td, th {
 	min-width: 50px;
 	padding: 10px;
 	font-size: 12pt;
 }
 
-.candidatesTable tr:first-child,.statTable tr:first-child {
+.candidatesTable th, .statTable tr:first-child {
 	background-color: #C0C0C0
 }
 
 .candidatesTable tr:nth-of-type(even),.statTable tr:nth-of-type(even) {
 	background-color: #D2DDFC;
 }
+
+table.tablesorter thead tr .header {
+	background-image: url("../images/bg.gif");
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url("../images/asc.gif");
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url("../images/desc.gif");
+}
+
+
 
 .votingLabel {
 	color: #638AF5;
