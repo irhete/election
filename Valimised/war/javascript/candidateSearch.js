@@ -40,6 +40,7 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 				}
     		});
 
+			$("#content table").hide();
 			$(".candidatesTable").remove();
 			table.prependTo("#content");	
 			
