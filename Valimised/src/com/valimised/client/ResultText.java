@@ -17,6 +17,7 @@ public class ResultText extends Composite {
 
 		resultsTextTable = new FlexTable();
 		resultsTextTable.setStyleName("candidatesTable");
+		resultsTextTable.getElement().setId("resultsTextTable");
 		createTableHeader();
 		resultsTextTable.addClickHandler(new ClickHandler() {
 			@Override

@@ -12,8 +12,9 @@ public class ContentContainer {
 	}
 
 	public void setContent(Widget content) {
-		RootPanel.get("content").getElement()
-				.setInnerHTML(content.getElement().getInnerHTML());
+		RootPanel.get("content").clear();
+		RootPanel.get("content").getElement().setInnerHTML("");
+		RootPanel.get("content").add(content);
 	}
 
 	public void setMenu(Widget content) {

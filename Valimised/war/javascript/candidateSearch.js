@@ -9,68 +9,42 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     	url:"candidatesData/candidates.json", 
         dataType: "json",
     	success:function(result){
-    		var table = window.document.createElement("table");
-    		table.setAttribute("class", "candidatesTable");
-    		var row = window.document.createElement("tr");
-    		table.appendChild(row);
-    		
-    		var nameColumn = window.document.createElement("td");
-    		nameColumn.appendChild(window.document.createTextNode("Nimi"));
-			row.appendChild(nameColumn);
+    		var columnNames = ["Nimi", "Erakond", "Piirkond", "Number", ""];
+    		var table = $("<table>").addClass("candidatesTable");
+			var row = $("<tr>");
+			var button;
+						
+			// lisame päise - esimese rea
+			$.each(columnNames, function(index, value){
+				row.append($("<td>").text(value));
+			});
+			table.append(row);
 			
-			var partyColumn = window.document.createElement("td");
-			partyColumn.appendChild(window.document.createTextNode("Erakond"));
-			row.appendChild(partyColumn);
-			
-			var areaColumn = window.document.createElement("td");
-			areaColumn.appendChild(window.document.createTextNode("Piirkond"));
-			row.appendChild(areaColumn);
-			
-			var numberColumn = window.document.createElement("td");
-			numberColumn.appendChild(window.document.createTextNode("Number"));
-			row.appendChild(numberColumn);
-			
-			var votingColumn = window.document.createElement("td");
-			votingColumn.appendChild(window.document.createTextNode(""));
-			row.appendChild(votingColumn);
-
 			result.candidates.forEach(function (candidate) {
-				if ((selectedArea == "--Kõik--" || candidate.area == selectedArea) && (searchKeywords == "" || candidate.person.name.toLowerCase().indexOf(searchKeywords) !== -1)) {
-	    			row = window.document.createElement("tr");
-	    			table.appendChild(row);
-	    			nameColumn = window.document.createElement("td");
-	    			nameColumn.appendChild(window.document.createTextNode(candidate.person.name));
-	    			row.appendChild(nameColumn);
-	    			partyColumn = window.document.createElement("td");
-	    			partyColumn.appendChild(window.document.createTextNode(candidate.party.name));
-	    			row.appendChild(partyColumn);
-	    			areaColumn = window.document.createElement("td");
-	    			areaColumn.appendChild(window.document.createTextNode(candidate.area));
-	    			row.appendChild(areaColumn);
-	    			numberColumn = window.document.createElement("td");
-	    			numberColumn.appendChild(window.document.createTextNode(candidate.number));
-	    			row.appendChild(numberColumn);
-	    			
-	    			nameColumn.setAttribute('onclick','getDetailedCandidateInfo()');
-	    			partyColumn.setAttribute('onclick','getDetailedCandidateInfo()');
-	    			areaColumn.setAttribute('onclick','getDetailedCandidateInfo()');
-	    			numberColumn.setAttribute('onclick','getDetailedCandidateInfo()');
-	    			
-	    			votingColumn = window.document.createElement("td");
+				if ((selectedArea == "--Kõik--" || candidate.area == selectedArea) 
+						&& (searchKeywords == "" || candidate.person.name.toLowerCase().indexOf(searchKeywords) !== -1)) {
+	    			row = $("<tr>").append($("<td>").text(candidate.person.name),
+	    									$("<td>").text(candidate.party.name),
+	    									$("<td>").text(candidate.area),
+	    									$("<td>").text(candidate.number),
+	    									$("<td>").text(""));
+
 	    			if (candidate.area == "Tartu") {
-	    				var votingButton = window.document.createElement("button");
-	    				votingButton.innerText = "Hääleta";
-	    				votingButton.setAttribute('onclick','vote()');
-	    				votingColumn.appendChild(votingButton);
-	    			} else {
-	    			votingColumn.appendChild(window.document.createTextNode(""));
-	    			votingColumn.setAttribute('onclick','getDetailedCandidateInfo()');
-	    			}
-	    			row.appendChild(votingColumn);
+	    				button = $("<button>").text("Hääleta");
+	    				button.on("click", vote); // klikihändler
+	    				row.children().last().append(button);
+	    			} 
+	    			
+	    			row.on("click", "td", getDetailedCandidateInfo); // klikihändler
+	    			table.append(row);
 				}
     		});
-    		 document.getElementById("content").innerHTML = table.outerHTML;
+
+			$(".candidatesTable").remove();
+			table.prependTo("#content");	
+			
     	}
+    	
     });
 }
 

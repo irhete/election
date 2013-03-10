@@ -11,6 +11,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class Choices extends Composite {
 
+	private InlineHTML html;
+	
 	public Choices() {
 		VerticalPanel verticalPane = new VerticalPanel();
 		initWidget(verticalPane);
@@ -19,7 +21,7 @@ public class Choices extends Composite {
 		HorizontalPanel mainPanel = new HorizontalPanel();
 		mainPanel.addStyleName("chosenCandidatePanel");
 
-		InlineHTML html = new InlineHTML(
+		html = new InlineHTML(
 				"<p>Olete hääletanud kandidaadi <a href='#'>Andres Tamm</a> poolt.</p>");
 		html.addDomHandler(new ClickHandler() {
 			@Override
@@ -35,6 +37,13 @@ public class Choices extends Composite {
 		
 		Button cancel = new Button("Tühista");
 		cancel.addStyleName("cancelButton");
+		cancel.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				changeVoted("");
+			}
+		});
+		
 		Button addCandidate = new Button("Lisa end kandidaadiks");
 		addCandidate.addStyleName("addButton");
 //		addCandidate.getElement().setAttribute("onclick", "test()");
@@ -53,4 +62,12 @@ public class Choices extends Composite {
 		verticalPane.add(addCandidate);
 	}
 
+	public void changeVoted(String name) {
+		if (name == "") {
+			html.setHTML("<p>Te ei ole veel hääletanud.</p>");
+		}
+		else {
+			html.setHTML("<p>Olete hääletanud kandidaadi <a href='#'>" + name + "</a> poolt.</p>");
+		}
+	}
 }
