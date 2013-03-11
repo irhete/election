@@ -2,6 +2,7 @@ package com.valimised.client;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -52,4 +53,12 @@ public class Candidate extends Composite {
 		mainPanel.add(topPanel);
 		mainPanel.add(descriptionLabel);
 	}
+	
+	public static void newCandidate() {
+		ContentContainer.getInstance().setContent(new Candidate("111"));
+	}
+	
+	public static native void exportStaticMethod() /*-{
+    	$wnd.newCandidate = $entry(@com.valimised.client.Candidate::newCandidate());
+ }-*/;
 }

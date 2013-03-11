@@ -32,7 +32,6 @@ public class Valimised implements EntryPoint {
 		ContentContainer.getInstance().setMenu(new Menu());
 		ContentContainer.getInstance().setHeader(new Header());
 		ContentContainer.getInstance().setContent(new About());
-
-
+		Candidate.exportStaticMethod();
 	}
 }

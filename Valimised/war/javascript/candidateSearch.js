@@ -28,27 +28,29 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 			result.candidates.forEach(function (candidate) {
 				if ((selectedArea == "--Kõik--" || candidate.area == selectedArea) 
 						&& (searchKeywords == "" || candidate.person.name.toLowerCase().indexOf(searchKeywords) !== -1)) {
-	    			row = $("<tr>").append($("<td>").text(candidate.person.name),
-	    									$("<td>").text(candidate.party.name),
-	    									$("<td>").text(candidate.area),
-	    									$("<td>").text(candidate.number),
-	    									$("<td>").text(""));
+	    			row = $("<tr>").append($("<td>").text(candidate.person.name).on("click", getDetailedCandidateInfo),
+	    									$("<td>").text(candidate.party.name).on("click", getDetailedCandidateInfo),
+	    									$("<td>").text(candidate.area).on("click", getDetailedCandidateInfo),
+	    									$("<td>").text(candidate.number).on("click", getDetailedCandidateInfo),
+	    									$("<td>").text("").addClass("votingColumn"));
 
 	    			if (candidate.area == "Tartu") {
 	    				button = $("<button>").text("Hääleta");
 	    				button.on("click", vote); // klikihändler
 	    				row.children().last().append(button);
-	    			} 
-	    			
-	    			row.on("click", "td", getDetailedCandidateInfo); // klikihändler
+	    			} else {
+	    				row.children().last().on("click", getDetailedCandidateInfo);
+	    			}
 	    			tbody.append(row);
 				}
     		});
-
+			
 			$("#content table").hide();
 			table.append(tbody);
 			$(".candidatesTable").remove();
 			table.prependTo("#content");	
+			
+			
 			$(".tablesorter").tablesorter( {sortList: [[0,0], [1,0]], headers: { 4: { sorter: false} }}); 
 			$(".tablesorter").bind("sortStart",function() { 
     	        $("#spinner").show(); 
@@ -61,9 +63,9 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 }
 
 function vote() {
-	alert("Voted");
+	alert("voted");
 }
 
 function getDetailedCandidateInfo() {
-	alert("Info");
+	window.newCandidate();
 } 
