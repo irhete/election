@@ -155,7 +155,7 @@ select {
 	float: right;
 }
 
-button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotingButton,button.searchButton,button.nextButton,button.previousButton,button.applicationFormRightButton
+button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotingButton,button.searchButton,button.nextButton,button.previousButton,button.applicationFormRightButton,button.candidatesTableVotingButton
 	{
 	height: 80px;
 	width: 80%;
@@ -185,7 +185,7 @@ button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotin
 }
 
 button.menuButton:hover,button.candidatePageVotingButton:hover,button.addButton:hover,button.cancelButton:hover,button.searchButton:hover
-button.nextButton:hover,button.previousButton:hover,button.applicationFormRightButton:hover
+button.nextButton:hover,button.previousButton:hover,button.applicationFormRightButton:hover,button.candidatesTableVotingButton:hover
 	{
 	border-top-color: #28597a;
 	background: #28597a;
@@ -194,13 +194,13 @@ button.nextButton:hover,button.previousButton:hover,button.applicationFormRightB
 
 button.menuButton:active,button.candidatePageVotingButton:active
 button.addButton:active,button.cancelButton:active,button.searchButton:active
-button.nextButton:active,button.previousButton:active,button.applicationFormRightButton:active
+button.nextButton:active,button.previousButton:active,button.applicationFormRightButton:active,button.candidatesTableVotingButton:active
 	{
 	border-top-color: #1b435e;
 	background: #1b435e;
 }
 
-button.candidatePageVotingButton,button.cancelButton,button.nextButton,button.applicationFormRightButton
+button.candidatePageVotingButton,button.cancelButton,button.nextButton,button.applicationFormRightButton,button.candidatesTableVotingButton
 	{
 	float: right;
 	margin-right: 10px;
@@ -233,6 +233,14 @@ button.searchButton {
 	width: 80px;
 	font-size: 12px;
 	margin-top: 0px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+button.candidatesTableVotingButton {
+	height: 120%;
+	width: 100%;
+	margin: 0px;
 	padding-top: 3px;
 	padding-bottom: 3px;
 }

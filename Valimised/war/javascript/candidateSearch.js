@@ -37,6 +37,7 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    			if (candidate.area == "Tartu") {
 	    				button = $("<button>").text("Hääleta");
 	    				button.on("click", vote); // klikihändler
+	    				button.addClass("candidatesTableVotingButton");
 	    				row.children().last().append(button);
 	    			} else {
 	    				row.children().last().on("click", getDetailedCandidateInfo);
