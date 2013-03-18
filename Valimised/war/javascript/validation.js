@@ -24,7 +24,7 @@ function isNumber(n) {
 }
 
 function validatePhoneNumber() {
-	if (isNaN(document.getElementById("phoneBox").value - 0)) {
+	if (isNaN(document.getElementById("phoneBox").value.replace(/ /g,'') - 0)) {
 		document.getElementById("invalidPhoneNr").style.visibility = 'visible';
 		document.getElementById("phoneBox").style.backgroundColor = '#FF6666';
 		return false;
