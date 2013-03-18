@@ -18,7 +18,7 @@ public class Candidate extends Composite {
 		HorizontalPanel topPanel = new HorizontalPanel();
 		topPanel.setStyleName("candidatePagePanel");
 
-		Image candidatePicture = new Image("images/maesalu.jpeg");
+		Image candidatePicture = new Image("images/person.jpg");
 		candidatePicture.setStyleName("candidatePicture");
 
 		VerticalPanel credentialsPanel = new VerticalPanel();
