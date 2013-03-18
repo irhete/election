@@ -34,6 +34,7 @@ public class ApplicationForm extends Composite {
 	Label invalidPhoneNr;
 
 	public ApplicationForm() {
+		exportGWTMethod();
 		VerticalPanel mainPanel = new VerticalPanel();
 		initWidget(mainPanel);
 
@@ -151,7 +152,7 @@ public class ApplicationForm extends Composite {
 //		});
 	}
 
-	protected void setToLabels() {
+	public void setToLabels() {
 		table.setWidget(0, 1, new Label(firstNameBox.getText()));
 		table.setWidget(1, 1, new Label(lastNameBox.getText()));
 		table.setWidget(2, 1, new Label(personalCodeBox.getText()));
@@ -178,9 +179,24 @@ public class ApplicationForm extends Composite {
 		});
 		Button signButton = new Button("Allkirjastama");
 		signButton.setStyleName("applicationFormRightButton");
+		signButton.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				ContentContainer.getInstance().setContent(new Choices());
+				
+			}
+		});
 
 		table.setWidget(8, 0, previousButton);
 		table.setWidget(8, 1, signButton);
 	}
+	
+	public native void exportGWTMethod() /*-{
+		var that = this;
+	$wnd.setToLabels= $entry(function() {
+             return that.@com.valimised.client.ApplicationForm::setToLabels()()
+        });
+}-*/;
 
 }

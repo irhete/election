@@ -1,7 +1,10 @@
 function validateForm() {
-	validate('partyBox', 'partyFieldRequired', 'Vali kuuluvus');
-	validate('areaBox', 'areaFieldRequired', 'Vali linn');
-	validatePhoneNumber();
+	var partyChosen = validate('partyBox', 'partyFieldRequired', 'Vali kuuluvus');
+	var areaChosen = validate('areaBox', 'areaFieldRequired', 'Vali linn');
+	var phoneOK = validatePhoneNumber();
+	if (partyChosen && areaChosen && phoneOK) {
+		window.setToLabels();
+	}
 }
 
 function validate(elementField, elementId, value) {
