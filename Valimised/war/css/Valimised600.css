@@ -25,21 +25,25 @@
 		height:100%;
 }
 	
-	Button.menuButton, button.candidatePageVotingButton, button.searchButton, button.cancelButton, button.nextButton, button.previousButton, button.applicationFormRightButton, button.addButton {
+	Button.menuButton, button.candidatePageVotingButton, button.searchButton, button.cancelButton, button.nextButton, button.previousButton, button.applicationFormRightButton, button.addButton, button.candidatesTableVotingButton {
 		font-size: 10pt;
 		padding: 1px;
 		margin: 1px;
 	}
+	Button.candidatesTableVotingButton {
+		padding-bottom:1px
+		}
+		
 	.candidatesTable {
 		width: 100%;
 	}
-	.candidatesTable td {
+	.candidatesTable td, th {
 		padding: 0px 3px 0px 3px;
 	}
 	.statTable td {
 		padding: 5px;
 	}
-	.candidatesTable td,.statTable td {
+	.candidatesTable td, th,.statTable td {
 		min-width: 10px;
 		font-size: 10pt;
 	}
