@@ -9,7 +9,17 @@
   
   <servlet-mapping>
     <servlet-name>candidateServlet</servlet-name>
-    <url-pattern>/election</url-pattern>
+    <url-pattern>/candidate</url-pattern>
+  </servlet-mapping> 
+  
+      <servlet>
+    <servlet-name>keywordServlet</servlet-name>
+    <servlet-class>com.valimised.server.KeywordSuggestServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>keywordServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping> 
   
   <!-- Default page to serve -->
@@ -17,5 +27,19 @@
     <welcome-file>Valimised.html</welcome-file>
   </welcome-file-list>
 
+
+  <servlet>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+    <init-param>
+      <param-name>services</param-name>
+      <param-value/>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <url-pattern>/_ah/spi/*</url-pattern>
+  </servlet-mapping>
 
 </web-app>

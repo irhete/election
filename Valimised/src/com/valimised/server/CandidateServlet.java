@@ -21,21 +21,15 @@ public class CandidateServlet extends HttpServlet {
 public void doGet(HttpServletRequest req, HttpServletResponse resp)
 	  throws IOException {
 	   
-	  PrintWriter out = resp.getWriter();
 	  Connection c = null;
-	  System.out.println("request saadetud");
 	    try {
 	      DriverManager.registerDriver(new AppEngineDriver());
-	      System.out.println("driver loodud");
 	      String id = req.getParameter("id");
-	      System.out.println(id);
 	      c = DriverManager.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
-	      System.out.println("connection loodud");
 	      String statement ="SELECT firstName, lastName FROM candidate WHERE id=?";
 	      PreparedStatement stmt = c.prepareStatement(statement);
 	      stmt.setString(1, id);
 	      ResultSet success = stmt.executeQuery();
-	      System.out.println("päring tehtud");
 	      while (success.next()) {
 	        System.out.println(success.getString(1) + " " + success.getString(2));
 	      }

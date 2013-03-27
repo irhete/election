@@ -37,6 +37,7 @@ public class Header extends Composite {
 		TextBox candidate = new TextBox();
 		candidate.setStyleName("candidateSearchBox");
 		candidate.getElement().setId("candidateSearchBox");
+		candidate.getElement().setAttribute("onclick", "keywordSuggest()");
 
 		Button search = new Button("Otsi");
 		search.addStyleName("searchButton");

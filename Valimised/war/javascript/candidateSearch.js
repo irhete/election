@@ -1,3 +1,12 @@
+function keywordSuggest() {
+  $(function() {
+    $( "#candidateSearchBox" ).autocomplete({
+    	source: '/search',
+        minLength: 2
+    });
+  });
+}
+
 function search() {
 	var selectedArea = $('#areaList').val();
 	var searchKeywords = $('#candidateSearchBox').val().toLowerCase();
@@ -5,6 +14,7 @@ function search() {
 }
 
 function createCandidatesTable(selectedArea, searchKeywords) {
+	searchKeywords = searchKeywords.split(",")[0]; // TODO: if "lastname, firstname", search by lastname && firstname
 	$.ajax({
     	url:"candidatesData/candidates.json", 
         dataType: "json",
