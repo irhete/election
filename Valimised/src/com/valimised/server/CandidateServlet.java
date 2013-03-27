@@ -37,7 +37,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp)
 	      ResultSet success = stmt.executeQuery();
 	      System.out.println("päring tehtud");
 	      while (success.next()) {
-	        System.out.println(success.getString(0) + " " + success.getString(1));
+	        System.out.println(success.getString(1) + " " + success.getString(2));
 	      }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
