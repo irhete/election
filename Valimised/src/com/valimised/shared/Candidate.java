@@ -3,7 +3,7 @@ package com.valimised.shared;
 
 public class Candidate {
 	
-	private Long id;
+	private int id;
 	
 	private String firstName;
 	
@@ -22,5 +22,14 @@ public class Candidate {
 	public Candidate(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+
+	public Candidate(String lastName, String firstName, int id, int area,
+			int party) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.id = id;
+		this.area = area;
+		this.party = party;
 	}
 }

@@ -8,15 +8,14 @@ function keywordSuggest() {
 }
 
 function search() {
-	var selectedArea = $('#areaList').val();
+	var selectedArea = $('#areaList option:selected').index();
 	var searchKeywords = $('#candidateSearchBox').val().toLowerCase();
 	createCandidatesTable(selectedArea, searchKeywords);
 }
 
 function createCandidatesTable(selectedArea, searchKeywords) {
-	searchKeywords = searchKeywords.split(",")[0]; // TODO: if "lastname, firstname", search by lastname && firstname
 	$.ajax({
-    	url:"candidatesData/candidates.json", 
+    	url:'/candidates?keywords=' + searchKeywords + '&area=' + selectedArea, 
         dataType: "json",
     	success:function(result){
     		var columnNames = ["Nimi", "Erakond", "Piirkond", "Number", ""];
@@ -35,13 +34,11 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 			thead.append(header);
 			table.append(thead);
 			
-			result.candidates.forEach(function (candidate) {
-				if ((selectedArea == "--Kõik--" || candidate.area == selectedArea) 
-						&& (searchKeywords == "" || candidate.person.name.toLowerCase().indexOf(searchKeywords) !== -1)) {
-	    			row = $("<tr>").append($("<td>").text(candidate.person.name).on("click", getDetailedCandidateInfo),
-	    									$("<td>").text(candidate.party.name).on("click", getDetailedCandidateInfo),
+			result.forEach(function (candidate) {
+	    			row = $("<tr>").append($("<td>").text(candidate.firstName + " " + candidate.lastName).on("click", getDetailedCandidateInfo),
+	    									$("<td>").text(candidate.party).on("click", getDetailedCandidateInfo),
 	    									$("<td>").text(candidate.area).on("click", getDetailedCandidateInfo),
-	    									$("<td>").text(candidate.number).on("click", getDetailedCandidateInfo),
+	    									$("<td>").text(candidate.id).on("click", getDetailedCandidateInfo),
 	    									$("<td>").text("").addClass("votingColumn"));
 
 	    			if (candidate.area == "Tartu") {
@@ -53,7 +50,6 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    				row.children().last().on("click", getDetailedCandidateInfo);
 	    			}
 	    			tbody.append(row);
-				}
     		});
 			
 			$("#content table").hide();

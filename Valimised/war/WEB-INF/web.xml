@@ -22,6 +22,16 @@
     <url-pattern>/search</url-pattern>
   </servlet-mapping> 
   
+  <servlet>
+    <servlet-name>candidatesServlet</servlet-name>
+    <servlet-class>com.valimised.server.CandidatesServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>candidatesServlet</servlet-name>
+    <url-pattern>/candidates</url-pattern>
+  </servlet-mapping> 
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Valimised.html</welcome-file>

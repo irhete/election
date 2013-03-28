@@ -16,7 +16,7 @@ public class Menu extends Composite {
 		Button candidates = new Button("Kandidaadid");
 		candidates.addStyleName("menuButton");
 		candidates.getElement().setAttribute("onclick",
-		"createCandidatesTable(\"--Kõik--\", \"\")");
+		"createCandidatesTable(-1, \"\")");
 		
 		Button results = new Button("Tulemused");
 		results.addStyleName("menuButton");
