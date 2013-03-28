@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
+import com.valimised.shared.Data;
 
 public class Header extends Composite {
 
@@ -78,12 +79,9 @@ public class Header extends Composite {
 
 	private ListBox getListBox(boolean b) {
 		ListBox widget = new ListBox();
-		widget.addItem("--Kõik--");
-		widget.addItem("Tallinn");
-		widget.addItem("Tartu");
-		widget.addItem("Pärnu");
-		widget.addItem("Narva");
-		widget.addItem("Viljandi");
+		for (String area : Data.areas) {
+		widget.addItem(area);
+		}
 		return widget;
 	}
 }

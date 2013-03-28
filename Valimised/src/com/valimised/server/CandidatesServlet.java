@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 import com.google.gson.Gson;
 import com.valimised.shared.Candidate;
+import com.valimised.shared.Data;
 
 public class CandidatesServlet extends HttpServlet {
 	/**
@@ -33,17 +34,13 @@ public class CandidatesServlet extends HttpServlet {
 		      DriverManager.registerDriver(new AppEngineDriver());
 		      String key = req.getParameter("keywords");
 		      String area = req.getParameter("area");
-		      System.out.println(key);
-		      System.out.println(area);
 		      String[] keywords;
 		      if (key == null || key.equals("")) {
 		    	  keywords = new String[0];
 		      } else {
 		    	  keywords = key.split("[, ]");
 		      }
-		      System.out.println(keywords.length);
 		      String areaChoice = area.equals("0") ? "" : " area = " + area;
-		      System.out.println(areaChoice);
 		      String nameChoice = "";
 		      if (keywords.length >= 1) {
 		    	  if (!areaChoice.equals("")) nameChoice += " AND";
@@ -54,19 +51,17 @@ public class CandidatesServlet extends HttpServlet {
 		    	  }
 		    	  nameChoice = nameChoice.substring(0, nameChoice.length()-3);
 		      }
-		      System.out.println(nameChoice);
 		      String statement ="SELECT id, firstName, lastName, area, party FROM candidate";
 		      if (!(areaChoice.equals("") && nameChoice.equals(""))) {
 		    	  statement += " WHERE" + areaChoice + nameChoice;
 		      }
-		      System.out.println(statement);
 		      c = DriverManager.getConnection("jdbc:google:rdbms://e-election-app:instance2/election"); 
 		      
 		      PreparedStatement stmt = c.prepareStatement(statement);
 		      ResultSet success = stmt.executeQuery();
 		      List<Candidate> candidates = new ArrayList<Candidate>();
 		      while (success.next()) {
-		    	  Candidate candidate = new Candidate(success.getString("lastName"), success.getString("firstName"), success.getInt("id"), success.getInt("area"), success.getInt("party"));
+		    	  Candidate candidate = new Candidate(success.getString("lastName"), success.getString("firstName"), success.getInt("id"), Data.areas[success.getInt("area")], Data.parties[success.getInt("party") - 1]);
 		    	  candidates.add(candidate);
 		      }
 		      String gson = new Gson().toJson(candidates);

@@ -9,9 +9,9 @@ public class Candidate {
 	
 	private String lastName;
 	
-	private int party;
+	private String party;
 	
-	private int area;
+	private String area;
 	
 	private String description;
 	
@@ -24,8 +24,8 @@ public class Candidate {
 		this.lastName = lastName;
 	}
 
-	public Candidate(String lastName, String firstName, int id, int area,
-			int party) {
+	public Candidate(String lastName, String firstName, int id, String area,
+			String party) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.id = id;
