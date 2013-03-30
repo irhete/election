@@ -112,13 +112,16 @@ body:after {
 	float: left;
 }
 
-#footer {
+footer {
 	position: relative;
     text-align: center;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 100px;
-	bottom: 0;
+    height: 100 px;
+}
+
+footer p {
+	font-size: 10pt;
 }
 
 #header {
