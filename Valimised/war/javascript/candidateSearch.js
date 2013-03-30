@@ -89,7 +89,7 @@ function createResultsTable() {
 			table.append(thead);
 			
 			result.forEach(function (result) {
-    			row = $("<tr>").append($("<td>").text(result.areaName,
+    			row = $("<tr>").append($("<td>").text(result.areaName),
     									$("<td>").text(result.partyName),
     									$("<td>").text(result.result));
     			tbody.append(row);

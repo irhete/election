@@ -6,17 +6,28 @@ import com.google.gwt.user.client.ui.Widget;
 public class ContentContainer {
 
 	private static final ContentContainer INSTANCE = new ContentContainer();
+	
+	private boolean isChoices;
+	
+	public void setChoices(boolean b) {
+		isChoices = b;
+	}
+	
+	public boolean getChoices() {
+		return isChoices;
+	}
 
 	public static ContentContainer getInstance() {
 		return INSTANCE;
 	}
 
 	public void setContent(Widget content) {
+		setChoices(false);
 		RootPanel.get("content").clear();
 		RootPanel.get("content").getElement().setInnerHTML("");
 		RootPanel.get("content").add(content);
 	}
-
+	
 	public void setMenu(Widget content) {
 		RootPanel.get("leftMenu").clear();
 		RootPanel.get("leftMenu").add(content);

@@ -36,6 +36,10 @@ public class Header extends Composite {
 	}
 	private void loggedOut(){
 		ContentContainer.getInstance().setElement("loginPanel", loginPanel);
+		boolean isChoices = ContentContainer.getInstance().getChoices();
+		if (isChoices) {
+			ContentContainer.getInstance().setContent(new About());
+		}
 	}
 
 	private HorizontalPanel searchPanel() {
@@ -99,6 +103,7 @@ public class Header extends Composite {
 			@Override
 			public void onClick(ClickEvent event) {
 				ContentContainer.getInstance().setContent(new Choices());
+				ContentContainer.getInstance().setChoices(true);
 			}
 		});
 		Button logout = new Button("Logi välja");
