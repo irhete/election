@@ -145,6 +145,8 @@ body:after {
 	float: right;
 }
 
+
+
 select {
 	height: 30px;
 	padding-top: 2px;
@@ -253,6 +255,28 @@ button.idkaart {
 	height: 30px;
 	width: 90px;
 	float: right;
+}
+
+button.choices, button.logout {
+	background-image: none;
+	border: none;
+	background-color: transparent;
+	color: #28597a;
+	cursor: pointer;
+}
+
+button.choices:hover, button.logout:hover {
+	text-decoration: underline;
+	color: #1b435e;
+}
+
+button.logout{
+	border-left: 2px solid #1b435e;
+	padding-right: 0;
+}
+
+.loginname {
+	text-align: right;
 }
 
 .candidatesTable,.statTable {

@@ -8,12 +8,14 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.valimised.shared.Data;
 
 public class Header extends Composite {
 
 	private HorizontalPanel searchPanel;
 	private HorizontalPanel loginPanel;
+	private VerticalPanel loginPanel2;
 
 	public Header() {
 
@@ -23,9 +25,17 @@ public class Header extends Composite {
 
 		searchPanel = searchPanel();
 		loginPanel = loginPanel();
+		loginPanel2 = loginPanel2("Mari Maripuu");
 		ContentContainer.getInstance().setElement("searchPanel", searchPanel);
 		ContentContainer.getInstance().setElement("loginPanel", loginPanel);
 
+	}
+	
+	private void loggedIn(){
+		ContentContainer.getInstance().setElement("loginPanel", loginPanel2);
+	}
+	private void loggedOut(){
+		ContentContainer.getInstance().setElement("loginPanel", loginPanel);
 	}
 
 	private HorizontalPanel searchPanel() {
@@ -68,11 +78,43 @@ public class Header extends Composite {
 		idkaart.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new Choices());
+				loggedIn();
 			}
 		});
 		headerPanel2.add(login);
 		headerPanel2.add(idkaart);
+
+		return headerPanel2;
+	}
+	
+	private VerticalPanel loginPanel2(String name) {
+		VerticalPanel headerPanel2 = new VerticalPanel();
+		headerPanel2.setSpacing(5);
+
+		Label loginname = new Label(name);
+		loginname.addStyleName("loginname");
+		Button choices = new Button("Valikud");
+		choices.setStyleName("choices");
+		choices.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				ContentContainer.getInstance().setContent(new Choices());
+			}
+		});
+		Button logout = new Button("Logi välja");
+		logout.setStyleName("logout");
+		logout.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				loggedOut();
+			}
+		});
+		headerPanel2.add(loginname);
+		HorizontalPanel horPanel = new HorizontalPanel();
+		horPanel.setStyleName("login2");
+		horPanel.add(choices);
+		horPanel.add(logout);
+		headerPanel2.add(horPanel);
 
 		return headerPanel2;
 	}
