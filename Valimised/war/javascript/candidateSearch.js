@@ -69,6 +69,35 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     });
 }
 
+function createResultsTable() {
+	$.ajax({
+		url:'/results/Eesti',
+		datatype: "json",
+		success:function(result){
+			var colNames = ["Piirkond","Erakond","Tulemus"];
+			var table = $("<table>").addClass("tablesorter");
+    		table.addClass("overallResultsTable");
+    		var header = $("<tr>");
+    		var thead = $("<thead>");
+    		var tbody = $("<tbody>");
+			var row = $("<tr>");
+			
+			$.each(columnNames, function(index, value){
+				header.append($("<th>").text(value));
+			});
+			thead.append(header);
+			table.append(thead);
+			
+			result.forEach(function (result) {
+    			row = $("<tr>").append($("<td>").text(result.areaName,
+    									$("<td>").text(result.partyName),
+    									$("<td>").text(result.result));
+    			tbody.append(row);
+		});
+		}
+	});
+}
+
 function vote() {
 	alert("voted");
 }

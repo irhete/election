@@ -16,16 +16,12 @@ public class Menu extends Composite {
 		Button candidates = new Button("Kandidaadid");
 		candidates.addStyleName("menuButton");
 		candidates.getElement().setAttribute("onclick",
-		"createCandidatesTable(0, \"\")");
-		
+				"createCandidatesTable(0, \"\")");
+
 		Button results = new Button("Tulemused");
 		results.addStyleName("menuButton");
-		results.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new TextVersion());
-			}
-		});
+		results.getElement().setAttribute("onclick", "createResultsTable()");
+		
 		Button elections = new Button("Valimistest");
 		elections.addStyleName("menuButton");
 		elections.addClickHandler(new ClickHandler() {
