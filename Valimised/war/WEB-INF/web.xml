@@ -32,6 +32,16 @@
     <url-pattern>/candidates</url-pattern>
   </servlet-mapping> 
   
+  <servlet>
+    <servlet-name>resultsServlet</servlet-name>
+    <servlet-class>com.valimised.server.ResultsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>resultsServlet</servlet-name>
+    <url-pattern>/results</url-pattern>
+  </servlet-mapping> 
+   
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Valimised.html</welcome-file>
