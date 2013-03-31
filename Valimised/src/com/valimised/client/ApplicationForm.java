@@ -124,8 +124,10 @@ public class ApplicationForm extends Composite {
 	private void createWidgets() {
 		firstNameLabel = new Label("Eesnimi");
 		firstNameBox = new TextBox();
+		firstNameBox.getElement().setId("firstNameBox");
 		lastNameLabel = new Label("Perekonnanimi");
 		lastNameBox = new TextBox();
+		lastNameBox.getElement().setId("lastNameBox");
 		personalCodeLabel = new Label("Isikukood");
 		personalCodeBox = new TextBox();
 		partyLabel = new Label("Erakondlik kuuluvus");
@@ -179,15 +181,14 @@ public class ApplicationForm extends Composite {
 		});
 		Button signButton = new Button("Allkirjastama");
 		signButton.setStyleName("applicationFormRightButton");
+		//signButton.getElement().setAttribute("onclick", "");
+		
 		signButton.addClickHandler(new ClickHandler() {
-			
 			@Override
 			public void onClick(ClickEvent event) {
 				ContentContainer.getInstance().setContent(new Choices());
-				
 			}
 		});
-
 		table.setWidget(8, 0, previousButton);
 		table.setWidget(8, 1, signButton);
 	}
