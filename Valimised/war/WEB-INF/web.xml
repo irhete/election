@@ -39,8 +39,28 @@
   
   <servlet-mapping>
     <servlet-name>resultsServlet</servlet-name>
-    <url-pattern>/results</url-pattern>
+    <url-pattern>/Eesti</url-pattern>
   </servlet-mapping> 
+    
+  <servlet>
+    <servlet-name>areaResultsServlet</servlet-name>
+    <servlet-class>com.valimised.server.AreaResultsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>areaResultsServlet</servlet-name>
+    <url-pattern>/Piirkond</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>applicationFormServlet</servlet-name>
+    <servlet-class>com.valimised.server.ApplicationFormServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>applicationFormServlet</servlet-name>
+    <url-pattern>/application</url-pattern>
+  </servlet-mapping>
    
   <!-- Default page to serve -->
   <welcome-file-list>
