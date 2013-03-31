@@ -60,9 +60,9 @@ public class Choices extends Composite {
 		});
 
 		mainPanel.add(html);
-		mainPanel.add(toCandidates);
+//		mainPanel.add(toCandidates);
 		mainPanel.add(cancel);
-		cancel.setVisible(false);
+//		cancel.setVisible(false);
 
 		verticalPane.add(mainPanel);
 		verticalPane.add(addCandidate);

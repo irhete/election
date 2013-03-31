@@ -18,6 +18,7 @@ public class Menu extends Composite {
 		candidates.getElement().setAttribute("onclick",
 				"createCandidatesTable(0, \"\")");
 
+
 		Button results = new Button("Tulemused");
 		results.addStyleName("menuButton");
 		results.getElement().setAttribute("onclick", "createResultsTable()");

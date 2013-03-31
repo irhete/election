@@ -162,7 +162,8 @@ select {
 	float: right;
 }
 
-button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotingButton,button.searchButton,button.nextButton,button.previousButton,button.applicationFormRightButton,button.candidatesTableVotingButton
+button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotingButton,button.searchButton,
+button.nextButton,button.previousButton,button.applicationFormRightButton,button.candidatesTableVotingButton
 	{
 	height: 80px;
 	width: 80%;
@@ -191,7 +192,7 @@ button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotin
 	text-align: center;
 }
 
-button.menuButton:hover,button.candidatePageVotingButton:hover,button.addButton:hover,button.cancelButton:hover,button.searchButton:hover
+button.menuButton:hover,button.candidatePageVotingButton:hover,button.addButton:hover,button.cancelButton:hover,button.searchButton:hover,
 button.nextButton:hover,button.previousButton:hover,button.applicationFormRightButton:hover,button.candidatesTableVotingButton:hover
 	{
 	border-top-color: #28597a;
@@ -199,8 +200,8 @@ button.nextButton:hover,button.previousButton:hover,button.applicationFormRightB
 	color: #ccc;
 }
 
-button.menuButton:active,button.candidatePageVotingButton:active
-button.addButton:active,button.cancelButton:active,button.searchButton:active
+button.menuButton:active,button.candidatePageVotingButton:active,
+button.addButton:active,button.cancelButton:active,button.searchButton:active,
 button.nextButton:active,button.previousButton:active,button.applicationFormRightButton:active,button.candidatesTableVotingButton:active
 	{
 	border-top-color: #1b435e;
