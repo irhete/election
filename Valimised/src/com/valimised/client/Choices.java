@@ -22,7 +22,7 @@ public class Choices extends Composite {
 		mainPanel.addStyleName("chosenCandidatePanel");
 
 		html = new InlineHTML(
-				"<p>Olete hääletanud kandidaadi <a href='#'>Andres Tamm</a> poolt.</p>");
+				"<p>Te ei ole veel hääletanud.</p>");
 		html.addDomHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
@@ -34,6 +34,11 @@ public class Choices extends Composite {
 				}
 			}
 		}, ClickEvent.getType());
+		
+		Button toCandidates = new Button("Vaata kandidaate");
+		toCandidates.addStyleName("toCandidatesButton");
+		toCandidates.getElement().setAttribute("onclick",
+				"createCandidatesTable(0, \"\")");
 		
 		Button cancel = new Button("Tühista");
 		cancel.addStyleName("cancelButton");
@@ -50,13 +55,14 @@ public class Choices extends Composite {
 		addCandidate.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance()
-						.setContent(new ApplicationForm());
+				ContentContainer.getInstance().setContent(new ApplicationForm());
 			}
 		});
 
 		mainPanel.add(html);
+		mainPanel.add(toCandidates);
 		mainPanel.add(cancel);
+		cancel.setVisible(false);
 
 		verticalPane.add(mainPanel);
 		verticalPane.add(addCandidate);
