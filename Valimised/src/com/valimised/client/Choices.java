@@ -70,7 +70,7 @@ public class Choices extends Composite {
 
 	public void changeVoted(String name) {
 		if (name == "") {
-			html.setHTML("<p>Te ei ole veel hääletanud.</p>");
+			html.setHTML("<p>Te ei ole veel hääletanud!!!</p>");
 		}
 		else {
 			html.setHTML("<p>Olete hääletanud kandidaadi <a href='#'>" + name + "</a> poolt.</p>");

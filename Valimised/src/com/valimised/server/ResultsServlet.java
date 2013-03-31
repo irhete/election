@@ -16,10 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.appengine.api.rdbms.AppEngineDriver;
 import com.google.gson.Gson;
+import com.valimised.shared.Data;
 import com.valimised.shared.Result;
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
 public class ResultsServlet extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4193274716821077388L;
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,21 +36,21 @@ public class ResultsServlet extends HttpServlet {
 			DriverManager.registerDriver(new AppEngineDriver());
 
 			// returns overall results by areas by party.
-			String query = "select areaName, partyName, sum(votes) as result from candidate"
-					+ " join election.area on area.areaID = candidate.area join"
-					+ " election.party on candidate.party = party.partyID"
-					+ " group by partyName, areaName order by area, partyID";
+//			String query = "select areaName, partyName, sum(votes) as result from candidate"
+//					+ " join election.area on area.areaID = candidate.area join"
+//					+ " election.party on candidate.party = party.partyID"
+//					+ " group by partyName, areaName order by area, partyID";
+			String query = "SELECT area, party, sum(votes) FROM candidate GROUP BY area, party";
 
-			c = DriverManager
-					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
+			c = DriverManager.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
 
 			PreparedStatement statement = c.prepareStatement(query);
 			ResultSet tableRow = statement.executeQuery();
 			List<Result> results = new ArrayList<Result>();
 			while (tableRow.next()) {
-				Result result = new Result(tableRow.getString("areaName"),
-						tableRow.getString("partyName"),
-						tableRow.getInt("result"));
+				Result result = new Result(Data.areas[tableRow.getInt("area")],
+						Data.parties[tableRow.getInt("party")-1],
+						tableRow.getInt("votes"));
 				results.add(result);
 			}
 			String gson = new Gson().toJson(results);

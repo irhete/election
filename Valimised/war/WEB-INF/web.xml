@@ -39,7 +39,7 @@
   
   <servlet-mapping>
     <servlet-name>resultsServlet</servlet-name>
-    <url-pattern>/Eesti</url-pattern>
+    <url-pattern>/results</url-pattern>
   </servlet-mapping> 
     
   <servlet>
