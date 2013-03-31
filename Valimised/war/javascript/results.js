@@ -10,7 +10,7 @@ function createResultsTable() {
 		url:'/results',
 		datatype: "json",
 		success:function(results){
-			var colNames = ["Piirkond", "Erakond", "Tulemus"];
+			var columnNames = ["Piirkond", "Erakond", "Tulemus"];
 			var table = $("<table>").addClass("tablesorter");
     		table.addClass("candidatesTable");
     		var header = $("<tr>");
@@ -23,7 +23,7 @@ function createResultsTable() {
 			});
 			thead.append(header);
 			table.append(thead);
-			
+
 			results.forEach(function (result) {
     			row = $("<tr>").append($("<td>").text(result.area).on("click", createAreaResultsTable),
     									$("<td>").text(result.party).on("click", createAreaResultsTable),

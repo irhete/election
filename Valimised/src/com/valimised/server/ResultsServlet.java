@@ -50,8 +50,9 @@ public class ResultsServlet extends HttpServlet {
 			while (tableRow.next()) {
 				Result result = new Result(Data.areas[tableRow.getInt("area")],
 						Data.parties[tableRow.getInt("party")-1],
-						tableRow.getInt("votes"));
+						tableRow.getInt("sum(votes)"));
 				results.add(result);
+				
 			}
 			String gson = new Gson().toJson(results);
 			response.setContentType("application/json");
