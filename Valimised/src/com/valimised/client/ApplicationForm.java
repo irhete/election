@@ -2,7 +2,6 @@ package com.valimised.client;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -98,8 +97,8 @@ public class ApplicationForm extends Composite {
 		table.setWidget(6, 1, phoneBox);
 		table.setWidget(7, 0, nextButton);
 	}
-	
-	private void addBadInputLabels(){
+
+	private void addBadInputLabels() {
 		badAreaInput = new Label("Pead siit ühe valima!");
 		badPartyInput = new Label("Pead siit ühe valima!");
 		invalidPhoneNr = new Label("Sisestatud number on vigane!");
@@ -147,12 +146,12 @@ public class ApplicationForm extends Composite {
 		nextButton.addStyleName("nextButton");
 		nextButton.getElement().setId("nextButton");
 		nextButton.getElement().setAttribute("onclick", "validateForm()");
-//		nextButton.addClickHandler(new ClickHandler() {
-//			@Override
-//			public void onClick(ClickEvent event) {
-//				setToLabels();
-//			}
-//		});
+		// nextButton.addClickHandler(new ClickHandler() {
+		// @Override
+		// public void onClick(ClickEvent event) {
+		// setToLabels();
+		// }
+		// });
 	}
 
 	public void setToLabels() {
@@ -173,7 +172,6 @@ public class ApplicationForm extends Composite {
 		Button previousButton = new Button("Tagasi");
 		previousButton.addStyleName("previousButton");
 		previousButton.addClickHandler(new ClickHandler() {
-
 			@Override
 			public void onClick(ClickEvent event) {
 				addWidgetsToTable();
@@ -182,27 +180,28 @@ public class ApplicationForm extends Composite {
 		});
 		Button signButton = new Button("Allkirjastama");
 		signButton.setStyleName("applicationFormRightButton");
-//		signButton.getElement().setAttribute("onclick", "createCandidate()");
-		
-		signButton.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-//				Window.Location.replace("/application?firstName="+firstNameBox.getText()+
-//						"&lastName="+lastNameBox.getText()+
-//						"&area="+(areaBox.getSelectedIndex()+1)+
-//						"&party="+partyBox.getSelectedIndex());
-				ContentContainer.getInstance().setContent(new Choices());
-			}
-		});
+		String calling = "createCandidate(\"" + firstNameBox.getText() + "\", \""
+				+ lastNameBox.getText() + "\", " + areaBox.getSelectedIndex()
+				+ ", " + partyBox.getSelectedIndex() + ")";
+		signButton.getElement().setAttribute("onclick", calling);
+
+		// signButton.addClickHandler(new ClickHandler() {
+		// @Override
+		// public void onClick(ClickEvent event) {
+		//
+		// ContentContainer.getInstance().setCandidate(true);
+		// ContentContainer.getInstance().setContent(new Choices());
+		// }
+		// });
 		table.setWidget(8, 0, previousButton);
 		table.setWidget(8, 1, signButton);
 	}
-	
+
 	public native void exportGWTMethod() /*-{
 		var that = this;
-	$wnd.setToLabels= $entry(function() {
-             return that.@com.valimised.client.ApplicationForm::setToLabels()()
-        });
-}-*/;
+		$wnd.setToLabels = $entry(function() {
+			return that.@com.valimised.client.ApplicationForm::setToLabels()()
+		});
+	}-*/;
 
 }

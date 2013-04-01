@@ -3,7 +3,6 @@ package com.valimised.server;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
 
 import javax.servlet.http.HttpServlet;

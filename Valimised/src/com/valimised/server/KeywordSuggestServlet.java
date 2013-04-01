@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.appengine.api.rdbms.AppEngineDriver;
 import com.google.gson.Gson;
-import com.valimised.shared.Candidate;
 
 public class KeywordSuggestServlet extends HttpServlet {
 	/**
