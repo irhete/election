@@ -117,7 +117,8 @@ footer {
     text-align: center;
     margin-left: 20%;
     margin-right: 20%;
-    height: 100 px;
+    margin-top: 30%;
+    height: 50 px;
 }
 
 footer p {
@@ -163,7 +164,8 @@ select {
 }
 
 button.menuButton,button.addButton,button.cancelButton,button.candidatePageVotingButton,button.searchButton,
-button.nextButton,button.previousButton,button.applicationFormRightButton,button.candidatesTableVotingButton
+button.nextButton,button.previousButton,button.applicationFormRightButton,button.candidatesTableVotingButton,
+button.toCandidatesButton
 	{
 	height: 80px;
 	width: 80%;
@@ -193,7 +195,8 @@ button.nextButton,button.previousButton,button.applicationFormRightButton,button
 }
 
 button.menuButton:hover,button.candidatePageVotingButton:hover,button.addButton:hover,button.cancelButton:hover,button.searchButton:hover,
-button.nextButton:hover,button.previousButton:hover,button.applicationFormRightButton:hover,button.candidatesTableVotingButton:hover
+button.nextButton:hover,button.previousButton:hover,button.applicationFormRightButton:hover,button.candidatesTableVotingButton:hover,
+button.toCandidatesButton:hover
 	{
 	border-top-color: #28597a;
 	background: #28597a;
@@ -202,13 +205,15 @@ button.nextButton:hover,button.previousButton:hover,button.applicationFormRightB
 
 button.menuButton:active,button.candidatePageVotingButton:active,
 button.addButton:active,button.cancelButton:active,button.searchButton:active,
-button.nextButton:active,button.previousButton:active,button.applicationFormRightButton:active,button.candidatesTableVotingButton:active
+button.nextButton:active,button.previousButton:active,button.applicationFormRightButton:active,
+button.candidatesTableVotingButton:active, button.toCandidatesButton:active
 	{
 	border-top-color: #1b435e;
 	background: #1b435e;
 }
 
-button.candidatePageVotingButton,button.cancelButton,button.nextButton,button.applicationFormRightButton,button.candidatesTableVotingButton
+button.candidatePageVotingButton,button.cancelButton,button.nextButton,button.applicationFormRightButton,
+button.candidatesTableVotingButton
 	{
 	float: right;
 	margin-right: 10px;
@@ -223,13 +228,17 @@ button.applicationFormRightButton {
 	width: 120px;
 }
 
-button.addButton,button.previousButton {
+button.addButton,button.previousButton, button.toCandidatesButton {
 	float: left;
 	height: 40px;
-	width: 250px;
+	width: 200px;
 	font-size: 15px;
 	padding-top: 3px;
 	padding-bottom: 3px;
+}
+
+button.toCandidatesButton {
+	width: 150px;
 }
 
 button.previousButton {
