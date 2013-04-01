@@ -23,6 +23,7 @@ public class VoteServlet extends HttpServlet {
 		Connection c = null;
 		try {
 			String statement;
+			String decreaseVotes;
 			boolean hasVoted = false;
 			DriverManager.registerDriver(new AppEngineDriver());
 			/*
@@ -34,7 +35,7 @@ public class VoteServlet extends HttpServlet {
 			String votedFor = request.getParameter("votedId");
 			c = DriverManager
 					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
-			String query = "SELECT id FROM voter WHERE id = ?";
+			String query = "SELECT votedFor FROM voter WHERE id = ?";
 			PreparedStatement qry = c.prepareStatement(query);
 			qry.setString(1, id);
 			ResultSet success = qry.executeQuery();
@@ -44,6 +45,10 @@ public class VoteServlet extends HttpServlet {
 			} else { // has voted
 				hasVoted = true;
 				statement = "UPDATE voter SET votedFor = ? WHERE id = ?";
+				decreaseVotes = "UPDATE candidate SET votes = votes - 1 WHERE id = ?";
+				PreparedStatement decreaseVote = c.prepareStatement(decreaseVotes);
+				decreaseVote.setString(1, success.getString("votedFor"));
+				decreaseVote.executeUpdate();
 			}
 			PreparedStatement ps = c.prepareStatement(statement);
 			if (!hasVoted) {
@@ -56,6 +61,10 @@ public class VoteServlet extends HttpServlet {
 				ps.setString(2, id);
 			}
 			ps.executeUpdate(); // inserts/updates database values
+			String increaseVotes = "UPDATE candidate SET votes = votes + 1 WHERE id = ?";
+			PreparedStatement increaseVote = c.prepareStatement(increaseVotes);
+			increaseVote.setString(1, votedFor);
+			increaseVote.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
