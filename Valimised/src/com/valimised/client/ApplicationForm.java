@@ -182,7 +182,7 @@ public class ApplicationForm extends Composite {
 		signButton.setStyleName("applicationFormRightButton");
 		String calling = "createCandidate(\"" + firstNameBox.getText() + "\", \""
 				+ lastNameBox.getText() + "\", " + areaBox.getSelectedIndex()
-				+ ", " + partyBox.getSelectedIndex() + ")";
+				+ ", " + partyBox.getSelectedIndex() + ", \"" + personalCodeBox.getText() + "\")";
 		signButton.getElement().setAttribute("onclick", calling);
 
 		// signButton.addClickHandler(new ClickHandler() {

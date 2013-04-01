@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,8 @@ public class ApplicationFormServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Connection c = null;
 		try {
+			String statement;
+			boolean isCandidate = false;
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager
 					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
@@ -34,16 +37,27 @@ public class ApplicationFormServlet extends HttpServlet {
 			String lastName = request.getParameter("lastName");
 			String area = request.getParameter("area");
 			String party = request.getParameter("party");
-			String statement = "insert into candidate (firstName, lastName, area, party, description, votes) values (?, ?, ?, ?, ?, ?)";
-			PreparedStatement stmt = c.prepareStatement(statement);
-			stmt.setString(1, firstName);
-			stmt.setString(2, lastName);
-			stmt.setString(3, area);
-			stmt.setString(4, party);
-			stmt.setString(5, "");
-			stmt.setString(6, "0");
-			stmt.executeUpdate();
-
+			String idCode = request.getParameter("idCode");
+			
+			String query = "SELECT idCode FROM candidate WHERE idCode = ?";
+			PreparedStatement qry = c.prepareStatement(query);
+			qry.setString(1, idCode);
+			ResultSet success = qry.executeQuery();
+			// test if the person is already candidate
+			if (!success.next()) { // isn't candidate
+				statement = "INSERT INTO candidate (firstName, lastName, area, party, description, votes, idCode) " +
+						"VALUES (?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement ps = c.prepareStatement(statement);
+			ps.setString(1, firstName);
+			ps.setString(2, lastName);
+			ps.setString(3, area);
+			ps.setString(4, party);
+			ps.setString(5, "");
+			ps.setString(6, "0");
+			ps.setString(7, idCode);
+			ps.executeUpdate(); // inserts/updates database values
+			} 
+			
 			out.flush();
 		} catch (SQLException e) {
 			e.printStackTrace();

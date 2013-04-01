@@ -68,8 +68,8 @@
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>cancelVoteServlet</servlet-name>
-    <url-pattern>/cancelVote</url-pattern>
+    <servlet-name>voteServlet</servlet-name>
+    <url-pattern>/vote</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -77,9 +77,19 @@
     <servlet-class>com.valimised.server.CancelVoteServlet</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-    <servlet-name>voteServlet</servlet-name>
-    <url-pattern>/vote</url-pattern>
+    <servlet-mapping>
+    <servlet-name>cancelVoteServlet</servlet-name>
+    <url-pattern>/cancelVote</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>cancelCandidateServlet</servlet-name>
+    <servlet-class>com.valimised.server.CancelCandidateServlet</servlet-class>
+  </servlet>
+  
+    <servlet-mapping>
+    <servlet-name>cancelCandidateServlet</servlet-name>
+    <url-pattern>/cancelCandidate</url-pattern>
   </servlet-mapping>
    
   <!-- Default page to serve -->
