@@ -26,6 +26,7 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     		var tbody = $("<tbody>");
 			var row = $("<tr>");
 			var button;
+			var loggedIn = window.isLogged();
 						
 			// lisame päise - esimese rea
 			$.each(columnNames, function(index, value){
@@ -40,8 +41,8 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    									$("<td>").text(candidate.area).on("click", getDetailedCandidateInfo),
 	    									$("<td>").text(candidate.id).on("click", getDetailedCandidateInfo),
 	    									$("<td>").text("").addClass("votingColumn"));
-
-	    			if (candidate.area == "Tartu linn") {
+	    	
+	    			if (candidate.area == "Tartu linn" && loggedIn==true) {
 	    				button = $("<button>").text("Hääleta");
 	    				button.on("click", function(){vote(candidate.id)}); // klikihändler
 	    				button.addClass("candidatesTableVotingButton");
@@ -55,7 +56,13 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 			$("#content table").hide();
 			table.append(tbody);
 			$(".candidatesTable").remove();
-			table.prependTo("#content");	
+			table.prependTo("#content");
+			if (selectedArea == 0 && searchKeywords == "") {
+				window.candidatePage(1);
+			}
+			else {
+				window.candidatePage(2);
+			}
 			
 			
 			$(".tablesorter").tablesorter( {sortList: [[0,0], [1,0]], headers: { 4: { sorter: false} }}); 

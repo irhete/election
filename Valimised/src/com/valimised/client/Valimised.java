@@ -36,5 +36,7 @@ public class Valimised implements EntryPoint {
 		Choices.exportStaticMethod2();
 		Choices.exportStaticMethod3();
 		Choices.exportStaticMethod4();
+		Header.exportStaticMethodLogged();
+		Menu.exportStaticMethodPage();
 	}
 }

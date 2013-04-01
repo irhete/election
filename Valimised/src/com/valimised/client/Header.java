@@ -13,6 +13,8 @@ import com.valimised.shared.Data;
 
 public class Header extends Composite {
 
+	private Button c;
+	private Button search;
 	private HorizontalPanel searchPanel;
 	private HorizontalPanel loginPanel;
 	private VerticalPanel loginPanel2;
@@ -32,13 +34,24 @@ public class Header extends Composite {
 	}
 	
 	private void loggedIn(){
+		ContentContainer.getInstance().setLogged(true);
 		ContentContainer.getInstance().setElement("loginPanel", loginPanel2);
+		ContentContainer.getInstance().setContent(new Choices());
 	}
 	private void loggedOut(){
+		ContentContainer.getInstance().setLogged(false);
 		ContentContainer.getInstance().setElement("loginPanel", loginPanel);
 		boolean isChoices = ContentContainer.getInstance().getChoices();
+		int isCandidatePage = ContentContainer.getInstance().getCandidatePage();
 		if (isChoices) {
 			ContentContainer.getInstance().setContent(new About());
+		}
+		else if (isCandidatePage == 2) {
+//			ContentContainer.getInstance().setContent(new About());
+			search.click();
+		}
+		else if (isCandidatePage == 1){
+			c.click();
 		}
 	}
 
@@ -54,7 +67,11 @@ public class Header extends Composite {
 		candidate.getElement().setId("candidateSearchBox");
 		candidate.getElement().setAttribute("onclick", "keywordSuggest()");
 
-		Button search = new Button("Otsi");
+		c = new Button();
+		c.getElement().setAttribute("onclick",
+				"createCandidatesTable(0, \"\")");
+		
+		search = new Button("Otsi");
 		search.addStyleName("searchButton");
 		search.getElement().setId("searchButton");
 //		search.addClickHandler(new ClickHandler() {
@@ -131,4 +148,12 @@ public class Header extends Composite {
 		}
 		return widget;
 	}
+	
+	public static boolean isLogged(){
+		return ContentContainer.getInstance().getLogged();
+	}
+	
+	public static native void exportStaticMethodLogged() /*-{
+		$wnd.isLogged = $entry(@com.valimised.client.Header::isLogged());
+}-*/;
 }

@@ -8,14 +8,23 @@ public class ContentContainer {
 	private static final ContentContainer INSTANCE = new ContentContainer();
 	
 	private boolean isChoices;
+	private int isCandidatePage;
 	private boolean hasVoted;
 	private boolean isCandidate;
+	private boolean logged = false;
 	
 	public void setChoices(boolean b) {
 		isChoices = b;
 	}	
 	public boolean getChoices() {
 		return isChoices;
+	}
+	
+	public void setCandidatePage(int i) {
+		isCandidatePage = i;
+	}	
+	public int getCandidatePage() {
+		return isCandidatePage;
 	}
 	
 	public void setVoted(boolean b) {
@@ -31,6 +40,13 @@ public class ContentContainer {
 	public boolean getCandidate() {
 		return isCandidate;
 	}
+	
+	public void setLogged(boolean b) {
+		logged = b;
+	}	
+	public boolean getLogged() {
+		return logged;
+	}
 
 	public static ContentContainer getInstance() {
 		return INSTANCE;
@@ -38,6 +54,7 @@ public class ContentContainer {
 
 	public void setContent(Widget content) {
 		setChoices(false);
+		setCandidatePage(0);
 		RootPanel.get("content").clear();
 		RootPanel.get("content").getElement().setInnerHTML("");
 		RootPanel.get("content").add(content);

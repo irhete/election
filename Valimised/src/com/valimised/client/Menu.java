@@ -40,4 +40,12 @@ public class Menu extends Composite {
 		// menuPanel.add(results);
 		// menuPanel.add(elections);
 	}
+	
+	public static void candidatePage(int i) {
+		ContentContainer.getInstance().setCandidatePage(i);
+	}
+	
+	public static native void exportStaticMethodPage() /*-{
+	$wnd.candidatePage = $entry(@com.valimised.client.Menu::candidatePage(I));
+}-*/;
 }
