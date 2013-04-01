@@ -35,7 +35,6 @@ public class AreaResultsServlet extends HttpServlet {
 			c = DriverManager
 					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
 			String areaId = request.getParameter("areaId");
-			System.out.println(areaId);
 			PreparedStatement statement = c.prepareStatement(query);
 			statement.setString(1, areaId);
 			ResultSet tableRows = statement.executeQuery();

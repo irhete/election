@@ -55,9 +55,9 @@ function createAreaResultsTable(areaId) {
 			action: 'create'
 		},
 		success:function(result){
-			var colNames = ["Nimi","Number","Erakond","Tulemus"];
+			var columnNames = ["Nimi","Number","Erakond","Tulemus"];
 			var table = $("<table>").addClass("tablesorter");
-    		table.addClass("areaCandidatesTable");
+    		table.addClass("candidatesTable");
     		var header = $("<tr>");
     		var thead = $("<thead>");
     		var tbody = $("<tbody>");
@@ -68,7 +68,6 @@ function createAreaResultsTable(areaId) {
 			});
 			thead.append(header);
 			table.append(thead);
-			
 			result.forEach(function (AreaResult) {
     			row = $("<tr>").append($("<td>").text(AreaResult.name),
     									$("<td>").text(AreaResult.candidateNumber),
@@ -78,7 +77,7 @@ function createAreaResultsTable(areaId) {
 			});
 			$("#content table").hide();
 			table.append(tbody);
-			$(".areaCandidatesTable").remove();
+			$(".candidatesTable").remove();
 			table.prependTo("#content");
 			
 			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]});
