@@ -41,10 +41,11 @@ public class AreaResultsServlet extends HttpServlet {
 			ResultSet tableRows = statement.executeQuery();
 			List<AreaResult> results = new ArrayList<AreaResult>();
 			while (tableRows.next()) {
-				AreaResult areaResult = new AreaResult(tableRows.getString("firstName")
-						+ " " + tableRows.getString("lastName"),
+				AreaResult areaResult = new AreaResult(
+						tableRows.getString("firstName") + " "
+								+ tableRows.getString("lastName"),
 						tableRows.getInt("id"),
-						Data.parties[tableRows.getInt("party")],
+						Data.parties[tableRows.getInt("party") - 1],
 						tableRows.getInt("votes"));
 				results.add(areaResult);
 			}
