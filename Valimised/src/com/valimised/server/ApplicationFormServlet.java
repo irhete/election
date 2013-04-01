@@ -14,8 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.appengine.api.rdbms.AppEngineDriver;
 
-@SuppressWarnings("serial")
 public class ApplicationFormServlet extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2112571060470183501L;
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,12 +34,14 @@ public class ApplicationFormServlet extends HttpServlet {
 			String lastName = request.getParameter("lastNameBox");
 			String area = request.getParameter("areaBox");
 			String party = request.getParameter("partyBox");
-			String statement = "insert into (firstName, lastName, area, party) candidate values (?, ?, ?, ?)";
+			String statement = "insert into candidate (firstName, lastName, area, party, description, votes) values (?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = c.prepareStatement(statement);
 			stmt.setString(1, firstName);
 			stmt.setString(2, lastName);
 			stmt.setString(3, area);
 			stmt.setString(4, party);
+			stmt.setString(5, "");
+			stmt.setString(4, "0");
 			stmt.executeUpdate();
 
 			out.flush();

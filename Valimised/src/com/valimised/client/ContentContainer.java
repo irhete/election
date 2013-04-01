@@ -8,13 +8,28 @@ public class ContentContainer {
 	private static final ContentContainer INSTANCE = new ContentContainer();
 	
 	private boolean isChoices;
+	private boolean hasVoted;
+	private boolean isCandidate;
 	
 	public void setChoices(boolean b) {
 		isChoices = b;
-	}
-	
+	}	
 	public boolean getChoices() {
 		return isChoices;
+	}
+	
+	public void setVoted(boolean b) {
+		hasVoted = b;
+	}	
+	public boolean getVoted() {
+		return hasVoted;
+	}
+	
+	public void setCandidate(boolean b) {
+		isCandidate = b;
+	}	
+	public boolean getCandidate() {
+		return isCandidate;
 	}
 
 	public static ContentContainer getInstance() {

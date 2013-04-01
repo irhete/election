@@ -181,12 +181,13 @@ public class ApplicationForm extends Composite {
 		});
 		Button signButton = new Button("Allkirjastama");
 		signButton.setStyleName("applicationFormRightButton");
-		//signButton.getElement().setAttribute("onclick", "");
+//		signButton.getElement().setAttribute("onclick", "createCandidate()");
 		
 		signButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				ContentContainer.getInstance().setContent(new Choices());
+				
 			}
 		});
 		table.setWidget(8, 0, previousButton);
