@@ -49,7 +49,7 @@
   
   <servlet-mapping>
     <servlet-name>areaResultsServlet</servlet-name>
-    <url-pattern>/Piirkond</url-pattern>
+    <url-pattern>/results/area</url-pattern>
   </servlet-mapping> 
   
   <servlet>
