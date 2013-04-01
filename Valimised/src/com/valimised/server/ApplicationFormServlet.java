@@ -30,10 +30,10 @@ public class ApplicationFormServlet extends HttpServlet {
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager
 					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
-			String firstName = request.getParameter("firstNameBox");
-			String lastName = request.getParameter("lastNameBox");
-			String area = request.getParameter("areaBox");
-			String party = request.getParameter("partyBox");
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			String area = request.getParameter("area");
+			String party = request.getParameter("party");
 			String statement = "insert into candidate (firstName, lastName, area, party, description, votes) values (?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = c.prepareStatement(statement);
 			stmt.setString(1, firstName);

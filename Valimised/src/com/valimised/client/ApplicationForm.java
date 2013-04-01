@@ -2,6 +2,7 @@ package com.valimised.client;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -161,7 +162,7 @@ public class ApplicationForm extends Composite {
 		table.setWidget(3, 1,
 				new Label(partyBox.getItemText(partyBox.getSelectedIndex())));
 		table.setWidget(4, 1,
-				new Label(areaBox.getItemText(partyBox.getSelectedIndex())));
+				new Label(areaBox.getItemText(areaBox.getSelectedIndex())));
 		table.setWidget(5, 1, new Label(addressArea.getText()));
 		table.setWidget(6, 1, new Label(phoneBox.getText()));
 
@@ -186,8 +187,11 @@ public class ApplicationForm extends Composite {
 		signButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
+//				Window.Location.replace("/application?firstName="+firstNameBox.getText()+
+//						"&lastName="+lastNameBox.getText()+
+//						"&area="+(areaBox.getSelectedIndex()+1)+
+//						"&party="+partyBox.getSelectedIndex());
 				ContentContainer.getInstance().setContent(new Choices());
-				
 			}
 		});
 		table.setWidget(8, 0, previousButton);
