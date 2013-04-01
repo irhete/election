@@ -42,8 +42,8 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    									$("<td>").text("").addClass("votingColumn"));
 
 	    			if (candidate.area == "Tartu linn") {
-	    				button = $("<button>").text("H√§√§leta");
-	    				button.on("click", vote); // klikih√§ndler
+	    				button = $("<button>").text("H‰‰leta");
+	    				button.on("click", function(){vote(candidate.id)}); // klikih‰ndler
 	    				button.addClass("candidatesTableVotingButton");
 	    				row.children().last().append(button);
 	    			} else {
@@ -69,8 +69,17 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     });
 }
 
-function vote() {
-	alert("voted");
+function vote(candidateId) {
+	$.ajax({
+		url:'/vote?votedId=' + candidateId,
+		type:'POST',
+		data:{
+			action: 'create'
+		},
+		success: function(){
+			alert('Valisid kandidaadi nr: ' + candidateId);
+		}
+	});
 }
 
 function getDetailedCandidateInfo() {
