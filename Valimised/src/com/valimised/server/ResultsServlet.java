@@ -50,7 +50,7 @@ public class ResultsServlet extends HttpServlet {
 			while (tableRow.next()) {
 				Result result = new Result(Data.areas[tableRow.getInt("area")],
 						Data.parties[tableRow.getInt("party")-1],
-						tableRow.getInt("sum(votes)"));
+						tableRow.getInt("sum(votes)"), tableRow.getInt("area"));
 				results.add(result);
 				
 			}

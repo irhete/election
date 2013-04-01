@@ -25,9 +25,9 @@ function createResultsTable() {
 			table.append(thead);
 
 			results.forEach(function (result) {
-    			row = $("<tr>").append($("<td>").text(result.area).on("click", createAreaResultsTable),
-    									$("<td>").text(result.party).on("click", createAreaResultsTable),
-    									$("<td>").text(result.votes).on("click", createAreaResultsTable));
+    			row = $("<tr>").append($("<td>").text(result.area).on("click", function(){createAreaResultsTable(result.areaId)}),
+    									$("<td>").text(result.party).on("click", function(){createAreaResultsTable(result.areaId)}),
+    									$("<td>").text(result.votes).on("click", function(){createAreaResultsTable(result.areaId)}));
     			tbody.append(row);
 			});
 			
@@ -36,7 +36,7 @@ function createResultsTable() {
 			$(".candidatesTable").remove();
 			table.prependTo("#content");
 			
-			$(".tablesorter").tablesorter( {sortList: [[0,0], [1,0]], headers: { 4: { sorter: false} }}); 
+			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]}); 
 			$(".tablesorter").bind("sortStart",function() { 
     	        $("#spinner").show(); 
     	    }).bind("sortEnd", setInterval(function() { 
@@ -46,36 +46,41 @@ function createResultsTable() {
 	});
 }
 
-function createAreaResultsTable() {
-	
+function createAreaResultsTable(areaId) {
+	$.ajax({
+		url:'/Piirkond?areaId=' + areaId,
+		datatype: "json",
+		data:{
+			action: 'create'
+		},
+		success:function(result){
+			var colNames = ["Nimi","Number","Erakond","Tulemus"];
+			var table = $("<table>").addClass("tablesorter");
+    		table.addClass("overallResultsTable");
+    		var header = $("<tr>");
+    		var thead = $("<thead>");
+    		var tbody = $("<tbody>");
+			var row = $("<tr>");
+			
+			$.each(columnNames, function(index, value){
+				header.append($("<th>").text(value));
+			});
+			thead.append(header);
+			table.append(thead);
+			
+			result.forEach(function (areaResult) {
+    			row = $("<tr>").append($("<td>").text(areaResult.name),
+    									$("<td>").text(areaResult.candidateNumber),
+    									$("<td>").text(areaResult.partyName),
+    									$("<td>").text(areaResult.votes));
+    			tbody.append(row);
+			});
+			$("#content table").hide();
+			table.append(tbody);
+			$(".overallResultsTable").remove();
+			table.prependTo("#content");
+			
+			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]}); 
+		}
+	});
 }
-
-//function createAreaResultsTable() {
-//	$.ajax({
-//		url:'/Piirkond',
-//		datatype: "json",
-//		success:function(result){
-//			var colNames = ["Nimi","Number","Erakond","Tulemus"];
-//			var table = $("<table>").addClass("tablesorter");
-//    		table.addClass("overallResultsTable");
-//    		var header = $("<tr>");
-//    		var thead = $("<thead>");
-//    		var tbody = $("<tbody>");
-//			var row = $("<tr>");
-//			
-//			$.each(columnNames, function(index, value){
-//				header.append($("<th>").text(value));
-//			});
-//			thead.append(header);
-//			table.append(thead);
-//			
-//			result.forEach(function (areaResult) {
-//    			row = $("<tr>").append($("<td>").text(areaResult.name),
-//    									$("<td>").text(areaResult.candidateNumber),
-//    									$("<td>").text(areaResult.partyName),
-//    									$("<td>").text(areaResult.votes));
-//    			tbody.append(row);
-//		});
-//		}
-//	});
-//}
