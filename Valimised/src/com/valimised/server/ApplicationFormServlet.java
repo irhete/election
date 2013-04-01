@@ -41,7 +41,7 @@ public class ApplicationFormServlet extends HttpServlet {
 			stmt.setString(3, area);
 			stmt.setString(4, party);
 			stmt.setString(5, "");
-			stmt.setString(4, "0");
+			stmt.setString(6, "0");
 			stmt.executeUpdate();
 
 			out.flush();
