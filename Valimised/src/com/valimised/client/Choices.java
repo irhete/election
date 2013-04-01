@@ -49,13 +49,14 @@ public class Choices extends Composite {
 
 		cancelVote = new Button("Tühista");
 		cancelVote.addStyleName("cancelVoteButton");
-		cancelVote.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setVoted(false);
-				changeVoted();
-			}
-		});
+		cancelVote.getElement().setAttribute("onclick", "cancelVote(36554657645)");
+//		cancelVote.addClickHandler(new ClickHandler() {
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				ContentContainer.getInstance().setVoted(false);
+//				changeVoted();
+//			}
+//		});
 
 		html2 = new InlineHTML("");
 
@@ -137,10 +138,10 @@ public class Choices extends Composite {
 		}
 	}
 
-	public static void voted() {
-		ContentContainer.getInstance().setVoted(true);
+	public static void voted(boolean b) {
+		ContentContainer.getInstance().setVoted(b);
 	}
-
+	
 	public static void added() {
 		ContentContainer.getInstance().setCandidate(true);
 	}
@@ -154,7 +155,7 @@ public class Choices extends Composite {
 	}-*/;
 
 	public static native void exportStaticMethod3() /*-{
-		$wnd.voted = $entry(@com.valimised.client.Choices::voted());
+		$wnd.voted = $entry(@com.valimised.client.Choices::voted(Z));
 	}-*/;
 
 	public static native void exportStaticMethod4() /*-{

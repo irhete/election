@@ -7,7 +7,22 @@ function vote(candidateId) {
 		},
 		success: function(){
 //			alert('Valisid kandidaadi nr: ' + candidateId);
-			window.voted();
+			window.voted(true);
+			window.newChoices();
+		}
+	});
+}
+
+function cancelVote(id) {
+	$.ajax({
+		url:'/cancelVote?id=' + id,
+		type:'GET',
+		data:{
+			action: 'delete'
+		},
+		success: function(){
+//			alert('Valisid kandidaadi nr: ' + candidateId);
+			window.voted(false);
 			window.newChoices();
 		}
 	});

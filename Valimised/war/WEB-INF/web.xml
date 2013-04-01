@@ -68,6 +68,16 @@
   </servlet>
   
   <servlet-mapping>
+    <servlet-name>cancelVoteServlet</servlet-name>
+    <url-pattern>/cancelVote</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cancelVoteServlet</servlet-name>
+    <servlet-class>com.valimised.server.CancelVoteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
     <servlet-name>voteServlet</servlet-name>
     <url-pattern>/vote</url-pattern>
   </servlet-mapping>
