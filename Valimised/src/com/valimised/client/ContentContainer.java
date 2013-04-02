@@ -10,6 +10,7 @@ public class ContentContainer {
 	private boolean isChoices;
 	private int isCandidatePage;
 	private boolean hasVoted;
+	private int candidateNumber;
 	private boolean isCandidate;
 	private boolean logged = false;
 	
@@ -27,8 +28,13 @@ public class ContentContainer {
 		return isCandidatePage;
 	}
 	
-	public void setVoted(boolean b) {
-		hasVoted = b;
+	public void setVoted(int candidateNumber) {
+		if (candidateNumber == -1) {
+			hasVoted = false;
+		} else {
+			hasVoted = true;
+			this.candidateNumber = candidateNumber;
+		}
 	}	
 	public boolean getVoted() {
 		return hasVoted;
@@ -39,6 +45,10 @@ public class ContentContainer {
 	}	
 	public boolean getCandidate() {
 		return isCandidate;
+	}
+	
+	public int getCandidateNumber() {
+		return candidateNumber;
 	}
 	
 	public void setLogged(boolean b) {

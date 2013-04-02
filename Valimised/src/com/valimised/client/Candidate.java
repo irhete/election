@@ -63,18 +63,18 @@ public class Candidate extends Composite {
 								credentialsPanel.add(partyLabel);
 								credentialsPanel.add(areaLabel);
 
-								Button votingButton = new Button("Hääleta");
-								votingButton.addClickHandler(new ClickHandler() {
-									@Override
-									public void onClick(ClickEvent event) {
-										ContentContainer.getInstance().setContent(new Choices());
-									}
-								});
-								votingButton.addStyleName("candidatePageVotingButton");
+//								Button votingButton = new Button("Hääleta");
+//								votingButton.addClickHandler(new ClickHandler() {
+//									@Override
+//									public void onClick(ClickEvent event) {
+//										ContentContainer.getInstance().setContent(new Choices());
+//									}
+//								});
+//								votingButton.addStyleName("candidatePageVotingButton");
 
 								topPanel.add(candidatePicture);
 								topPanel.add(credentialsPanel);
-								topPanel.add(votingButton);
+//								topPanel.add(votingButton);
 
 								Label descriptionLabel = new Label(candidate.getDescription());
 

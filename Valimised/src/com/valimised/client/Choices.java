@@ -1,13 +1,24 @@
 package com.valimised.client;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineHTML;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.web.bindery.autobean.shared.AutoBean;
+import com.google.web.bindery.autobean.shared.AutoBeanCodex;
+import com.valimised.client.Candidate.MyFactory;
+import com.valimised.shared.Candidate2;
 
 public class Choices extends Composite {
 
@@ -17,6 +28,7 @@ public class Choices extends Composite {
 	Button toCandidates;
 	Button addCandidate;
 	Button cancelCandidate;
+	private Candidate2 candidate;
 
 	public Choices() {
 		VerticalPanel verticalPanel = new VerticalPanel();
@@ -92,15 +104,61 @@ public class Choices extends Composite {
 				toCandidates.setVisible(true);
 			}
 		} else {
-			html.setHTML("<p>Olete hääletanud kandidaadi <a href='#'>"
-					+ "Andres Tamm" + "</a> poolt.</p>");
-			if (!cancelVote.isVisible()) {
-				cancelVote.setVisible(true);
-			}
-			if (toCandidates.isVisible()) {
-				toCandidates.setVisible(false);
-			}
+			requestCandidate(ContentContainer.getInstance().getCandidateNumber());
+			
 		}
+	}
+
+	private void requestCandidate(int candidateNumber) {
+		 String requestUrl = "candidate?id="+candidateNumber;  
+		 RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET, requestUrl);
+		 try
+		    {
+		        requestBuilder.sendRequest(null, new RequestCallback()
+		        {	
+
+					@Override
+					public void onResponseReceived(Request request,
+							Response response) {
+						 if (response.getStatusCode() == 200)
+			                {
+							 MyFactory factory = GWT.create(MyFactory.class);
+							    AutoBean<Candidate2> bean = AutoBeanCodex.decode(factory, Candidate2.class, response.getText());
+							    candidate =  bean.as();
+							    html.setHTML("<p>Olete hääletanud kandidaadi <a href='#'>"
+										+ candidate.getFirstName() + " " + candidate.getLastName() + "</a> poolt.</p>");
+								html.addClickHandler(new ClickHandler() {
+									
+									@Override
+									public void onClick(ClickEvent event) {
+										ContentContainer.getInstance().setContent(new Candidate("" + candidate.getId()));
+										
+									}
+								});
+							    if (!cancelVote.isVisible()) {
+									cancelVote.setVisible(true);
+								}
+								if (toCandidates.isVisible()) {
+									toCandidates.setVisible(false);
+								}
+							
+			                 }else
+			                {
+			                    System.out.println(response.getText() + " : " + response.getStatusCode() + response.getStatusText());
+			                }
+						
+					}
+
+					@Override
+					public void onError(Request request, Throwable exception) {
+						exception.printStackTrace();
+						
+					}
+		        });
+		    } catch (com.google.gwt.http.client.RequestException e)
+		    {
+		        e.printStackTrace();
+		    }
 	}
 
 	public void changeCandidate() {
@@ -125,8 +183,8 @@ public class Choices extends Composite {
 		}
 	}
 
-	public static void voted(boolean b) {
-		ContentContainer.getInstance().setVoted(b);
+	public static void voted(int candidateNumber) {
+		ContentContainer.getInstance().setVoted(candidateNumber);
 	}
 	
 	public static void added(boolean b) {
@@ -142,7 +200,7 @@ public class Choices extends Composite {
 	}-*/;
 
 	public static native void exportStaticMethod3() /*-{
-		$wnd.voted = $entry(@com.valimised.client.Choices::voted(Z));
+		$wnd.voted = $entry(@com.valimised.client.Choices::voted(I));
 	}-*/;
 
 	public static native void exportStaticMethod4() /*-{
