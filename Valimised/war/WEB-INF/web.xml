@@ -48,6 +48,16 @@
   </servlet>
   
   <servlet-mapping>
+    <servlet-name>partyResultsServlet</servlet-name>
+    <url-pattern>/results/party</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>partyResultsServlet</servlet-name>
+    <servlet-class>com.valimised.server.PartyResultsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
     <servlet-name>areaResultsServlet</servlet-name>
     <url-pattern>/results/area</url-pattern>
   </servlet-mapping> 

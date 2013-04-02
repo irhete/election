@@ -26,7 +26,7 @@ function createResultsTable() {
 
 			results.forEach(function (result) {
     			row = $("<tr>").append($("<td>").text(result.area).on("click", function(){createAreaResultsTable(result.areaId)}),
-    									$("<td>").text(result.party).on("click", function(){createAreaResultsTable(result.areaId)}),
+    									$("<td>").text(result.party).on("click", function(){createPartyResultsTable(result.partyId)}),
     									$("<td>").text(result.votes).on("click", function(){createAreaResultsTable(result.areaId)}));
     			tbody.append(row);
 			});
@@ -73,6 +73,84 @@ function createAreaResultsTable(areaId) {
     									$("<td>").text(AreaResult.candidateNumber),
     									$("<td>").text(AreaResult.partyName),
     									$("<td>").text(AreaResult.votes));
+    			tbody.append(row);
+			});
+			$("#content table").hide();
+			table.append(tbody);
+			$(".candidatesTable").remove();
+			table.prependTo("#content");
+			
+			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]});
+		}
+	});
+}
+
+function createAreaResultsTable(partyId) {
+	$.ajax({
+		url:'/results/area?areaId=' + areaId,
+		type:'GET',
+		datatype: "json",
+		data:{
+			action: 'create'
+		},
+		success:function(result){
+			var columnNames = ["Nimi","Number","Erakond","Tulemus"];
+			var table = $("<table>").addClass("tablesorter");
+    		table.addClass("candidatesTable");
+    		var header = $("<tr>");
+    		var thead = $("<thead>");
+    		var tbody = $("<tbody>");
+			var row = $("<tr>");
+			
+			$.each(columnNames, function(index, value){
+				header.append($("<th>").text(value));
+			});
+			thead.append(header);
+			table.append(thead);
+			result.forEach(function (AreaResult) {
+    			row = $("<tr>").append($("<td>").text(AreaResult.name),
+    									$("<td>").text(AreaResult.candidateNumber),
+    									$("<td>").text(AreaResult.partyName),
+    									$("<td>").text(AreaResult.votes));
+    			tbody.append(row);
+			});
+			$("#content table").hide();
+			table.append(tbody);
+			$(".candidatesTable").remove();
+			table.prependTo("#content");
+			
+			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]});
+		}
+	});
+}
+
+function createPartyResultsTable(partyId) {
+	$.ajax({
+		url:'/results/party?partyId=' + partyId,
+		type:'GET',
+		datatype: "json",
+		data:{
+			action: 'create'
+		},
+		success:function(result){
+			var columnNames = ["Nimi","Piirkond","Erakond","Tulemus"];
+			var table = $("<table>").addClass("tablesorter");
+    		table.addClass("candidatesTable");
+    		var header = $("<tr>");
+    		var thead = $("<thead>");
+    		var tbody = $("<tbody>");
+			var row = $("<tr>");
+			
+			$.each(columnNames, function(index, value){
+				header.append($("<th>").text(value));
+			});
+			thead.append(header);
+			table.append(thead);
+			result.forEach(function (result) {
+    			row = $("<tr>").append($("<td>").text(result.name),
+    									$("<td>").text(result.area),
+    									$("<td>").text(result.partyName),
+    									$("<td>").text(result.votes));
     			tbody.append(row);
 			});
 			$("#content table").hide();

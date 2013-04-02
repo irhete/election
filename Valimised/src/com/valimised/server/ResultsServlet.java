@@ -35,24 +35,21 @@ public class ResultsServlet extends HttpServlet {
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
 
-			// returns overall results by areas by party.
-//			String query = "select areaName, partyName, sum(votes) as result from candidate"
-//					+ " join election.area on area.areaID = candidate.area join"
-//					+ " election.party on candidate.party = party.partyID"
-//					+ " group by partyName, areaName order by area, partyID";
 			String query = "SELECT area, party, sum(votes) FROM candidate GROUP BY area, party";
 
-			c = DriverManager.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
+			c = DriverManager
+					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
 
 			PreparedStatement statement = c.prepareStatement(query);
 			ResultSet tableRow = statement.executeQuery();
 			List<Result> results = new ArrayList<Result>();
 			while (tableRow.next()) {
 				Result result = new Result(Data.areas[tableRow.getInt("area")],
-						Data.parties[tableRow.getInt("party")-1],
-						tableRow.getInt("sum(votes)"), tableRow.getInt("area"));
+						Data.parties[tableRow.getInt("party") - 1],
+						tableRow.getInt("sum(votes)"), tableRow.getInt("area"),
+						tableRow.getInt("party"));
 				results.add(result);
-				
+
 			}
 			String gson = new Gson().toJson(results);
 			response.setContentType("application/json");

@@ -30,7 +30,7 @@ public class AreaResultsServlet extends HttpServlet {
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
 
-			String query = "SELECT firstName, lastName, id, party, votes FROM candidate WHERE area = ?";
+			String query = "SELECT firstName, lastName, id, party, votes, area FROM candidate WHERE area = ?";
 
 			c = DriverManager
 					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
