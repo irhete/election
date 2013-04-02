@@ -20,8 +20,8 @@ import com.valimised.shared.AreaResult;
 import com.valimised.shared.Data;
 
 @SuppressWarnings("serial")
-public class PartyResultsServlet extends HttpServlet {
-
+public class PartyResultsServlet extends HttpServlet{
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
@@ -44,8 +44,8 @@ public class PartyResultsServlet extends HttpServlet {
 						tableRows.getString("firstName") + " "
 								+ tableRows.getString("lastName"),
 						tableRows.getInt("id"),
-						Data.areas[tableRows.getInt("area")],
-						tableRows.getInt("votes"));
+						Data.parties[tableRows.getInt("party") - 1],
+						tableRows.getInt("votes"), Data.areas[tableRows.getInt("area")]);
 				results.add(areaResult);
 			}
 			String gson = new Gson().toJson(results);
@@ -62,4 +62,5 @@ public class PartyResultsServlet extends HttpServlet {
 			}
 		}
 	}
+
 }
