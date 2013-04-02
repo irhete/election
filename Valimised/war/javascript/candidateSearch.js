@@ -26,7 +26,6 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     		var tbody = $("<tbody>");
 			var row = $("<tr>");
 			var button;
-			var loggedIn = window.isLogged();
 						
 			// lisame päise - esimese rea
 			$.each(columnNames, function(index, value){
@@ -36,19 +35,19 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 			table.append(thead);
 			
 			result.forEach(function (candidate) {
-	    			row = $("<tr>").append($("<td>").text(candidate.firstName + " " + candidate.lastName).on("click", getDetailedCandidateInfo),
-	    									$("<td>").text(candidate.party).on("click", getDetailedCandidateInfo),
-	    									$("<td>").text(candidate.area).on("click", getDetailedCandidateInfo),
-	    									$("<td>").text(candidate.id).on("click", getDetailedCandidateInfo),
+	    			row = $("<tr>").append($("<td>").text(candidate.firstName + " " + candidate.lastName).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
+	    									$("<td>").text(candidate.party).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
+	    									$("<td>").text(candidate.area).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
+	    									$("<td>").text(candidate.id).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
 	    									$("<td>").text("").addClass("votingColumn"));
-	    	
+
 	    			if (candidate.area == "Tartu linn" && loggedIn==true) {
 	    				button = $("<button>").text("Hääleta");
 	    				button.on("click", function(){vote(candidate.id)}); // klikihändler
 	    				button.addClass("candidatesTableVotingButton");
 	    				row.children().last().append(button);
 	    			} else {
-	    				row.children().last().on("click", getDetailedCandidateInfo);
+	    				row.children().last().on("click", function(){getDetailedCandidateInfo(candidate.id)});
 	    			}
 	    			tbody.append(row);
     		});
@@ -76,6 +75,6 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     });
 }
 
-function getDetailedCandidateInfo() {
-	window.newCandidate();
+function getDetailedCandidateInfo(candidateNumber) {
+	window.newCandidate(candidateNumber);
 } 
