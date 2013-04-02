@@ -26,14 +26,15 @@ function createCandidatesTable(selectedArea, searchKeywords) {
     		var tbody = $("<tbody>");
 			var row = $("<tr>");
 			var button;
-						
+			var loggedIn = window.isLogged();
+
 			// lisame päise - esimese rea
 			$.each(columnNames, function(index, value){
 				header.append($("<th>").text(value));
 			});
 			thead.append(header);
 			table.append(thead);
-			
+
 			result.forEach(function (candidate) {
 	    			row = $("<tr>").append($("<td>").text(candidate.firstName + " " + candidate.lastName).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
 	    									$("<td>").text(candidate.party).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
@@ -51,7 +52,7 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 	    			}
 	    			tbody.append(row);
     		});
-			
+
 			$("#content table").hide();
 			table.append(tbody);
 			$(".candidatesTable").remove();
@@ -62,8 +63,8 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 			else {
 				window.candidatePage(2);
 			}
-			
-			
+
+
 			$(".tablesorter").tablesorter( {sortList: [[0,0], [1,0]], headers: { 4: { sorter: false} }}); 
 			$(".tablesorter").bind("sortStart",function() { 
     	        $("#spinner").show(); 
