@@ -1,15 +1,14 @@
 function createResultsTable() {
+	if($.trim($(".textLink:not(:empty)"))){
+		$("#content").empty();
+	}
 	$.ajax({
-//		$('#spinner').hide()
-//	    .ajaxStart(function() {
-//	        $(this).show();
-//	    })
-//	    .ajaxStop(function() {
-//	        $(this).hide();
-//	    });
+		beforeSend: function() {$('#spinner').show();},
+		complete: function() {$('#spinner').hide();},
 		url:'/results',
 		datatype: "json",
 		success:function(results){
+			
 			var columnNames = ["Piirkond", "Erakond", "Tulemus"];
 			var table = $("<table>").addClass("tablesorter");
     		table.addClass("candidatesTable");
@@ -36,18 +35,23 @@ function createResultsTable() {
 			$(".candidatesTable").remove();
 			table.prependTo("#content");
 			
+			$('<a>',{
+			    text: 'Vaata tulemusi graafiliselt',
+			    title: 'Vaata tulemusi Eesti kontuurkaardil',
+			    href: '#',
+			    class: 'graphicLink',
+			    click: function(){createGraphicResults()}
+			}).prependTo("#content");
+			
 			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]}); 
-			$(".tablesorter").bind("sortStart",function() { 
-    	        $("#spinner").show(); 
-    	    }).bind("sortEnd", setInterval(function() { 
-    	        $("#spinner").hide(); 
-    	    }, 2000)); 
 		}
 	});
 }
 
 function createAreaResultsTable(areaId) {
 	$.ajax({
+		beforeSend: function() {$('#spinner').show();},
+		complete: function() {$('#spinner').hide();},
 		url:'/results/area?areaId=' + areaId,
 		type:'GET',
 		datatype: "json",
@@ -87,6 +91,8 @@ function createAreaResultsTable(areaId) {
 
 function createPartyResultsTable(partyId) {
 	$.ajax({
+		beforeSend: function() {$('#spinner').show();},
+		complete: function() {$('#spinner').hide();},
 		url:'/results/party?partyId=' + partyId,
 		type:'GET',
 		datatype: "json",
@@ -122,4 +128,17 @@ function createPartyResultsTable(partyId) {
 			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]});
 		}
 	});
+}
+
+function createGraphicResults(){
+	$("#content").empty();
+	$('<a>',{
+	    text: 'Vaata tulemusi tekstikujul',
+	    title: 'Vaata tulemusi tekstitabelina',
+	    href: '#',
+	    class: 'textLink',
+	    click: function(){createResultsTable()}
+	}).prependTo("#content");
+	var img = $('<img>').attr({'class': 'mapOfEst', 'src': '../images/kontuur.png'});
+	img.appendTo('#content');
 }

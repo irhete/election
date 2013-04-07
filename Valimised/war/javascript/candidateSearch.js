@@ -14,7 +14,10 @@ function search() {
 }
 
 function createCandidatesTable(selectedArea, searchKeywords) {
+	$("#content").empty();
 	$.ajax({
+		beforeSend: function() {$('#spinner').show();},
+		complete: function() {$('#spinner').hide();},
     	url:'/candidates?keywords=' + searchKeywords + '&area=' + selectedArea, 
         dataType: "json",
     	success:function(result){
@@ -64,13 +67,7 @@ function createCandidatesTable(selectedArea, searchKeywords) {
 				window.candidatePage(2);
 			}
 
-
 			$(".tablesorter").tablesorter( {sortList: [[0,0], [1,0]], headers: { 4: { sorter: false} }}); 
-			$(".tablesorter").bind("sortStart",function() { 
-    	        $("#spinner").show(); 
-    	    }).bind("sortEnd", setInterval(function() { 
-    	        $("#spinner").hide(); 
-    	    }, 2000)); 
     	}
     	
     });
