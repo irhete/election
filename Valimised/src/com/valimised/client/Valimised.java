@@ -1,5 +1,8 @@
 package com.valimised.client;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 
@@ -7,6 +10,7 @@ import com.google.gwt.core.client.GWT;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class Valimised implements EntryPoint {
+	public static Set<String> channelKeys = new HashSet<String>(); 
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.
@@ -28,7 +32,6 @@ public class Valimised implements EntryPoint {
 	 */
 	@Override
 	public void onModuleLoad() {
-
 		ContentContainer.getInstance().setMenu(new Menu());
 		ContentContainer.getInstance().setHeader(new Header());
 		ContentContainer.getInstance().setContent(new About());

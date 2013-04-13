@@ -1,4 +1,28 @@
+
+
+function createChannel() {
+	$.ajax({
+		complete: function() {$('#spinner').hide();},
+		url:'/newchannel',
+		datatype: "text/plain",
+		success:function(result){
+		    channel = new goog.appengine.Channel(result);
+		    socket = channel.open();
+		    socket.onopen = function () {
+		    	  connected = true;
+		    	};
+		    socket.onmessage = function (candidateId) {
+		    	window.alert(candidateId);
+		    	createResultsTable();
+		    };
+		}
+	});
+}
+
+
+
 function createResultsTable() {
+	createChannel();
 	if($.trim($(".textLink:not(:empty)"))){
 		$("#content").empty();
 	}

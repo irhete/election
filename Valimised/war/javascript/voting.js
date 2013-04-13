@@ -8,7 +8,7 @@ function vote(candidateId) {
 		success: function(){
 //			alert('Valisid kandidaadi nr: ' + candidateId);
 			window.voted(candidateId);
-			window.newChoices();
+//			window.newChoices();
 		}
 	});
 }

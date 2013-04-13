@@ -12,6 +12,16 @@
     <url-pattern>/candidate</url-pattern>
   </servlet-mapping> 
   
+   <servlet>
+    <servlet-name>newChannelServlet</servlet-name>
+    <servlet-class>com.valimised.server.InitializeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>newChannelServlet</servlet-name>
+    <url-pattern>/newchannel</url-pattern>
+  </servlet-mapping> 
+  
       <servlet>
     <servlet-name>keywordServlet</servlet-name>
     <servlet-class>com.valimised.server.KeywordSuggestServlet</servlet-class>
