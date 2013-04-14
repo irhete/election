@@ -10,10 +10,10 @@ function keywordSuggest() {
 function search() {
 	var selectedArea = $('#areaList option:selected').index();
 	var searchKeywords = $('#candidateSearchBox').val().toLowerCase();
-	createCandidatesTable(selectedArea, searchKeywords);
+	window.createCandidatesTable(selectedArea, searchKeywords);
 }
 
-function createCandidatesTable(selectedArea, searchKeywords) {
+window.createCandidatesTable = function (selectedArea, searchKeywords) {
 //	$("#content").empty();
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},

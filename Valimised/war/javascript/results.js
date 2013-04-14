@@ -1,6 +1,6 @@
 
 
-function createChannel(type, id) {
+function createChannel(type) {
 	$.ajax({
 		complete: function() {$('#spinner').hide();},
 		url:'/newchannel?type=' + type,
@@ -13,25 +13,41 @@ function createChannel(type, id) {
 		    };
 		    	if (type == "general") {
 				    socket.onmessage = function () {
-				    	createResultsTable();
+				    	updateResultsTable();
 				    };
 				} else if (type == "party") {
 					socket.onmessage = function () {
-				    	createPartyResultsTable(id);
+				    	updatePartyResultsTable();
 				    };
 				} else {
 					socket.onmessage = function () {
-				    	createAreaResultsTable(id);
+				    	updateAreaResultsTable();
 				    };
 				}
 		}
 	});
 }
 
+function updateResultsTable() {
+	if (location.hash == "#results") {
+		createResultsTable();
+	}
+}
 
+function updateAreaResultsTable() {
+	if (location.hash.substring(0,12) == "#areaResults") {
+		createAreaResultsTable(location.hash.substring(12));
+	}
+}
 
-function createResultsTable() {
-	createChannel("general", 0);
+function updatePartyResultsTable() {
+	if (location.hash.substring(0,13) == "#partyResults") {
+		createPartyResultsTable(location.hash.substring(14));
+	}
+}
+
+window.createResultsTable = function () {
+	createChannel("general");
 //	if($.trim($(".textLink:not(:empty)"))){
 //		$("#content").empty();
 //	}
@@ -57,9 +73,9 @@ function createResultsTable() {
 			table.append(thead);
 
 			results.forEach(function (result) {
-    			row = $("<tr>").append($("<td>").text(result.area).on("click", function(){createAreaResultsTable(result.areaId)}),
-    									$("<td>").text(result.party).on("click", function(){createPartyResultsTable(result.partyId)}),
-    									$("<td>").text(result.votes).on("click", function(){createAreaResultsTable(result.areaId)}));
+    			row = $("<tr>").append($("<td>").text(result.area).on("click", function(){window.addHistoryItem("areaResults" + result.areaId)}),
+    									$("<td>").text(result.party).on("click", function(){window.addHistoryItem("partyResults" + result.partyId)}),
+    									$("<td>").text(result.votes).on("click", function(){window.addHistoryItem("areaResults" + result.areaId)}));
     			tbody.append(row);
 			});
 			
@@ -81,8 +97,8 @@ function createResultsTable() {
 	});
 }
 
-function createAreaResultsTable(areaId) {
-	createChannel("area", areaId);
+window.createAreaResultsTable = function (areaId) {
+	createChannel("area");
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},
 		complete: function() {$('#spinner').hide();},
@@ -123,8 +139,8 @@ function createAreaResultsTable(areaId) {
 	});
 }
 
-function createPartyResultsTable(partyId) {
-	createChannel("party", partyId);
+window.createPartyResultsTable = function (partyId) {
+	createChannel("party");
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},
 		complete: function() {$('#spinner').hide();},

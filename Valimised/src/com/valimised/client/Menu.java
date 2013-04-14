@@ -2,6 +2,7 @@ package com.valimised.client;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -15,13 +16,26 @@ public class Menu extends Composite {
 
 		Button candidates = new Button("Kandidaadid");
 		candidates.addStyleName("menuButton");
-		candidates.getElement().setAttribute("onclick",
-				"createCandidatesTable(0, \"\")");
+		candidates.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				History.newItem("candidates");				
+			}
+		});
+		//candidates.getElement().setAttribute("onclick", "createCandidatesTable(0, \"\")");
 
 
 		Button results = new Button("Tulemused");
 		results.addStyleName("menuButton");
-		results.getElement().setAttribute("onclick", "createResultsTable()");
+		results.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				History.newItem("results");				
+			}
+		});
+		//results.getElement().setAttribute("onclick", "createResultsTable()");
 		
 		Button elections = new Button("Valimistest");
 		elections.addStyleName("menuButton");
