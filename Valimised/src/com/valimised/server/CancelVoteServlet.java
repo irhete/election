@@ -28,18 +28,26 @@ public class CancelVoteServlet extends HttpServlet {
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
 			String id = request.getParameter("id");
-			String votedFor = request.getParameter("votedId");
 
 			c = DriverManager
 					.getConnection("jdbc:google:rdbms://e-election-app:instance2/election");
+			String votedForStatement = "SELECT votedFor FROM voter WHERE id=?";
 			String statement = "DELETE FROM voter WHERE id=?";
 			String decreaseVote = "UPDATE candidate SET votes = votes - 1 WHERE id = ?";
-			PreparedStatement decrease = c.prepareStatement(decreaseVote);
-			decrease.setString(1, votedFor);
-			decrease.executeUpdate();
+			
+			PreparedStatement votedForStmt = c.prepareStatement(votedForStatement);
+			votedForStmt.setString(1, id);
+			ResultSet votedForResult = votedForStmt.executeQuery();
+			votedForResult.next();
+			String votedFor = votedForResult.getString("votedFor");
+			
 			PreparedStatement stmt = c.prepareStatement(statement);
 			stmt.setString(1, id);
 			stmt.executeUpdate();
+			
+			PreparedStatement decrease = c.prepareStatement(decreaseVote);
+			decrease.setString(1, votedFor);
+			decrease.executeUpdate();
 			
 			for (String channelKey : Valimised.generalResultsChannelKeys) {
 				
