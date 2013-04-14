@@ -16,7 +16,7 @@ function createCandidate(firstName, lastName, area, party, idCode) {
 function cancelCandidate(idCode) {
 	$.ajax({
 		url:'/cancelCandidate?idCode=' + idCode,
-		type:'GET',
+		type:'POST',
 		data:{
 			action: 'delete'
 		},

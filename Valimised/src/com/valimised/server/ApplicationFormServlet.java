@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.appengine.api.channel.ChannelMessage;
+import com.google.appengine.api.channel.ChannelService;
+import com.google.appengine.api.channel.ChannelServiceFactory;
 import com.google.appengine.api.rdbms.AppEngineDriver;
+import com.valimised.client.Valimised;
 
 public class ApplicationFormServlet extends HttpServlet {
 
@@ -57,6 +61,15 @@ public class ApplicationFormServlet extends HttpServlet {
 			ps.setString(7, idCode);
 			ps.executeUpdate(); // inserts/updates database values
 			} 
+			
+			for (String channelKey : Valimised.areaOrPartyResultsChannelKeys) {
+				
+				if (channelKey != null) {
+				ChannelService channelService = ChannelServiceFactory.getChannelService();
+				
+			      channelService.sendMessage(new ChannelMessage(channelKey, "tere"));
+				}
+			}
 			
 			out.flush();
 		} catch (SQLException e) {

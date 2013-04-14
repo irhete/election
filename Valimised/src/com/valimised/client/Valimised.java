@@ -10,7 +10,8 @@ import com.google.gwt.core.client.GWT;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class Valimised implements EntryPoint {
-	public static Set<String> channelKeys = new HashSet<String>(); 
+	public static Set<String> generalResultsChannelKeys = new HashSet<String>(); 
+	public static Set<String> areaOrPartyResultsChannelKeys = new HashSet<String>(); 
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.

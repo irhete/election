@@ -61,7 +61,7 @@ public class CandidatesServlet extends HttpServlet {
 		      ResultSet success = stmt.executeQuery();
 		      List<Candidate> candidates = new ArrayList<Candidate>();
 		      while (success.next()) {
-		    	  Candidate candidate = new Candidate(success.getString("lastName"), success.getString("firstName"), success.getInt("id"), Data.areas[success.getInt("area")], Data.parties[success.getInt("party") - 1]);
+		    	  Candidate candidate = new Candidate(success.getString("lastName"), success.getString("firstName"), success.getInt("id"), Data.areas[success.getInt("area")-1], Data.parties[success.getInt("party") - 1]);
 		    	  candidates.add(candidate);
 		      }
 		      String gson = new Gson().toJson(candidates);

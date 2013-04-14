@@ -44,7 +44,7 @@ public class ResultsServlet extends HttpServlet {
 			ResultSet tableRow = statement.executeQuery();
 			List<Result> results = new ArrayList<Result>();
 			while (tableRow.next()) {
-				Result result = new Result(Data.areas[tableRow.getInt("area")],
+				Result result = new Result(Data.areas[tableRow.getInt("area")-1],
 						Data.parties[tableRow.getInt("party") - 1],
 						tableRow.getInt("sum(votes)"), tableRow.getInt("area"),
 						tableRow.getInt("party"));

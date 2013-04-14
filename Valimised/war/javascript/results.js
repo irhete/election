@@ -1,20 +1,29 @@
 
 
-function createChannel() {
+function createChannel(type, id) {
 	$.ajax({
 		complete: function() {$('#spinner').hide();},
-		url:'/newchannel',
+		url:'/newchannel?type=' + type,
 		datatype: "text/plain",
 		success:function(result){
 		    channel = new goog.appengine.Channel(result);
 		    socket = channel.open();
 		    socket.onopen = function () {
-		    	  connected = true;
-		    	};
-		    socket.onmessage = function (candidateId) {
-		    	window.alert(candidateId);
-		    	createResultsTable();
+		    	connected = true;
 		    };
+		    	if (type == "general") {
+				    socket.onmessage = function () {
+				    	createResultsTable();
+				    };
+				} else if (type == "party") {
+					socket.onmessage = function () {
+				    	createPartyResultsTable(id);
+				    };
+				} else {
+					socket.onmessage = function () {
+				    	createAreaResultsTable(id);
+				    };
+				}
 		}
 	});
 }
@@ -22,7 +31,7 @@ function createChannel() {
 
 
 function createResultsTable() {
-	createChannel();
+	createChannel("general", 0);
 	if($.trim($(".textLink:not(:empty)"))){
 		$("#content").empty();
 	}
@@ -73,6 +82,7 @@ function createResultsTable() {
 }
 
 function createAreaResultsTable(areaId) {
+	createChannel("area", areaId);
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},
 		complete: function() {$('#spinner').hide();},
@@ -114,6 +124,7 @@ function createAreaResultsTable(areaId) {
 }
 
 function createPartyResultsTable(partyId) {
+	createChannel("party", partyId);
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},
 		complete: function() {$('#spinner').hide();},

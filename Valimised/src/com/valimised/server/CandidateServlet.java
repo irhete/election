@@ -34,7 +34,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp)
 	      stmt.setString(1, id);
 	      ResultSet success = stmt.executeQuery();
 	      success.next();
-	      Candidate candidate = new Candidate(success.getString("lastName"), success.getString("firstName"), Integer.parseInt(id), Data.areas[success.getInt("area")], Data.parties[success.getInt("party")-1], success.getString("description"), success.getString("picture"));
+	      Candidate candidate = new Candidate(success.getString("lastName"), success.getString("firstName"), Integer.parseInt(id), Data.areas[success.getInt("area")-1], Data.parties[success.getInt("party")-1], success.getString("description"), success.getString("picture"));
 	      String gson = new Gson().toJson(candidate);
 	      resp.setContentType("application/json");
 	      out.write(gson);

@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.valimised.shared.Data;
 
 public class ApplicationForm extends Composite {
 	FlexTable table;
@@ -50,17 +51,14 @@ public class ApplicationForm extends Composite {
 		addBadInputLabels();
 
 		partyBox.addItem("Vali kuuluvus");
-		partyBox.addItem("Reformierakond");
-		partyBox.addItem("SDE");
-		partyBox.addItem("Keskerakond");
-		partyBox.addItem("IRL");
-		partyBox.addItem("Üksikkandidaat");
+		for (String party : Data.parties) {
+			partyBox.addItem(party);
+		}
 
 		areaBox.addItem("Vali linn");
-		areaBox.addItem("Tartu linn");
-		areaBox.addItem("Tallinn");
-		areaBox.addItem("Rapla");
-		areaBox.addItem("Narva");
+		for (String area : Data.areas) {
+			areaBox.addItem(area);
+		}
 
 		firstNameBox.setText("Mari");
 		lastNameBox.setText("Maripuu");

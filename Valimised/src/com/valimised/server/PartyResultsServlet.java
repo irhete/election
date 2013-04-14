@@ -45,7 +45,7 @@ public class PartyResultsServlet extends HttpServlet{
 								+ tableRows.getString("lastName"),
 						tableRows.getInt("id"),
 						Data.parties[tableRows.getInt("party") - 1],
-						tableRows.getInt("votes"), Data.areas[tableRows.getInt("area")]);
+						tableRows.getInt("votes"), Data.areas[tableRows.getInt("area")-1]);
 				results.add(areaResult);
 			}
 			String gson = new Gson().toJson(results);

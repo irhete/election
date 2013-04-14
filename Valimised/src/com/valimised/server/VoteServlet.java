@@ -70,15 +70,14 @@ public class VoteServlet extends HttpServlet {
 			increaseVote.setString(1, votedFor);
 			increaseVote.executeUpdate();
 			
-			System.out.println(Valimised.channelKeys.size());
-			for (String channelKey : Valimised.channelKeys) {
+			for (String channelKey : Valimised.generalResultsChannelKeys) {
 				
 				if (channelKey != null) {
 				ChannelService channelService = ChannelServiceFactory.getChannelService();
 				
 			      channelService.sendMessage(new ChannelMessage(channelKey, "tere"));
 				}
-				}
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();

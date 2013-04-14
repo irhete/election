@@ -25,7 +25,13 @@ public class InitializeServlet extends HttpServlet {
 		Random rand = new Random();
 		String channelKey = "" + rand.nextInt();
 		String token = channelService.createChannel(channelKey);
-		Valimised.channelKeys.add(channelKey);
+		String type = req.getParameter("type");
+		
+		if (type.equals("general")) {
+			Valimised.generalResultsChannelKeys.add(channelKey);
+		} else {
+			Valimised.areaOrPartyResultsChannelKeys.add(channelKey);
+		}
 		
 		PrintWriter out = resp.getWriter();
 	    resp.setContentType("text/plain");

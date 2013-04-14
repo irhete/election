@@ -143,6 +143,7 @@ public class Header extends Composite {
 
 	private ListBox getListBox(boolean b) {
 		ListBox widget = new ListBox();
+		widget.addItem("--Kõik--");
 		for (String area : Data.areas) {
 		widget.addItem(area);
 		}
