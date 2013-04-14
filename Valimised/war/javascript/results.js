@@ -32,9 +32,9 @@ function createChannel(type, id) {
 
 function createResultsTable() {
 	createChannel("general", 0);
-	if($.trim($(".textLink:not(:empty)"))){
-		$("#content").empty();
-	}
+//	if($.trim($(".textLink:not(:empty)"))){
+//		$("#content").empty();
+//	}
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},
 		complete: function() {$('#spinner').hide();},
@@ -68,13 +68,13 @@ function createResultsTable() {
 			$(".candidatesTable").remove();
 			table.prependTo("#content");
 			
-			$('<a>',{
-			    text: 'Vaata tulemusi graafiliselt',
-			    title: 'Vaata tulemusi Eesti kontuurkaardil',
-			    href: '#',
-			    class: 'graphicLink',
-			    click: function(){createGraphicResults()}
-			}).prependTo("#content");
+//			$('<a>',{
+//			    text: 'Vaata tulemusi graafiliselt',
+//			    title: 'Vaata tulemusi Eesti kontuurkaardil',
+//			    href: '#',
+//			    class: 'graphicLink',
+//			    click: function(){createGraphicResults()}
+//			}).prependTo("#content");
 			
 			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]}); 
 		}
@@ -165,15 +165,15 @@ function createPartyResultsTable(partyId) {
 	});
 }
 
-function createGraphicResults(){
-	$("#content").empty();
-	$('<a>',{
-	    text: 'Vaata tulemusi tekstikujul',
-	    title: 'Vaata tulemusi tekstitabelina',
-	    href: '#',
-	    class: 'textLink',
-	    click: function(){createResultsTable()}
-	}).prependTo("#content");
-	var img = $('<img>').attr({'class': 'mapOfEst', 'src': '../images/kontuur.png'});
-	img.appendTo('#content');
-}
+//function createGraphicResults(){
+//	$("#content").empty();
+//	$('<a>',{
+//	    text: 'Vaata tulemusi tekstikujul',
+//	    title: 'Vaata tulemusi tekstitabelina',
+//	    href: '#',
+//	    class: 'textLink',
+//	    click: function(){createResultsTable()}
+//	}).prependTo("#content");
+//	var img = $('<img>').attr({'class': 'mapOfEst', 'src': '../images/kontuur.png'});
+//	img.appendTo('#content');
+//}

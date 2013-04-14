@@ -14,7 +14,7 @@ function search() {
 }
 
 function createCandidatesTable(selectedArea, searchKeywords) {
-	$("#content").empty();
+//	$("#content").empty();
 	$.ajax({
 		beforeSend: function() {$('#spinner').show();},
 		complete: function() {$('#spinner').hide();},
