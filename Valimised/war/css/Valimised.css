@@ -264,11 +264,11 @@ button.candidatesTableVotingButton {
 }
 
 button.idkaart {
-	background-image: url("../images/idkaart.jpg");
+	background-image: url("../images/FPlogo.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	height: 30px;
-	width: 90px;
+	height: 32px;
+	width: 32px;
 	float: right;
 }
 

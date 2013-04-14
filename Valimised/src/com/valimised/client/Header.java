@@ -74,12 +74,6 @@ public class Header extends Composite {
 		search = new Button("Otsi");
 		search.addStyleName("searchButton");
 		search.getElement().setId("searchButton");
-//		search.addClickHandler(new ClickHandler() {
-//			@Override
-//			public void onClick(ClickEvent event) {
-//				ContentContainer.getInstance().setContent(new Candidates());
-//			}
-//		});
 		search.getElement().setAttribute("onclick", "search()");
 		headerPanel.add(areas);
 		headerPanel.add(candidate);
@@ -96,12 +90,14 @@ public class Header extends Composite {
 		login.addStyleName("login");
 		Button idkaart = new Button();
 		idkaart.setStyleName("idkaart");
-		idkaart.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				loggedIn();
-			}
-		});
+		idkaart.getElement().setId("FBLogin");
+		idkaart.getElement().setAttribute("onclick", "login()");
+//		idkaart.addClickHandler(new ClickHandler() {
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				loggedIn();
+//			}
+//		});
 		headerPanel2.add(login);
 		headerPanel2.add(idkaart);
 
