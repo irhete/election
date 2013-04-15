@@ -37,6 +37,7 @@ public class Header extends Composite {
 		ContentContainer.getInstance().setLogged(true);
 		ContentContainer.getInstance().setElement("loginPanel", loginPanel2);
 		ContentContainer.getInstance().setContent(new Choices());
+		ContentContainer.getInstance().setChoices(true);
 	}
 	private void loggedOut(){
 		ContentContainer.getInstance().setLogged(false);
