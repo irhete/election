@@ -56,45 +56,63 @@ window.createResultsTable = function () {
 		complete: function() {$('#spinner').hide();},
 		url:'/results',
 		datatype: "json",
-		success:function(results){
-			
-			var columnNames = ["Piirkond", "Erakond", "Tulemus"];
-			var table = $("<table>").addClass("tablesorter");
-    		table.addClass("candidatesTable");
-    		var header = $("<tr>");
-    		var thead = $("<thead>");
-    		var tbody = $("<tbody>");
-			var row = $("<tr>");
-			
-			$.each(columnNames, function(index, value){
-				header.append($("<th>").text(value));
-			});
-			thead.append(header);
-			table.append(thead);
-
-			results.forEach(function (result) {
-    			row = $("<tr>").append($("<td>").text(result.area).on("click", function(){window.addHistoryItem("areaResults" + result.areaId)}),
-    									$("<td>").text(result.party).on("click", function(){window.addHistoryItem("partyResults" + result.partyId)}),
-    									$("<td>").text(result.votes).on("click", function(){window.addHistoryItem("areaResults" + result.areaId)}));
-    			tbody.append(row);
-			});
-			
-			$("#content table").hide();
-			table.append(tbody);
-			$(".candidatesTable").remove();
-			table.prependTo("#content");
-			
-//			$('<a>',{
-//			    text: 'Vaata tulemusi graafiliselt',
-//			    title: 'Vaata tulemusi Eesti kontuurkaardil',
-//			    href: '#',
-//			    class: 'graphicLink',
-//			    click: function(){createGraphicResults()}
-//			}).prependTo("#content");
-			
-			$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]}); 
-		}
+		success:resultsTableOnline,
+		error:resultsTableOffline
 	});
+}
+
+function resultsTableOnline(results){
+	if(localStorage){
+		localStorage.resultsTable = JSON.stringify(results);
+	}
+	resultsTable(results)
+}
+
+function resultsTableOffline(){
+	if(localStorage){
+		if (localStorage.resultsTable){
+			resultsTable(JSON.parse(localStorage.resultsTable));
+		}
+	}
+}
+
+function resultsTable(results){
+	
+	var columnNames = ["Piirkond", "Erakond", "Tulemus"];
+	var table = $("<table>").addClass("tablesorter");
+	table.addClass("candidatesTable");
+	var header = $("<tr>");
+	var thead = $("<thead>");
+	var tbody = $("<tbody>");
+	var row = $("<tr>");
+	
+	$.each(columnNames, function(index, value){
+		header.append($("<th>").text(value));
+	});
+	thead.append(header);
+	table.append(thead);
+
+	results.forEach(function (result) {
+		row = $("<tr>").append($("<td>").text(result.area).on("click", function(){window.addHistoryItem("areaResults" + result.areaId)}),
+								$("<td>").text(result.party).on("click", function(){window.addHistoryItem("partyResults" + result.partyId)}),
+								$("<td>").text(result.votes).on("click", function(){window.addHistoryItem("areaResults" + result.areaId)}));
+		tbody.append(row);
+	});
+	
+	$("#content table").hide();
+	table.append(tbody);
+	$(".candidatesTable").remove();
+	table.prependTo("#content");
+	
+//	$('<a>',{
+//	    text: 'Vaata tulemusi graafiliselt',
+//	    title: 'Vaata tulemusi Eesti kontuurkaardil',
+//	    href: '#',
+//	    class: 'graphicLink',
+//	    click: function(){createGraphicResults()}
+//	}).prependTo("#content");
+	
+	$(".tablesorter").tablesorter({sortList: [[0,0], [1,0]]}); 
 }
 
 window.createAreaResultsTable = function (areaId) {

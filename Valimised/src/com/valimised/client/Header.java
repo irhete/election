@@ -17,7 +17,7 @@ public class Header extends Composite {
 	private Button search;
 	private HorizontalPanel searchPanel;
 	private HorizontalPanel loginPanel;
-	private VerticalPanel loginPanel2;
+	private static VerticalPanel loginPanel2;
 
 	public Header() {
 
@@ -33,7 +33,7 @@ public class Header extends Composite {
 
 	}
 	
-	private void loggedIn(){
+	private static void loggedIn(){
 		ContentContainer.getInstance().setLogged(true);
 		ContentContainer.getInstance().setElement("loginPanel", loginPanel2);
 		ContentContainer.getInstance().setContent(new Choices());
@@ -153,5 +153,9 @@ public class Header extends Composite {
 	
 	public static native void exportStaticMethodLogged() /*-{
 		$wnd.isLogged = $entry(@com.valimised.client.Header::isLogged());
+}-*/;
+	
+	public static native void exportStaticMethodLoggedIn() /*-{
+		$wnd.loggedIn = $entry(@com.valimised.client.Header::loggedIn());
 }-*/;
 }
