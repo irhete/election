@@ -2,6 +2,11 @@
 
   <!-- Servlets -->
   
+  <mime-mapping>
+    <extension>manifest</extension>        
+    <mime-type>text/cache-manifest</mime-type>        
+  </mime-mapping>
+  
     <servlet>
     <servlet-name>candidateServlet</servlet-name>
     <servlet-class>com.valimised.server.CandidateServlet</servlet-class>
