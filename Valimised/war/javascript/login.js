@@ -19,6 +19,7 @@ function server_logIn(accessToken) {
 				loggedInUser.userID = data.userID;
 				loggedInUser.votedFor = data.votedFor;
 				loggedInUser.loggedIn = true;
+			}
 		}
 	});
 };
