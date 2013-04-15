@@ -39,10 +39,10 @@ window.createCandidatesTable = function (selectedArea, searchKeywords) {
 			table.append(thead);
 
 			result.forEach(function (candidate) {
-	    			row = $("<tr>").append($("<td>").text(candidate.firstName + " " + candidate.lastName).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
-	    									$("<td>").text(candidate.party).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
-	    									$("<td>").text(candidate.area).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
-	    									$("<td>").text(candidate.id).on("click", function(){getDetailedCandidateInfo(candidate.id)}),
+	    			row = $("<tr>").append($("<td>").text(candidate.firstName + " " + candidate.lastName).on("click", function(){window.addHistoryItem("candidate" + candidate.id)}),
+	    									$("<td>").text(candidate.party).on("click", function(){window.addHistoryItem("candidate" + candidate.id)}),
+	    									$("<td>").text(candidate.area).on("click", function(){window.addHistoryItem("candidate" + candidate.id)}),
+	    									$("<td>").text(candidate.id).on("click", function(){window.addHistoryItem("candidate" + candidate.id)}),
 	    									$("<td>").text("").addClass("votingColumn"));
 
 	    			if (candidate.area == "Tartu linn" && loggedIn==true) {

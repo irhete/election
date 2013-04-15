@@ -3,6 +3,8 @@ package com.valimised.client;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.text.AbstractDocument.Content;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -53,6 +55,12 @@ public class Valimised implements EntryPoint {
 				}
 				else if (event.getValue().equals("candidates"))
 					createCandidatesTable(0, "");
+				else if (event.getValue().equals("about"))
+					ContentContainer.getInstance().setContent(new About());
+				else if (event.getValue().indexOf("candidate") >= 0) {
+					String candidateId =event.getValue().substring(9);
+					ContentContainer.getInstance().setContent(new Candidate(candidateId));
+				}
 			}
 		});
 		History.fireCurrentHistoryState();

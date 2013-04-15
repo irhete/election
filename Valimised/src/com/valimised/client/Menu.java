@@ -40,9 +40,10 @@ public class Menu extends Composite {
 		Button elections = new Button("Valimistest");
 		elections.addStyleName("menuButton");
 		elections.addClickHandler(new ClickHandler() {
+			
 			@Override
 			public void onClick(ClickEvent event) {
-				ContentContainer.getInstance().setContent(new About());
+				History.newItem("about");				
 			}
 		});
 

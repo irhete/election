@@ -8,6 +8,7 @@ import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.Response;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -56,8 +57,13 @@ public class Choices extends Composite {
 
 		toCandidates = new Button("Vaata kandidaate");
 		toCandidates.addStyleName("toCandidatesButton");
-		toCandidates.getElement().setAttribute("onclick",
-				"createCandidatesTable(0, \"\")");
+		toCandidates.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				History.newItem("candidates");				
+			}
+		});
 
 		cancelVote = new Button("Tühista");
 		cancelVote.addStyleName("cancelVoteButton");
@@ -131,8 +137,7 @@ public class Choices extends Composite {
 									
 									@Override
 									public void onClick(ClickEvent event) {
-										ContentContainer.getInstance().setContent(new Candidate("" + candidate.getId()));
-										
+										History.newItem("candidate" + candidate.getId());				
 									}
 								});
 							    if (!cancelVote.isVisible()) {
