@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://e-election.appspot.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.tempLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.gwt-Button.toCandidatesButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.candidatesTableVotingButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#resultsButton &gt; button.gwt-Button.menuButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//div[@id='content']/table/tbody/tr[14]/td[3]</td>
+	<td>minni</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//div[@id='content']/table/tbody/tr[15]/td[3]</td>
+	<td>zenja</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.gwt-Button.menuButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/table/tbody/tr[16]/td[5]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#resultsButton &gt; button.gwt-Button.menuButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='content']/table/tbody/tr[14]/td[3]</td>
+	<td>javascript{parseInt(storedVars['minni'].match(/^\d+/))-1}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='content']/table/tbody/tr[15]/td[3]</td>
+	<td>javascript{parseInt(storedVars['zenja'].match(/^\d+/))+1}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//div[@id='content']/table/tbody/tr[15]/td[3]</td>
+	<td>zenja</td>
+</tbody></table>
+</body>
+</html>
