@@ -58,7 +58,7 @@ body {
 	background-origin: content-box !important;
 	background-attachment: fixed !important;
 	background-position: center !important;
-	webkit-background-size: cover !important;
+	-webkit-background-size: cover !important;
 	-moz-background-size: cover !important;
 	-o-background-size: cover !important;
 	background-size: cover !important;
@@ -119,7 +119,6 @@ footer {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 30%;
-    height: 50 px;
 }
 
 footer p {
@@ -182,10 +181,6 @@ button.toCandidatesButton, button.cancelCandidateButton
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	-webkit-box-shadowmargin: 0.5em; : rgba (0,0,0,1) 0 1px 0;
-	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
 	color: white;
 	font-size: 24px;
 	text-decoration: none;

@@ -1,8 +1,14 @@
-CACHE MANIFEST 
+CACHE MANIFEST
+# manifest version: 1
+
+# Manifest file must be updated in
+# order to refresh cashed files
+
 NETWORK:
 
 *
 CACHE:
+/Valimised.html
 /css/Valimised.css
 /css/Valimised600.css
 /css/Valimised250.css

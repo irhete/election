@@ -106,7 +106,7 @@ window.createResultsTable = function() {
 				text : 'Vaata tulemusi graafiliselt',
 				title : 'Vaata tulemusi Eesti kontuurkaardil',
 				href : '#',
-				class : 'graphicLink',
+				class : 'candidatesTable',
 				click : function() {
 					loadScript()
 				}
