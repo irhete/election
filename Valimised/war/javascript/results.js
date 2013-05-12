@@ -256,12 +256,12 @@ function initialize() {
 					[ 'Tallinn3', 59.376851, 24.690371, 3 ],
 					[ 'Harju- ja Raplamaa', 59.167747, 24.749866, 4 ],
 					[ 'Hiiu-, L‰‰ne- ja Saaremaa', 58.93885, 23.542271, 5 ],
-					[ 'L‰‰ne-Virumaa', 59.347545, 26.362524, 6 ],
+					[ 'L&#228;&#228;ne-Virumaa', 59.347545, 26.362524, 6 ],
 					[ 'Ida-Virumaa', 59.347195, 27.40242, 7 ],
-					[ 'J‰rva- ja Viljandimaa', 58.629787, 25.557239, 8 ],
-					[ 'Jıgeva- ja Tartumaa', 58.649798, 26.589203, 9 ],
+					[ 'J&#228;rva- ja Viljandimaa', 58.629787, 25.557239, 8 ],
+					[ 'J&#245;geva- ja Tartumaa', 58.649798, 26.589203, 9 ],
 					[ 'Tartu linn', 58.371478, 26.726532, 10 ],
-					[ 'Vıru-, Valga- ja Pılvamaa', 57.882737, 26.951752, 11 ],
+					[ 'V&#245;ru-, Valga- ja P&#245;lvamaa', 57.882737, 26.951752, 11 ],
 					[ 'P‰rnumaa', 58.382998, 24.521027, 12 ] ];
 
 			for (i = 0; i < locations.length; i++) {
@@ -291,7 +291,7 @@ function initialize() {
 						}
 					});
 					if(text == ""){
-						text = "<br />Selles piirkonnas pole veel h‰‰letatud";
+						text = "<br />Selles piirkonnas pole veel h&#228;&#228;letatud";
 					}
 					iconFile = 'http://maps.google.com/mapfiles/ms/icons/'+colors[areaBest]+'.png';
 					marker.setIcon(iconFile);
