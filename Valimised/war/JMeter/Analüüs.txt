@@ -1,0 +1,31 @@
+Meeskonnapoolne analüüs jõudlustesti tulemustele
+
+Jõudlustestide abil simuleeriti rakenduses 20 samaaegset kasutajat,
+kes iga 10 sekundi tagant sooritasid rakenduses erinevaid operatsioone.
+Testimiseks kasutati Apache JMeter'i  võimalusi.
+
+Testiti järgmisi operatsioone:
+1. Avalehe laadimine (Home Page)
+2. Kandidaatide tabeli vaatamine (Candidates)
+3. Valimiste info vaatamine (About)
+4. Tulemuste tabeli ehk statistika vaatamine (Results)
+5. Tulemuste tabeli vaatamine erakonna lõikes (PartyResults5)
+6. Tulemuste tabeli vaatamine piirkonna lõikes (AreaResults2)
+7. Kandidaadi info vaatamine (Candidate3)
+
+Testid sooritati edukalt, ilma vigadeta. 
+Ooteajad olid kõikide operatsioonide puhul üsna sarnased ning jäävad
+200 millisekundi ümbrusesse, mis on üsna normaalne tulemus. Ooteaegade 
+hälbed on samuti üsna väikesed, mis on positiivne näitaja.
+Ühegi operatsiooni puhul ei ole ooteaja maksimum üle poole sekundi, 
+0.9-kvantiil jäi üldiselt alla 400 millisekundi. 
+Operatsioonide ooteaegade miinimumid olid kõik väga sarnased, 
+vahemikus 184-186 millisekundit.
+
+Kokkuvõttes võib testi tulemustega rahule jääda.
+
+Täpsemalt võib tulemusi näha tabelist failis "report.png" ning 
+graafikult failis "graph.png". Testiplaan on failis "Test Plan.jmx".
+
+
+Rühm: Savisaar
