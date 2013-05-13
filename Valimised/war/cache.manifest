@@ -1,18 +1,31 @@
 CACHE MANIFEST
-# manifest version: 1
+# manifest version: 2
 
 # Manifest file must be updated in
 # order to refresh cashed files
 
-NETWORK:
-
-*
 CACHE:
 /Valimised.html
+/channel.html
 /css/Valimised.css
 /css/Valimised600.css
 /css/Valimised250.css
 /css/ValimisedPrint.css
+/images/ajax-loader.gif
+/images/asc.gif
+/images/bg.gif
+/images/desc.gif
+/images/FPLogo.png
 /images/kontuur.png
-/images/idkaart.jpg
+/images/person.jpg
+/javascript/candidate.js
+/javascript/candidateSearch.js
+/javascript/jquery.tablesorter.min.js
+/javascript/login.js
+/javascript/results.js
+/javascript/validation.js
+/javascript/voting.js
 
+NETWORK:
+
+*

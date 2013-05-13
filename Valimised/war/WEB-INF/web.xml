@@ -7,6 +7,20 @@
     <mime-type>text/cache-manifest</mime-type>        
   </mime-mapping>
   
+  <filter>
+    <filter-name>GzipFilter</filter-name>
+    <filter-class>org.mortbay.servlet.GzipFilter</filter-class>
+    <init-param>
+      <param-name>mimeTypes</param-name>
+      <param-value>text/html,text/plain,text/xml,text/css,application/javascript,application/json</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> 
+  
+  
     <servlet>
     <servlet-name>candidateServlet</servlet-name>
     <servlet-class>com.valimised.server.CandidateServlet</servlet-class>
